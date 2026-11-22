@@ -1,0 +1,410 @@
+\documentclass[11pt]{article}
+\ifdefined\pdfinfoomitdate\pdfinfoomitdate=1\fi
+\ifdefined\pdftrailerid\pdftrailerid{}\fi
+\usepackage[a4paper,hmargin=26mm,vmargin=25mm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,microtype,amsmath,amssymb,amsthm,mathtools}
+\usepackage[hidelinks,bookmarksnumbered]{hyperref}
+\hypersetup{pdftitle={Natural boundary and differential transcendence of the isotropic square-lattice Ising susceptibility}}
+\newtheorem*{theorem}{Theorem}
+\newcommand{\ii}{\mathrm i}
+\newcommand{\dd}{\,\mathrm d}
+\newcommand{\C}{\mathbb C}
+\newcommand{\R}{\mathbb R}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\T}{\mathbb T}
+\DeclareMathOperator{\arsinh}{arsinh}
+\setlength{\emergencystretch}{1.5em}
+\raggedbottom
+\title{Natural boundary and differential transcendence of the\\
+isotropic square-lattice Ising susceptibility}
+\author{}\date{}
+\makeatletter
+\renewcommand{\@maketitle}{\begin{center}
+  \vspace*{.5\baselineskip}{\LARGE\@title\par}\vspace{.5\baselineskip}
+\end{center}}
+\makeatother
+\begin{document}
+\maketitle
+\begin{abstract}
+For the zero-field isotropic Ising model on the square lattice, we prove
+that the unit circle in $s=\sinh(2\beta J)$ is a natural boundary for the
+full susceptibility in each phase. Neither susceptibility satisfies an algebraic
+differential equation over $\C(s)$. At a dense set of boundary points
+all singular contributions of the first resonant particle order have
+the same phase.
+The remaining finite-order collisions are integrable, and a Gaussian
+bound in the lattice coordinates controls all sufficiently high orders.
+The resulting divergence
+also forces the separant of any proposed differential equation to vanish.
+\end{abstract}
+
+\section{The susceptibility in the two phases}
+
+Guttmann and Enting found evidence of accumulating singularities in the
+anisotropic high-temperature series \cite{GE}.
+Nickel found singularities of the odd-particle integrals of the
+isotropic square-lattice Ising susceptibility at a dense set of points
+on the unit circle. He proposed that the circle is a natural boundary
+of the full susceptibility \cite{Nickel}. The passage from a single
+particle integral to the infinite sum requires control of cancellation.
+Guttmann, Jensen, Maillard and Pantone asked whether the full
+susceptibility satisfies an algebraic differential equation and tested
+the series on both sides of the critical temperature \cite[Sec.~6]{GJMP}.
+
+Let $J>0$ be the nearest-neighbor coupling, $\beta$ the inverse
+temperature and $s=\sinh(2\beta J)$. With spins of modulus one, the
+reduced zero-field susceptibilities are
+\[
+ X_H(s)=\sum_{a,b\in\Z}\langle\sigma_{00}\sigma_{ab}\rangle,\qquad
+ X_L(s)=\sum_{a,b\in\Z}
+ \bigl(\langle\sigma_{00}\sigma_{ab}\rangle_+-M^2\bigr),
+ \qquad M^2=(1-s^{-4})^{1/4}.
+\]
+The first sum is taken at $0<s<1$, the second at $s>1$ in the plus
+pure state. Spin reversal gives the same connected sum in the minus
+state. Both sums include the origin. For a magnetic field in energy
+units the physical susceptibilities are $\chi_\nu=\beta X_\nu$,
+with the ordered-state response taken from positive field in the
+plus phase \cite[(1.7)--(1.10)]{ONGP}.
+
+\begin{theorem}
+$X_H$ is holomorphic on $|s|<1$, with $X_H(0)=1$, and $X_L$ is
+holomorphic on $|s|>1$. The unit circle is a natural boundary for
+each. The same boundary holds for $\chi_H$ and for every local branch
+of $\chi_L$ continued from $s>1$ in the exterior. At every point of
+their respective real temperature intervals the germs of $X_\nu$ and
+$\chi_\nu$ are differentially transcendental over $\C(s)$.
+\end{theorem}
+
+Here differential transcendence means that there is no nonzero
+polynomial relation among the function and finitely many derivatives
+with coefficients rational in $s$. We use the dispersion variable
+$E=s+s^{-1}$. Both temperature domains map to the slit plane
+$\C\setminus[-2,2]$, with $s=0$ corresponding to infinity. In the
+series normalization of Guttmann and Maillard \cite[(4)--(5)]{GM},
+the high- and low-temperature series $\widetilde\chi_H(w)$ and
+$\widetilde\chi_L(w)$ are also differentially transcendental over
+$\C(w)$, where $w=1/(2E)$.
+
+\section{Site integrals and their sum}
+
+For $q\in\T=\R/(2\pi\Z)$ let $z=e^{\ii q}$ and let $u=e^{-\gamma}$
+be the root in the open unit disk of $u+u^{-1}=2(E-\cos q)$.
+Write
+\[
+ K_{ij}=\frac{\sin((q_i-q_j)/2)}{\sinh((\gamma_i+\gamma_j)/2)},
+ \qquad H(v,w)=\frac{v-w}{1-vw}.
+\]
+Subtracting the dispersion equations gives the single-valued square
+\begin{equation}\label{pair}
+ K_{ij}^2=-\frac{u_i u_j}{z_i z_j}
+          \left(\frac{z_i-z_j}{1-u_i u_j}\right)^2
+          = H(z_i,z_j)H(u_i,u_j).
+\end{equation}
+At $z_i z_j=1$ the middle expression gives the removable value of the product on the right.
+For $N\ge1$, $A\in\Z_{\ge0}$ and $B\in\Z$, the real-temperature
+spin-correlation expansion \cite[(3.13), (3.17)--(3.20), (4.1)--(4.2)]{ONGP}
+gives the site coefficient
+\begin{equation}\label{site}
+ I_N(A,B;E)=\frac1{N!}\int_{\T^N}\prod_{i<j}K_{ij}^2
+       \prod_i u_i^A z_i^B\,\frac{\dd q_i}{2\pi\sinh\gamma_i}.
+\end{equation}
+The ordered-state expansion also appears in \cite[Theorem~5.0]{PT}.
+The connected correlation at $(a,b)$ is the sum of
+$I_N(|a|,b;E)$ over positive odd $N$ in the high-temperature phase
+and positive even $N$ in the low-temperature phase, multiplied by
+$a_H=(1-s^4)^{1/4}/s$ and $a_L=(1-s^{-4})^{1/4}$, respectively.
+The fourth roots tend to one at $s=0$ and $s=\infty$, respectively.
+
+Write $D(v)=\prod_{i<j}H(v_i,v_j)^2$. The Cauchy determinant gives
+$D(v)=\det[1+H(v_i,v_j)]$ since $1+H(v,w)=(1+v)(1-w)/(1-vw)$.
+Clearing denominators in $\det[(1-v_iw_j)^{-1}]$ gives the two
+Vandermonde factors by alternation and degree, with constant one by
+induction at $v_Nw_N=1$.
+We bound the pair product on compact angular contours where the roots
+are holomorphic and $1-u_i u_j$ stays away from zero, including $i=j$.
+At fixed $E$ replace every $q_i$ by $q_i+t$ and $u_i$ by $u(E,q_i+t)$.
+Compactness gives a common $t$-disk. The complete product remains
+holomorphic by \eqref{pair}, and its square is $D(z)D(u)$.
+The root determinant has row norms at most $C\sqrt N$. In the angular
+determinant each entry has bounded mean absolute value on the $t$-disk:
+the possible poles of $(1-z_i z_j e^{2\ii t})^{-1}$ are simple,
+with uniformly bounded residues, and $|t-t_0|^{-1}$ has bounded area
+mean on a disk of fixed radius. Thus each angular row has mean norm
+at most $CN$. Hadamard's inequality, the submean inequality for
+log modulus and concavity of the logarithm therefore give
+$|\prod_{i<j}K_{ij}^2|\le(C N^{3/4})^N$ in both parities.
+After division by $N!$ this is summable for every $C$.
+
+The decay in both lattice coordinates follows from their interchange.
+For real $E>2$, on circles $|v_i|=|w_i|=\rho<1$ close to one, integrate
+\[
+ \frac1{N!}\prod_{i<j}H(v_i,v_j)H(w_i,w_j)
+ \prod_i\frac{v_i^A w_i^B}
+ {E-(v_i+v_i^{-1}+w_i+w_i^{-1})/2}
+ \frac{\dd v_i\dd w_i}{(2\pi\ii)^2v_iw_i},\qquad A,B\in\Z_{\ge0}.
+\]
+This is the double-circle representation of \cite[Appendix~1]{TW}
+in even parity. For either parity, each $v_i$ integral has only the
+interior root residue $u_i^A/\sinh\gamma_i$. Formula \eqref{pair}
+then allows the $w_i$ circles to expand to unit radius, giving
+\eqref{site}. Exchanging the circles, reflecting all $q_i$, and
+continuing in $E$ gives $I_N(A,B)=I_N(B,A)=I_N(B,-A)$ for $A,B\ge0$.
+On each compact subset of the slit plane the real-angle $|u|$ is
+bounded by some $\rho_0<1$ and the other factors are bounded. Hence
+$|I_N(|a|,b)|\le (C N^{3/4})^N\rho_0^{N\max(|a|,|b|)}/N!$, summably
+in both sites and orders.
+
+For $\sigma=\pm1$ put $H_N^\sigma=\{q:e^{\ii\sum q_i}=\sigma\}$,
+$Z=\prod_i u_i$ and $\dd\mu=\prod_{i<N}\dd q_i/(2\pi)$.
+Summing \eqref{site} with weight $\sigma^{a+b}$ gives
+\begin{equation}\label{bulk}
+ C_N^\sigma(E)=\sum_{a,b\in\Z}\sigma^{a+b}I_N(|a|,b;E)
+ =\frac1{N!}\int_{H_N^\sigma}\frac{1+\sigma Z}{1-\sigma Z}
+          \prod_{i<j}K_{ij}^2\prod_i\frac1{\sinh\gamma_i}\dd\mu .
+\end{equation}
+The $a$ sum is geometric. The $b$ sum evaluates the absolutely
+convergent Fourier series in the total angle at $e^{\ii\sum q_i}=\sigma$.
+Thus $X_\nu=a_\nu F_\nu$, where $F_\nu(E)$ sums $C_N^+(E)$ in
+the parity of the phase. Near $s=0$ the factors $u$, $1/\sinh\gamma$ and
+$K_{ij}$ are uniformly $O(|s|)$, so $|C_N^+|\le3(C|s|)^{N^2}/N!$.
+Since $C_1^+(E(s))=1/(E-2)=s/(1-s)^2$, the simple zero of $F_H(E(s))$
+cancels the pole of $a_H$, giving $X_H(0)=1$.
+Shifting all angles by $\pi$ and negating the roots gives
+\begin{equation}\label{reflect}
+ C_N^+(-E)=(-1)^N C_N^{(-1)^N}(E).
+\end{equation}
+In particular reflection in odd parity changes both signs in \eqref{bulk}.
+
+\section{Contour bounds near the energy cut}
+
+Fix $0<x<2$. At $E=x+\ii y$, $y>0$, write $\gamma=\ii\phi$ on
+the physical lift. On the oscillatory interval $|r|<b=\arccos(x-1)$
+the boundary value $g(r)=\arccos(x-\cos r)$ of $\phi$ satisfies
+\[
+ g'=-\frac{\sin r}{\sin g},\qquad
+ g''=-\frac{x(1-\cos r\cos g)}{\sin^3g}<0 .
+\]
+Let $f$ be odd and periodic, equal to $r$ on $[-b,b]$ and linear
+from $b$ to zero on $[b,\pi]$. For $c$ in a compact subinterval of
+$(-b,b)$ put $\lambda=g'(c)$ and $q=r+\ii v(f(r)-c)$,
+$-\pi\le r\le\pi$. Uniformly for small $v,y\ge0$,
+\begin{equation}\label{phase}
+ \Im(\lambda q-\phi(E,q))\ge a\{y+v(r-c)^2\},\qquad a>0 .
+\end{equation}
+In a compact interior interval the linear term at $y=0$ is
+$v(r-c)(g'(c)-g'(r))\ge a_1v(r-c)^2$, with imaginary remainder
+$O(v^3|r-c|^3)$. Increasing $y$ adds at least $a_2y$, since
+$\Re(1/\sin\phi)>0$ there. Near $\pm b$, $\sin r(f(r)-c)>a_3>0$,
+so $W=E-\cos q$ satisfies $\Im W\ge y+a_4v$. Here $G=-\Im\phi>0$
+for $y+v>0$, and $\Im W/G=\sin(\Re\phi)\sinh(G)/G\to0$ at $W=1$.
+Thus $G$ controls both the right side of \eqref{phase} and the
+bounded multiple of $v$ contributed by $\lambda q$ there. On the
+remaining exterior intervals $G>0$ already at $y=v=0$. These bounds
+are locally uniform in $x$.
+
+At $y=v=0$ the unit roots have arguments in $[-b,0]$. Two can be
+reciprocal only at the branch value $1$. Near that value the preceding
+deformation gives $|u|<1$ when $v+y>0$. By compactness the homotopy
+therefore crosses no one-body or pair pole. At fixed small $v>0$,
+their denominators have uniform gaps on the graph, also on a small
+complex $E$-neighborhood.
+
+\paragraph{The higher orders.}
+At a nonzero site take $A=\max(|a|,|b|)$, $B=\min(|a|,|b|)$ and
+choose $g'(c)=B/A$. Then $-\arccos(x/2)\le c\le0$. On the fixed graph
+the exponential in \eqref{site} has modulus at most
+$\exp[-a' A\sum_i(r_i-c)^2]$ by \eqref{phase}. Bound the pair product
+by $(C N^{3/4})^N$ and integrate the Gaussian in each of the $N$ angles.
+On an $E$-disk of radius $\delta/(1+A)$ the change in each $A\phi$
+is bounded. Cauchy's estimate gives, including the origin by a fixed disk,
+\begin{equation}\label{sites-bound}
+ |\partial_E^j I_N(A,B;x+\ii y)|\le
+ \frac{C_j^{\,N}N^{3N/4}}{N!}(1+A)^{j-N/2}.
+\end{equation}
+There are $8A$ sites on the shell of radius $A\ge1$. Consequently
+the sum over $N>2j+4$ of either parity, with either sign in
+\eqref{bulk}, has continuous derivatives through order $j$ up to
+compact subintervals of $(0,2)$ from above.
+
+\paragraph{The finite orders.}
+The one-particle term is $C_1^\sigma=1/(E-2\sigma)$.
+Fix $N\ge2$ and $\sigma$, and exclude the values $x=1+\cos\theta$ with
+$e^{\ii N\theta}=\sigma$. On $H_N^\sigma$ take
+$c=N^{-1}\sum_i f(r_i)$. The excluded values rule out the two constant
+tuples at $\pm b$, so $c$ stays in a compact subinterval of $(-b,b)$.
+On the graphs
+$q_i=r_i+\ii v(f(r_i)-c)$ one has $\sum_i\Im q_i=0$, so the
+angular constraint is preserved.
+Along this homotopy \eqref{phase} gives
+\[
+ -\log |Z|\ge a\bigl(Ny+v\textstyle\sum_i(r_i-c)^2\bigr).
+\]
+For $y>0$ this keeps $1-\sigma Z$ nonzero throughout the homotopy.
+Together with the one-body and pair gaps, Stokes' theorem on the
+smooth pieces of the graph gives \eqref{bulk} on the final cycle.
+The shared faces have opposite orientations.
+At fixed small $v=\epsilon>0$, the only possible poles at $y=0$ are
+the constant configurations satisfying
+\begin{equation}\label{res}
+ e^{\ii N q_0}=e^{\ii N g(q_0)}=\sigma,\qquad
+ x=\cos q_0+\cos g(q_0),\qquad |q_0|<b .
+\end{equation}
+Away from neighborhoods of these tuples the fixed graph gives a
+holomorphic integral across $x$. In each neighborhood write
+$r_i=q_0+v_i$, $\sum_i v_i=0$. The graph is exactly
+$q_i=q_0+L v_i$ with $L=1+\ii\epsilon$.
+
+Put $\eta=E-x$, $D=1-\sigma Z$, $Q=\sum_i v_i^2$ and
+$\Delta(v)=\prod_{i<j}(v_i-v_j)$. Write $\psi=g(q_0)$.
+Since $\phi_E=-1/\sin\psi$ at the center and $\sum_i v_i=0$,
+Taylor expansion gives
+\begin{equation}\label{expansion}
+ D=-\ii(d\eta+hL^2 Q)+O(|\eta|^2+|\eta|\,|v|+|v|^3),\qquad
+ d=\frac{N}{\sin\psi}>0,\qquad h=-\frac{g''(q_0)}2>0 .
+\end{equation}
+For $\Im\eta\ge0$, $|d\eta+hL^2Q|\ge c(|\eta|+Q)$ because
+$0<\arg L^2<\pi$. This estimate and the gap off the charts identify
+the fixed-graph integral with the physical germ on an upper half-disk
+by continuation from $\eta=\ii y$. Each squared pair supplies
+$(v_i-v_j)^2$ times an analytic unit. The density in
+$\prod_{i<N}\dd v_i$ is $\Delta^2 B(\eta,v)/D(\eta,v)$, where
+$B(0,0)\ne0$ since the one-body factors, the graph Jacobian and
+$1+\sigma Z$ are nonzero there. On the $(N-1)$-dimensional plane,
+the radial power of $\Delta^2\dd v$ in $r=\sqrt Q$ is $N^2-2$.
+Thus a pole $D^{-m}$ is uniformly integrable against this measure
+whenever $N^2-2-2m>-1$.
+
+\section{The first resonant order}
+
+Take $\sigma=\pm1$ in odd parity and $\sigma=1$ in even parity.
+Choose $0<\alpha<\pi/2$ with $e^{\ii N\alpha}=\sigma$ for some $N$
+of the chosen parity. The mesh of these angular grids is $2\pi/N$,
+so the energies $x=2\cos\alpha$ are dense in $(0,2)$ even after
+omitting $x=1$. Since $g(\alpha)=\alpha$, the constant tuple at
+$\alpha$ satisfies \eqref{res}. Let $n$ be the least resonant
+particle number of this parity at $x$.
+
+No such $x$ is an endpoint value $1+\cos\theta$ for a root-of-unity
+angle $\theta$. Indeed $x=e^{\ii\alpha}+e^{-\ii\alpha}$ is an algebraic
+integer. If $u=\cos\theta=x-1$ then $u$ is also an algebraic integer.
+For $m\theta\in2\pi\Z$ its conjugates are roots of $T_m(X)-1$, where
+$T_m(\cos t)=\cos(mt)$. All those roots lie in $[-1,1]$.
+If any conjugate is $1$ or $-1$, irreducibility gives $u=1$ or
+$u=-1$. Otherwise the product of the conjugates is an integer of
+absolute value less than one, so $u=0$. These cases give $x=2,0,1$,
+all excluded.
+
+At each collision of order $n$, put $\psi=g(q_0)\in(0,\pi)$.
+In the local density $\Delta^2 B/D$, the phase of $B(0,0)$ is the same
+at all these collisions. Each divided
+squared pair contributes $L^2/[4(\ii\sin\psi)^2]$, the one-body
+factors contribute $(\ii\sin\psi)^{-n}$ and the Jacobian is
+$L^{n-1}$. Since $1+\sigma Z=2$ at the center, this gives
+\[
+ B(0,0)\ \in\ \ii^{-n^2}L^{\,n^2-1}\R_{>0}.
+\]
+
+Set $k=\lceil(n^2-3)/2\rceil$ and take a common $\epsilon>0$ small
+enough for all the finitely many orders $N\le2k+4$.
+Approach $x$ along $\eta=L^2t$, $t\downarrow0$. At particle number $n$,
+\eqref{expansion} gives $D=-\ii L^2(dt+hQ)+o(t+Q)$.
+The radial power makes $D^{-j}$ uniformly integrable for $j\le k$.
+In the $k$th derivative of $B/D$ the only
+term with a higher pole is
+\[
+ (-1)^k k!\,B\,(\partial_\eta D)^k/D^{k+1}.
+\]
+Since $\partial_\eta D(0,0)=-\ii d$ and $d,h>0$, one constant rotation
+works for all the finitely many charts of order $n$. In each sufficiently
+small chart the rotated term has real part at least $c(t+Q)^{-k-1}$
+for all small $t$. The angular integral
+of $\Delta^2$ on $Q=1$ is positive. Restriction to
+$\sqrt t<r=\sqrt Q<\delta$ therefore bounds its integral below by
+a positive constant times
+\[
+ \int_{\sqrt t}^\delta r^{\,n^2-2-2(k+1)}\dd r .
+\]
+The exponent is $-1$ for odd $n$ and $-2$ for even $n$. In both
+cases the contributions add to a divergent derivative, and all lower
+derivatives stay bounded.
+All lower orders continue across $x$. For $n<N\le2k+4$ there are
+no endpoint tuples by the preceding endpoint test. At every resonance
+of such an order even $D^{-k-1}$ is integrable, since
+$N^2-2-2(k+1)>-1$. For $N>2k+4$ the site bound
+\eqref{sites-bound} controls the entire remaining tail. Thus the
+divergence holds for the full sum.
+
+\section{Natural boundary and differential transcendence}
+
+For positive $x$ use $\sigma=1$. For negative energies use
+\eqref{reflect} with $\sigma=(-1)^n$. Complex conjugation supplies
+the other side of the slit. The map $E=s+s^{-1}$ is locally
+invertible at the resulting dense set on $|s|=1$. The factors
+$a_\nu$ and every continued branch of $\arsinh(s)/(2J)$ are analytic
+units there. By the chain and product rules the $k$th derivative of
+each of $F_\nu$, $X_\nu$, and $\chi_\nu$ diverges along the corresponding
+approach from within its domain, with all lower derivatives bounded. Density proves the
+natural-boundary assertions, including at the omitted axes.
+
+Suppose one of these functions, in the coordinate $z=E$ for $F_\nu$
+or $z=s$ for $X_\nu$ or $\chi_\nu$, satisfies a differential
+relation. After clearing denominators take $P(z,Y,\ldots,Y^{(r)})=0$
+of least order and then least degree in its highest derivative.
+The separant $S=P_{Y_r}(z,Y,\ldots,Y^{(r)})$ is not identically zero
+by minimality. Continue the relation from the real interval to an
+upper energy collar in $0<\Re E<2$, fixing the local inverse $s(E)$
+and the physical branches. Delete
+from $(0,2)$ the finitely many endpoint and two-cosine grid values
+of orders $N\le2r+4$. On a remaining open subinterval
+\eqref{sites-bound} and the fixed contours give continuous one-sided
+derivatives through $r$, hence a continuous trace of $S$.
+
+Each bounded range of particle numbers supplies only finitely many
+two-cosine grid values in \eqref{res}. Thus the selected $x$ with
+$k>r$ are dense in this subinterval. At each such point, differentiate the
+relation $k-r$ times. This gives $S Y^{(k)}+R=0$, where $R$ is a
+polynomial in $z$ and derivatives through order $k-1$. Along the
+chosen ray $R$ stays bounded and $|Y^{(k)}|\to\infty$. Thus $S$
+has trace zero, first on the dense set and then on the whole
+subinterval. Schwarz reflection in $E$ across this zero trace and
+the identity theorem force $S$ to vanish identically, a contradiction.
+Finally, $X_\nu=a_\nu F_\nu$ gives
+$\widetilde\chi_\nu(w)=F_\nu(1/(2w))$ in the normalization above.
+A differential relation for either germ at $w=0$ would yield one
+for $F_\nu(E)$ by the chain rule, since $w=1/(2E)$ is birational.
+
+\begingroup\small
+\begin{thebibliography}{9}
+\setlength{\itemsep}{3pt}\setlength{\parsep}{0pt}
+\bibitem{GE} A. J. Guttmann and I. G. Enting,
+\emph{Solvability of some statistical mechanical systems},
+Phys. Rev. Lett. \textbf{76}(3) (1996), 344--347.
+\href{https://doi.org/10.1103/PhysRevLett.76.344}{doi:10.1103/PhysRevLett.76.344}.
+\bibitem{Nickel} B. Nickel, \emph{On the singularity structure of the
+2D Ising model susceptibility}, J. Phys. A \textbf{32}(21) (1999),
+3889--3906. \href{https://doi.org/10.1088/0305-4470/32/21/303}{doi:10.1088/0305-4470/32/21/303}.
+\bibitem{GJMP} A. J. Guttmann, I. Jensen, J.-M. Maillard and J. Pantone,
+\emph{Is the full susceptibility of the square-lattice Ising model a
+differentially algebraic function?}, J. Phys. A \textbf{49}(50) (2016),
+504002. \href{https://doi.org/10.1088/1751-8113/49/50/504002}{doi:10.1088/1751-8113/49/50/504002}.
+\bibitem{GM} A. J. Guttmann and J.-M. Maillard,
+\emph{Automata and the susceptibility of the square lattice Ising model
+modulo powers of primes}, J. Phys. A \textbf{48}(47) (2015), 474001.
+\href{https://doi.org/10.1088/1751-8113/48/47/474001}{doi:10.1088/1751-8113/48/47/474001}.
+\bibitem{ONGP} W. P. Orrick, B. Nickel, A. J. Guttmann and J. H. H. Perk,
+\emph{The susceptibility of the square lattice Ising model: New developments},
+J. Stat. Phys. \textbf{102}(3--4) (2001), 795--841.
+\href{https://doi.org/10.1023/A:1004850919647}{doi:10.1023/A:1004850919647}.
+\bibitem{PT} J. Palmer and C. Tracy, \emph{Two-dimensional Ising
+correlations: Convergence of the scaling limit}, Adv. Appl. Math.
+\textbf{2}(3) (1981), 329--388.
+\href{https://doi.org/10.1016/0196-8858(81)90010-5}{doi:10.1016/0196-8858(81)90010-5}.
+\bibitem{TW} C. A. Tracy and H. Widom, \emph{On the singularities in the
+susceptibility expansion for the two-dimensional Ising model},
+J. Stat. Phys. \textbf{156}(6) (2014), 1125--1135.
+\href{https://doi.org/10.1007/s10955-014-1061-4}{doi:10.1007/s10955-014-1061-4}.
+\end{thebibliography}
+\endgroup
+\end{document}
