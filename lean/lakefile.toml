@@ -1,0 +1,69 @@
+name = "ising_bulk"
+version = "0.3.0-rc2"
+defaultTargets = ["IsoProof", "IsoProofAudit"]
+moreLeanArgs = ["-j1", "-DwarningAsError=true"]
+
+[[require]]
+name = "mathlib"
+git = "https://github.com/leanprover-community/mathlib4.git"
+rev = "d13f23b723b8a846827a245b89c10fc7d3f11612"
+
+[[lean_lib]]
+name = "IsingBulk"
+
+[[lean_lib]]
+name = "Audit"
+
+[[lean_lib]]
+name = "IsoProof"
+
+[[lean_lib]]
+name = "HandoffProbe"
+
+[[lean_lib]]
+name = "IsoProofAudit"
+
+[[lean_lib]]
+name = "AuditAnisoF002"
+
+[[lean_lib]]
+name = "AuditAnisoF002Continuation"
+
+[[lean_lib]]
+name = "AuditAnisotropic"
+
+[[lean_lib]]
+name = "AuditAnisotropicClosure"
+
+[[lean_lib]]
+name = "AuditHT"
+
+[[lean_lib]]
+name = "AuditHT22"
+
+[[lean_lib]]
+name = "AuditJoint"
+
+[[lean_lib]]
+name = "AuditJointPublicationClosure"
+
+[[lean_lib]]
+name = "IsingBulkAnisoF002"
+
+[[lean_lib]]
+name = "IsingBulkAnisoF002Continuation"
+
+[[lean_lib]]
+name = "IsingBulkAnisotropic"
+
+[[lean_lib]]
+name = "IsingBulkHT"
+
+[[lean_lib]]
+name = "IsingBulkHT22"
+
+[[lean_lib]]
+name = "IsingBulkJoint"
+
+[[lean_lib]]
+name = "JointAudit"

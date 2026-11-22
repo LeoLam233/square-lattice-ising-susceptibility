@@ -6,7 +6,7 @@ Two self-contained papers on the full zero-field susceptibility of the square-la
 
 For equal couplings, the unit circle in the complex temperature variable `s = sinh(2βJ)` is a natural boundary for the full susceptibility in both the high- and low-temperature phases. The paper also proves differential transcendence in each phase.
 
-[PDF](isotropic-susceptibility.pdf) · [TeX source](isotropic-susceptibility.tex)
+[PDF](isotropic-susceptibility.pdf) · [TeX source](isotropic-susceptibility.tex) · [Lean theorems](lean/IsoProof/Final.lean)
 
 ## Boundary jets of the anisotropic square-lattice Ising susceptibility
 
@@ -14,10 +14,22 @@ The paper identifies the boundaries of holomorphy in two complex coupling variab
 
 [PDF](anisotropic-susceptibility-boundary-jets.pdf) · [TeX source](anisotropic-susceptibility-boundary-jets.tex)
 
-## How to cite
+## Lean formalization of the isotropic paper
 
-1. Lin, Dehao (2026). *Natural boundary and differential transcendence of the isotropic square-lattice Ising susceptibility*. [Manuscript](https://github.com/LeoLam233/square-lattice-ising-susceptibility/blob/main/isotropic-susceptibility.pdf).
-2. Lin, Dehao (2026). *Boundary jets of the anisotropic square-lattice Ising susceptibility*. [Manuscript](https://github.com/LeoLam233/square-lattice-ising-susceptibility/blob/main/anisotropic-susceptibility-boundary-jets.pdf).
+The formalization proves the main theorems for the reduced and physical susceptibilities in both phases, as well as differential transcendence of the normalized series at the origin. At first resonance it uses full-series asymptotics at prime particle orders in the high-temperature phase and twice-prime orders in the low-temperature phase. These points form a dense family on the relevant boundary arcs. The identification with the physical susceptibility uses the real-temperature site expansions and the magnetic-field response identity. [Main theorems](lean/IsoProof/Final.lean) · [Physical inputs](lean/IsoProof/PhysicalIdentification.lean)
+
+The project pins Lean 4.34.1 and its mathlib revision. From the repository root, run the following commands with Elan installed.
+
+```sh
+cd lean
+lake exe cache get
+lake build
+lake env lean IsoProofAudit.lean
+lake env leanchecker --fresh --verbose IsoProof
+lake env leanchecker --fresh --verbose IsoProofAudit
+```
+
+The project includes the [reused Lean sources](https://github.com/LeoLam233/ising-bulk-natural-boundary/tree/fd0fd6ebe8b82a00184735ad06c0db483923c244/lean) from the earlier collection and their [license notices](third-party/ising-bulk-natural-boundary/).
 
 ## Authorship and AI contributions
 
