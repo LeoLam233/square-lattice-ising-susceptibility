@@ -7,6 +7,8 @@
 \usepackage[hidelinks,bookmarksnumbered]{hyperref}
 \hypersetup{pdftitle={Natural boundary and differential transcendence of the isotropic square-lattice Ising susceptibility},pdfauthor={Dehao Lin}}
 \newtheorem*{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{proposition}[lemma]{Proposition}
 \newcommand{\ii}{\mathrm i}
 \newcommand{\dd}{\,\mathrm d}
 \newcommand{\C}{\mathbb C}
@@ -32,14 +34,15 @@ isotropic square-lattice Ising susceptibility}
 \begin{abstract}
 For the zero-field isotropic Ising model on the square lattice, we prove
 that the unit circle in $s=\sinh(2\beta J)$ is a natural boundary for the
-full susceptibility in each phase. Neither susceptibility satisfies an algebraic
-differential equation over $\C(s)$. At a dense set of boundary points
-all singular contributions of the first resonant particle order have
-the same phase.
-The remaining finite-order collisions are integrable, and a Gaussian
-bound in the lattice coordinates controls all sufficiently high orders.
-The resulting divergence
-also forces the separant of any proposed differential equation to vanish.
+full susceptibility in each phase, and that both susceptibilities are
+differentially transcendental over $\C(s)$. At a dense set of boundary
+points we identify the first particle order with a singular contribution.
+All collisions at that order have the same phase. A Gaussian estimate
+on the lattice controls the derivatives of the infinite tail, so the
+singularity persists in the full sum. The order of the first divergent
+derivative becomes arbitrarily large on every boundary arc. Together
+with the continuous boundary values of the lower derivatives, this
+rules out an algebraic differential equation.
 \end{abstract}
 
 \section{The susceptibility in the two phases}
@@ -90,6 +93,16 @@ the high- and low-temperature series $\widetilde\chi_H(w)$ and
 $\widetilde\chi_L(w)$ are also differentially transcendental over
 $\C(w)$, where $w=1/(2E)$.
 
+The proof turns on two estimates in the $E$-plane. At a boundary
+energy $x$ we first bound the $j$th derivative of the whole sum over
+particle numbers $N>2j+4$. This leaves finitely many integrals. At the
+least resonant order $n$, the $n$-particle integral has a divergent
+derivative of order $k$. All its collisions contribute with the same
+phase. With $j=k$, the tail estimate transfers this divergence to
+the full susceptibility. For differential transcendence we also need a
+boundary interval on which any prescribed finite number of derivatives
+have continuous limits.
+
 \section{Site integrals and their sum}
 
 For $q\in\T=\R/(2\pi\Z)$ let $z=e^{\ii q}$ and let $u=e^{-\gamma}$
@@ -120,25 +133,56 @@ and positive even $N$ in the low-temperature phase, multiplied by
 $a_H=(1-s^4)^{1/4}/s$ and $a_L=(1-s^{-4})^{1/4}$, respectively.
 The fourth roots tend to one at $s=0$ and $s=\infty$, respectively.
 
-Write $D(v)=\prod_{i<j}H(v_i,v_j)^2$. The Cauchy determinant gives
-$D(v)=\det[1+H(v_i,v_j)]$ since $1+H(v,w)=(1+v)(1-w)/(1-vw)$.
-Clearing denominators in $\det[(1-v_iw_j)^{-1}]$ gives the two
-Vandermonde factors by alternation and degree, with constant one by
-induction at $v_Nw_N=1$.
-We bound the pair product on compact angular contours where the roots
-are holomorphic and $1-u_i u_j$ stays away from zero, including $i=j$.
-At fixed $E$ replace every $q_i$ by $q_i+t$ and $u_i$ by $u(E,q_i+t)$.
-Compactness gives a common $t$-disk. The complete product remains
-holomorphic by \eqref{pair}, and its square is $D(z)D(u)$.
-The root determinant has row norms at most $C\sqrt N$. In the angular
-determinant each entry has bounded mean absolute value on the $t$-disk:
-the possible poles of $(1-z_i z_j e^{2\ii t})^{-1}$ are simple,
-with uniformly bounded residues, and $|t-t_0|^{-1}$ has bounded area
-mean on a disk of fixed radius. Thus each angular row has mean norm
-at most $CN$. Hadamard's inequality, the submean inequality for
-log modulus and concavity of the logarithm therefore give
-$|\prod_{i<j}K_{ij}^2|\le(C N^{3/4})^N$ in both parities.
-After division by $N!$ this is summable for every $C$.
+There are $N(N-1)/2$ pairs in \eqref{site}. Bounding them separately
+would cost a constant raised to a power of order $N^2$. The following
+bound for their product makes the particle series summable.
+
+\begin{lemma}[Pair product on a common contour]\label{lem:pair-bound}
+Suppose the angular contours and energies range over a compact family
+on which the one-variable roots are holomorphic in a common neighborhood.
+Assume that $|1-u_i u_j|\ge d>0$ for every pair of points on the same
+contour, including coincident points. Then, for all $N$,
+\[
+ \left|\prod_{i<j}K_{ij}^2\right|\le (C N^{3/4})^N .
+\]
+The constant depends only on the family, the neighborhood and $d$.
+\end{lemma}
+\begin{proof}
+For $D(v)=\prod_{i<j}H(v_i,v_j)^2$ the Cauchy identity gives
+$D(v)=\det[1+H(v_i,v_j)]$. Indeed,
+$1+H(v,w)=(1+v)(1-w)/(1-vw)$. On clearing the denominators of
+$\det[(1-v_iw_j)^{-1}]$, alternation and degree give the two
+Vandermonde factors, and induction at $v_Nw_N=1$ fixes the constant.
+
+Translate all angles by the same complex number $t$. On a disk
+$|t|<2r$ of fixed radius the roots stay holomorphic and retain a
+reciprocal gap. Write $P(t)$ for the translated product of the squared
+pairs. The middle expression of \eqref{pair} shows that $P$ is
+holomorphic on this disk. Except at the apparent poles of the angular
+determinant we have $P(t)^2=D(z(t))D(u(t))$.
+
+In the root determinant every row has Euclidean norm at most $C\sqrt N$.
+For an angular row $R_i(t)$ we estimate its mean over $|t|<r$,
+with area normalized to one. The numerators of its entries are bounded.
+The possible poles satisfy $z_i z_j e^{2\ii t}=1$ and are separated by
+$\pi$ in $t$. Choose $r<\pi/8$. If there is a pole $t_0$ in $|t|<2r$,
+factor $1-e^{2\ii(t-t_0)}$ there. On the smaller disk the entry is
+bounded by $C(1+|t-t_0|^{-1})$, whose area mean is uniformly bounded
+because $\int_{|w|<3r}|w|^{-1}\dd^2w=6\pi r$. In the absence of such
+a pole the denominator on the smaller disk has a uniform gap by
+compactness. Summing these entry bounds gives
+$\langle\|R_i\|_2\rangle\le CN$.
+
+Apply the submean inequality to $\log|P|$, Hadamard's inequality to
+the two determinants and Jensen's inequality to each row norm. Then
+\[
+  2\log|P(0)|
+   \le N\log(C\sqrt N)+\sum_{i=1}^N\log\langle\|R_i\|_2\rangle
+   \le N\log(C\sqrt N)+N\log(CN).
+\]
+Taking square roots gives the asserted exponent. The factorial in
+\eqref{site} makes $(CN^{3/4})^N/N!$ summable for every fixed $C$.
+\end{proof}
 
 The decay in both lattice coordinates follows from their interchange.
 For real $E>2$, on circles $|v_i|=|w_i|=\rho<1$ close to one, integrate
@@ -167,8 +211,12 @@ Summing \eqref{site} with weight $\sigma^{a+b}$ gives
  =\frac1{N!}\int_{H_N^\sigma}\frac{1+\sigma Z}{1-\sigma Z}
           \prod_{i<j}K_{ij}^2\prod_i\frac1{\sinh\gamma_i}\dd\mu .
 \end{equation}
-The $a$ sum is geometric. The $b$ sum evaluates the absolutely
-convergent Fourier series in the total angle at $e^{\ii\sum q_i}=\sigma$.
+Summing $(\sigma Z)^{|a|}$ in $a$ gives the displayed quotient. For
+the $b$ sum, take the total angle $\theta=\sum_i q_i$ as the last
+integration variable. The remaining density has an absolutely
+convergent Fourier series by the site bound. Its value at $\theta=0$
+or $\pi$ according to the sign of $\sigma$ gives precisely the integral
+over $H_N^\sigma$.
 Thus $X_\nu=a_\nu F_\nu$, where $F_\nu(E)$ sums $C_N^+(E)$ in
 the parity of the phase. Near $s=0$ the factors $u$, $1/\sinh\gamma$ and
 $K_{ij}$ are uniformly $O(|s|)$, so $|C_N^+|\le3(C|s|)^{N^2}/N!$.
@@ -181,6 +229,12 @@ Shifting all angles by $\pi$ and negating the roots gives
 In particular reflection in odd parity changes both signs in \eqref{bulk}.
 
 \section{Contour bounds near the energy cut}
+
+We use two deformations of the same one-angle contour. For a site
+coefficient the center of the deformation is fixed by the lattice
+direction. For a fixed particle integral its center is chosen to
+preserve the total angle. In both cases the required decay comes from
+the strict concavity of the boundary dispersion relation.
 
 Fix $0<x<2$. At $E=x+\ii y$, $y>0$, write $\gamma=\ii\phi$ on
 the physical lift. On the oscillatory interval $|r|<b=\arccos(x-1)$
@@ -196,42 +250,84 @@ $-\pi\le r\le\pi$. Uniformly for small $v,y\ge0$,
 \begin{equation}\label{phase}
  \Im(\lambda q-\phi(E,q))\ge a\{y+v(r-c)^2\},\qquad a>0 .
 \end{equation}
-In a compact interior interval the linear term at $y=0$ is
+On a closed interval inside $(-b,b)$ containing the centers, the
+linear term at $y=0$ is
 $v(r-c)(g'(c)-g'(r))\ge a_1v(r-c)^2$, with imaginary remainder
 $O(v^3|r-c|^3)$. Increasing $y$ adds at least $a_2y$, since
-$\Re(1/\sin\phi)>0$ there. Near $\pm b$, $\sin r(f(r)-c)>a_3>0$,
-so $W=E-\cos q$ satisfies $\Im W\ge y+a_4v$. Here $G=-\Im\phi>0$
-for $y+v>0$, and $\Im W/G=\sin(\Re\phi)\sinh(G)/G\to0$ at $W=1$.
-Thus $G$ controls both the right side of \eqref{phase} and the
-bounded multiple of $v$ contributed by $\lambda q$ there. On the
-remaining exterior intervals $G>0$ already at $y=v=0$. These bounds
-are locally uniform in $x$.
+$\Re(1/\sin\phi)>0$ there.
 
-At $y=v=0$ the unit roots have arguments in $[-b,0]$. Two can be
-reciprocal only at the branch value $1$. Near that value the preceding
-deformation gives $|u|<1$ when $v+y>0$. By compactness the homotopy
-therefore crosses no one-body or pair pole. At fixed small $v>0$,
-their denominators have uniform gaps on the graph, also on a small
-complex $E$-neighborhood.
+Near either endpoint $\sin r(f(r)-c)>a_3>0$, so
+$W=E-\cos q$ satisfies $\Im W\ge y+a_4v$. Put $G=-\Im\phi$.
+For $y+v>0$ we have $G>0$, and $W=\cos\phi$ gives
+\[
+ \frac{\Im W}{G}=\sin(\Re\phi)\,\frac{\sinh G}{G}\longrightarrow 0
+ \qquad(W\longrightarrow1).
+\]
+By shrinking the endpoint neighborhoods we can therefore achieve
+$G\ge M(y+a_4v)$ for any fixed $M$. Since $|\lambda\Im q|\le C v$
+and $|r-c|\le2\pi$, taking $M$ large gives \eqref{phase} there.
+On the remaining exterior intervals $G$ is bounded away from zero
+already at $y=v=0$.
 
-\paragraph{The higher orders.}
-At a nonzero site take $A=\max(|a|,|b|)$, $B=\min(|a|,|b|)$ and
-choose $g'(c)=B/A$. Then $-\arccos(x/2)\le c\le0$. On the fixed graph
-the exponential in \eqref{site} has modulus at most
-$\exp[-a' A\sum_i(r_i-c)^2]$ by \eqref{phase}. Bound the pair product
-by $(C N^{3/4})^N$ and integrate the Gaussian in each of the $N$ angles.
-On an $E$-disk of radius $\delta/(1+A)$ the change in each $A\phi$
-is bounded. Cauchy's estimate gives, including the origin by a fixed disk,
+On the undeformed boundary contour the unit roots have arguments in
+$[-b,0]$, with $b<\pi$. Two can be reciprocal only if both equal $1$.
+Near that branch value $|u|=e^{-G}<1$ throughout the deformation
+when $v+y>0$. Away from it compactness bounds both the one-body
+and the pair denominators away from zero for small $v,y$. Fixing
+one such $v>0$ now gives a positive gap everywhere on the graph.
+For $x$ in a compact subinterval and centers a fixed distance from
+$\pm b$, compactness gives the same gap, slightly decreased, after
+small complex changes of $E$ and a common translation of the angles.
+This neighborhood is fixed before the particle number is chosen.
+
+\begin{proposition}[Site derivatives and the high-particle tail]\label{prop:site}
+Fix a compact interval $I\subset(0,2)$ and an integer $j\ge0$.
+Use lattice symmetry to put $A=\max(|a|,|b|)$ and $B=\min(|a|,|b|)$.
+There are $y_0>0$ and $C_j$ such that for $x\in I$, $0\le y\le y_0$
+and every $N\ge1$,
 \begin{equation}\label{sites-bound}
  |\partial_E^j I_N(A,B;x+\ii y)|\le
  \frac{C_j^{\,N}N^{3N/4}}{N!}(1+A)^{j-N/2}.
 \end{equation}
-There are $8A$ sites on the shell of radius $A\ge1$. Consequently
-the sum over $N>2j+4$ of either parity, with either sign in
-\eqref{bulk}, has continuous derivatives through order $j$ up to
-compact subintervals of $(0,2)$ from above.
+For either sign in \eqref{bulk} and either parity, the sum over
+$N>2j+4$ therefore has continuous derivatives through order $j$ up
+to $I$ from above.
+\end{proposition}
+\begin{proof}
+For $A\ge1$, choose $g'(c)=B/A$. As $B/A$ runs from zero to one,
+$c$ runs from zero to $-\arccos(x/2)$, where $g'(c)=1$.
+These centers stay a positive distance from $\pm b$ for $x\in I$.
+Fix a small positive $v$ in \eqref{phase}. On the deformed contour
+the factor $u^A z^B=\exp(\ii A[(B/A)q-\phi])$ is bounded in modulus by
+$\exp[-a' A(r-c)^2]$. The contour Jacobian and each one-body factor
+are bounded, and the gaps just proved allow us to use
+Lemma~\ref{lem:pair-bound} on a common complex neighborhood.
 
-\paragraph{The finite orders.}
+Keep this contour fixed while $E$ moves in a disk of radius
+$\delta/(1+A)$ about $x+\ii y$. The derivative $\partial_E\phi$
+is bounded on that neighborhood. Thus each factor $u^A z^B$ changes
+in modulus by a factor at most $\exp(CA\delta/(1+A))$ relative to
+its value at the center. The deformed integral agrees with the
+physical one at positive heights by contour deformation, and hence
+gives its germ on the disk. Uniformly on that disk its modulus is
+at most
+\[
+ \frac{(C N^{3/4})^N}{N!}
+ \left(\int_{-\pi}^{\pi}e^{-a'A(r-c)^2}\,\dd r\right)^N
+ \le \frac{(C' N^{3/4})^N}{N!}(1+A)^{-N/2}.
+\]
+Cauchy's formula costs $j!\delta^{-j}(1+A)^j$. At the origin take
+$c=0$ and a disk of fixed radius. This proves \eqref{sites-bound}.
+The same disks furnish continuous limits at $y=0$.
+
+There are $8A$ sites on the shell of radius $A\ge1$. For $N>2j+4$,
+$A(1+A)^{j-N/2}\le (1+A)^{-3/2}$. The bound is now summable
+separately over shells and particle numbers, uniformly up to the cut.
+The same majorant applies to each lower derivative after increasing
+$C_j$, which gives the asserted continuous traces.
+\end{proof}
+
+\paragraph{The remaining particle integrals.}
 The one-particle term is $C_1^\sigma=1/(E-2\sigma)$.
 Fix $N\ge2$ and $\sigma$, and exclude the values $x=1+\cos\theta$ with
 $e^{\ii N\theta}=\sigma$. On $H_N^\sigma$ take
@@ -254,10 +350,13 @@ the constant configurations satisfying
  e^{\ii N q_0}=e^{\ii N g(q_0)}=\sigma,\qquad
  x=\cos q_0+\cos g(q_0),\qquad |q_0|<b .
 \end{equation}
-Away from neighborhoods of these tuples the fixed graph gives a
-holomorphic integral across $x$. In each neighborhood write
-$r_i=q_0+v_i$, $\sum_i v_i=0$. The graph is exactly
-$q_i=q_0+L v_i$ with $L=1+\ii\epsilon$.
+Choose disjoint neighborhoods of these tuples and a nonnegative cutoff
+in each, equal to one on a smaller neighborhood. On the remaining
+part of the fixed graph all denominators have a gap, so its integral
+is holomorphic across $x$. In a collision chart write $r_i=q_0+v_i$. The
+constraint gives $\sum_i v_i=0$ and $f(r_i)=r_i$, so the center
+of the deformation is exactly $q_0$. Hence $q_i=q_0+L v_i$ with
+$L=1+\ii\epsilon$ for every label.
 
 Put $\eta=E-x$, $D=1-\sigma Z$, $Q=\sum_i v_i^2$ and
 $\Delta(v)=\prod_{i<j}(v_i-v_j)$. Write $\psi=g(q_0)$.
@@ -274,10 +373,15 @@ by continuation from $\eta=\ii y$. Each squared pair supplies
 $(v_i-v_j)^2$ times an analytic unit. The density in
 $\prod_{i<N}\dd v_i$ is $\Delta^2 B(\eta,v)/D(\eta,v)$, where
 $B(0,0)\ne0$ since the one-body factors, the graph Jacobian and
-$1+\sigma Z$ are nonzero there. On the $(N-1)$-dimensional plane,
-the radial power of $\Delta^2\dd v$ in $r=\sqrt Q$ is $N^2-2$.
-Thus a pole $D^{-m}$ is uniformly integrable against this measure
-whenever $N^2-2-2m>-1$.
+$1+\sigma Z$ are nonzero there. In polar coordinates $r=\sqrt Q$
+the volume element of the $(N-1)$-dimensional plane contributes
+$r^{N-2}$ and the squared Vandermonde contributes $r^{N(N-1)}$.
+Thus the radial measure is proportional to $r^{N^2-2}\dd r$ after
+angular integration. The angular constant is positive since tuples
+of distinct coordinates occupy a relatively open set of the unit
+sphere. In particular, all poles $D^{-m}$ with
+$N^2-2-2m>-1$ have a common integrable majorant for $\eta$ in a
+sufficiently small upper half-disk at fixed $N,m$.
 
 \section{The first resonant order}
 
@@ -289,7 +393,21 @@ omitting $x=1$. Since $g(\alpha)=\alpha$, the constant tuple at
 $\alpha$ satisfies \eqref{res}. Let $n$ be the least resonant
 particle number of this parity at $x$.
 
-No such $x$ is an endpoint value $1+\cos\theta$ for a root-of-unity
+\begin{proposition}[Noncancellation at the first resonance]\label{prop:resonance}
+For such a sign, parity and energy $x\ne1$, let
+$F^\sigma(E)=\sum_N C_N^\sigma(E)$ in the given parity and set
+$k=\lceil(n^2-3)/2\rceil$. There is a ray $E=x+L^2t$ in the upper
+half-plane along which
+\[
+ \bigl|\partial_E^k F^\sigma(x+L^2t)\bigr|\longrightarrow\infty,
+ \qquad
+ \partial_E^j F^\sigma(x+L^2t)=O(1)\quad(0\le j<k),
+ \qquad t\downarrow0 .
+\]
+\end{proposition}
+\begin{proof}
+We first exclude the branch endpoints, at every particle number.
+No such $x$ is a value $1+\cos\theta$ for a root-of-unity
 angle $\theta$. Indeed $x=e^{\ii\alpha}+e^{-\ii\alpha}$ is an algebraic
 integer. If $u=\cos\theta=x-1$ then $u$ is also an algebraic integer.
 For $m\theta\in2\pi\Z$ its conjugates are roots of $T_m(X)-1$, where
@@ -299,49 +417,66 @@ $u=-1$. Otherwise the product of the conjugates is an integer of
 absolute value less than one, so $u=0$. These cases give $x=2,0,1$,
 all excluded.
 
-At each collision of order $n$, put $\psi=g(q_0)\in(0,\pi)$.
-In the local density $\Delta^2 B/D$, the phase of $B(0,0)$ is the same
-at all these collisions. Each divided
-squared pair contributes $L^2/[4(\ii\sin\psi)^2]$, the one-body
-factors contribute $(\ii\sin\psi)^{-n}$ and the Jacobian is
-$L^{n-1}$. Since $1+\sigma Z=2$ at the center, this gives
+Choose a single contour displacement $\epsilon>0$ small enough for all
+orders $N\le 2k+4$, and put $L=1+\ii\epsilon$.
+At a collision of order $n$ the phase can be read off from the
+original integral \eqref{bulk}. Put $\psi=g(q_0)\in(0,\pi)$ and
+$p=n(n-1)/2$. Dividing a squared pair by $(v_i-v_j)^2$ gives the
+center value $L^2/[4(\ii\sin\psi)^2]$. The $n$ one-body factors
+give $(\ii\sin\psi)^{-n}$ and the constrained angular Jacobian is
+$L^{n-1}$. With the positive Haar normalization and
+$1+\sigma Z=2$, the center value in the density $\Delta^2 B/D$ is
 \[
- B(0,0)\ \in\ \ii^{-n^2}L^{\,n^2-1}\R_{>0}.
+ B(0,0)=
+ \frac{2}{n!(2\pi)^{n-1}}\,
+ \frac{L^{\,2p+n-1}}{4^p(\ii\sin\psi)^{2p+n}}
+ = b_{q_0}\,\ii^{-n^2}L^{\,n^2-1},\qquad b_{q_0}>0 .
 \]
+Thus the center values differ only by the positive factors $b_{q_0}$.
 
-Set $k=\lceil(n^2-3)/2\rceil$ and take a common $\epsilon>0$ small
-enough for all the finitely many orders $N\le2k+4$.
-Approach $x$ along $\eta=L^2t$, $t\downarrow0$. At particle number $n$,
-\eqref{expansion} gives $D=-\ii L^2(dt+hQ)+o(t+Q)$.
-The radial power makes $D^{-j}$ uniformly integrable for $j\le k$.
-In the $k$th derivative of $B/D$ the only
-term with a higher pole is
+Take $\eta=L^2t$, $t\downarrow0$. Equation~\eqref{expansion} gives
+$D=-\ii L^2(dt+hQ)(1+O(t+|v|))$ on shrinking the chart, since
+$dt+hQ$ is comparable to $t+Q$. The term of pole order $k+1$ in
+the $k$th derivative of $B/D$ is
 \[
  (-1)^k k!\,B\,(\partial_\eta D)^k/D^{k+1}.
 \]
-Since $\partial_\eta D(0,0)=-\ii d$ and $d,h>0$, one constant rotation
-works for all the finitely many charts of order $n$. In each sufficiently
-small chart the rotated term has real part at least $c(t+Q)^{-k-1}$
-for all small $t$. The angular integral
-of $\Delta^2$ on $Q=1$ is positive. Restriction to
-$\sqrt t<r=\sqrt Q<\delta$ therefore bounds its integral below by
-a positive constant times
+Every other term has pole order at most $k$, and its integral is
+bounded since $n^2-2-2k>-1$.
+In the displayed term $\partial_\eta D=-\ii d+O(t+|v|)$. Apart from
+a relative error $O(t+|v|)$ the term is therefore
+\[
+ \underbrace{\frac{(-1)^k k!\,\ii^{-n^2}L^{n^2-1}(-\ii)^k}
+                    {(-\ii L^2)^{k+1}}}_{\displaystyle\omega}\,
+ \frac{b_{q_0}d^k}{(dt+hQ)^{k+1}} .
+\]
+The complex number $\omega\ne0$ is the same in every chart. Multiply
+by $\overline\omega/|\omega|$ and shrink the finitely many charts
+so the relative error is at most $1/2$. The real part is then bounded
+below by $c(t+Q)^{-k-1}$. Integrating against $\Delta^2$ on
+$\sqrt t<r<\delta$ gives a positive constant times
 \[
  \int_{\sqrt t}^\delta r^{\,n^2-2-2(k+1)}\dd r .
 \]
-The exponent is $-1$ for odd $n$ and $-2$ for even $n$. In both
-cases the contributions add to a divergent derivative, and all lower
-derivatives stay bounded.
-All lower orders continue across $x$. For $n<N\le2k+4$ there are
-no endpoint tuples by the preceding endpoint test. At every resonance
-of such an order even $D^{-k-1}$ is integrable, since
-$N^2-2-2(k+1)>-1$. For $N>2k+4$ the site bound
-\eqref{sites-bound} controls the entire remaining tail. Thus the
-divergence holds for the full sum.
+The exponent is $-1$ for odd $n$ and $-2$ for even $n$. In either
+case the rotated real parts add and diverge. Derivatives of order
+$j<k$ have pole order at most $k$, so they remain bounded.
+
+It remains to put back the other particle orders. Every $N<n$ in the
+chosen parity is nonresonant and continues across $x$. For
+$n<N\le2k+4$ the endpoint test still applies. At a regular collision
+the worst pole in the $k$th derivative is now integrable, because
+$N^2-2-2(k+1)>-1$. Finally, Proposition~\ref{prop:site} bounds the
+derivatives through order $k$ of the infinite tail $N>2k+4$ on a
+closed upper half-disk about $x$.
+These three contributions are bounded on the same ray.
+\end{proof}
 
 \section{Natural boundary and differential transcendence}
 
-For positive $x$ use $\sigma=1$. For negative energies use
+\paragraph{The natural boundary.}
+For positive $x$ use Proposition~\ref{prop:resonance} with $\sigma=1$.
+For negative energies use
 \eqref{reflect} with $\sigma=(-1)^n$. Complex conjugation supplies
 the other side of the slit. The map $E=s+s^{-1}$ is locally
 invertible at the resulting dense set on $|s|=1$. The factors
@@ -351,27 +486,34 @@ each of $F_\nu$, $X_\nu$, and $\chi_\nu$ diverges along the corresponding
 approach from within its domain, with all lower derivatives bounded. Density proves the
 natural-boundary assertions, including at the omitted axes.
 
+\paragraph{The boundary trace of a differential relation.}
 Suppose one of these functions, in the coordinate $z=E$ for $F_\nu$
 or $z=s$ for $X_\nu$ or $\chi_\nu$, satisfies a differential
 relation. After clearing denominators take $P(z,Y,\ldots,Y^{(r)})=0$
 of least order and then least degree in its highest derivative.
-The separant $S=P_{Y_r}(z,Y,\ldots,Y^{(r)})$ is not identically zero
-by minimality. Continue the relation from the real interval to an
+Its separant $S=P_{Y_r}(z,Y,\ldots,Y^{(r)})$ is nonzero as a germ,
+since the formal derivative is a nonzero polynomial of smaller degree
+in $Y_r$ and so cannot give a relation. Continue the relation from the real interval to an
 upper energy collar in $0<\Re E<2$, fixing the local inverse $s(E)$
 and the physical branches. Delete
 from $(0,2)$ the finitely many endpoint and two-cosine grid values
-of orders $N\le2r+4$. On a remaining open subinterval
-\eqref{sites-bound} and the fixed contours give continuous one-sided
-derivatives through $r$, hence a continuous trace of $S$.
+of orders $N\le2r+4$. On a remaining open subinterval the finitely
+many integrals of those orders continue across the cut. On each compact
+subinterval Proposition~\ref{prop:site} gives continuous one-sided
+limits for the derivatives through $r$ of their complement. After
+composition with the local chart, $S$ thus has a continuous trace there.
 
 Each bounded range of particle numbers supplies only finitely many
 two-cosine grid values in \eqref{res}. Thus the selected $x$ with
 $k>r$ are dense in this subinterval. At each such point, differentiate the
-relation $k-r$ times. This gives $S Y^{(k)}+R=0$, where $R$ is a
-polynomial in $z$ and derivatives through order $k-1$. Along the
-chosen ray $R$ stays bounded and $|Y^{(k)}|\to\infty$. Thus $S$
-has trace zero, first on the dense set and then on the whole
-subinterval. Schwarz reflection in $E$ across this zero trace and
+relation $k-r$ times. The chain rule gives
+\[
+ S\,Y^{(k)}+R(z,Y,\ldots,Y^{(k-1)})=0 .
+\]
+The remainder stays bounded along the chosen ray, whereas
+$|Y^{(k)}|\to\infty$. The trace of $S$ is therefore zero at each
+of these points and, by continuity, on the whole subinterval.
+Schwarz reflection in $E$ across this zero trace and
 the identity theorem force $S$ to vanish identically, a contradiction.
 Finally, $X_\nu=a_\nu F_\nu$ gives
 $\widetilde\chi_\nu(w)=F_\nu(1/(2w))$ in the normalization above.

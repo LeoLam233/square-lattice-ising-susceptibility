@@ -14,6 +14,8 @@ The paper identifies the boundaries of holomorphy in two complex coupling variab
 
 [PDF](anisotropic-susceptibility-boundary-jets.pdf) · [TeX source](anisotropic-susceptibility-boundary-jets.tex)
 
+The [manuscript archive](archive/before-2026-11-24/) contains the 5-page isotropic paper and the 39-page anisotropic paper that preceded the 24 November 2026 revision, in PDF and TeX.
+
 ## Lean formalization of the isotropic paper
 
 The formalization proves the main theorems for the reduced and physical susceptibilities in both phases, as well as differential transcendence of the normalized series at the origin. At first resonance it uses full-series asymptotics at prime particle orders in the high-temperature phase and twice-prime orders in the low-temperature phase. These points form a dense family on the relevant boundary arcs. The identification with the physical susceptibility uses the real-temperature site expansions and the magnetic-field response identity. [Main theorems](lean/IsoProof/Final.lean) · [Physical inputs](lean/IsoProof/PhysicalIdentification.lean)

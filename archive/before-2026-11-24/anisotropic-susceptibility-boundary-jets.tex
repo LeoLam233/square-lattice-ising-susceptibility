@@ -1,0 +1,3045 @@
+\documentclass[11pt]{article}
+\ifdefined\pdfinfoomitdate\pdfinfoomitdate=1\fi
+\ifdefined\pdftrailerid\pdftrailerid{}\fi
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,mathtools,mathrsfs}
+\usepackage[margin=26mm]{geometry}
+\usepackage{booktabs,array,enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{microtype,needspace}
+\setlength{\emergencystretch}{3em}
+\raggedbottom
+\setcounter{tocdepth}{1}
+\setlist[enumerate]{beginpenalty=10000}
+\numberwithin{equation}{section}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{remark}[theorem]{Remark}
+\newcommand{\C}{\mathbb C}
+\newcommand{\R}{\mathbb R}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\T}{\mathbb T}
+\newcommand{\ii}{\mathrm i}
+\newcommand{\dd}{\,\mathrm d}
+\newcommand{\eps}{\varepsilon}
+\renewcommand{\DH}{\mathcal D_H}
+\newcommand{\DL}{\mathcal D_L}
+\newcommand{\XH}{\mathcal X_H}
+\newcommand{\XL}{\mathcal X_L}
+\newcommand{\cO}{\mathcal O}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\DeclareMathOperator{\dist}{dist}
+\DeclareMathOperator{\arsinh}{arsinh}
+\hypersetup{pdftitle={Boundary jets of the anisotropic square-lattice Ising susceptibility},pdfauthor={Dehao Lin},bookmarksnumbered=true}
+\title{Boundary jets of the anisotropic\\square-lattice Ising susceptibility}
+\author{Dehao Lin\\
+  \small School of Physics, Sun Yat-sen University\\
+  \small\href{https://orcid.org/0009-0001-4551-8490}{ORCID 0009-0001-4551-8490}}
+\date{21 November 2026}
+\makeatletter
+\renewcommand{\@maketitle}{\begin{center}
+  \vspace*{.5\baselineskip}{\LARGE\@title\par}\vspace{.6\baselineskip}
+  {\large\begin{tabular}{c}\@author\end{tabular}\par}
+  \vspace{.45\baselineskip}{\normalsize\@date\par}
+\end{center}}
+\makeatother
+\begin{document}
+\maketitle
+\begin{abstract}
+The full high- and low-temperature susceptibilities of the zero-field square-lattice
+Ising model are holomorphic on distinct domains in the two complex coupling
+variables. Neither admits continuation through any finite point of its
+boundary. On each temperature line $K_y=\lambda K_x$ with $\lambda>0$
+and $\lambda\ne1$, transverse edge singularities give a natural boundary.
+At isotropy the boundary is the unit circle in $s=\sinh(2K)$.
+The susceptibility in each phase is differentially transcendental along
+every positive-ratio line.
+To determine which singularities of the individual particle
+integrals survive in the full susceptibility, we bound the derivatives
+of their higher-order tail. At isotropy the tail starting at particle
+number $n\ge2$ has continuous boundary derivatives on regular arcs whenever
+$2j<n^2-3$, where $j$ is the derivative order. At the highest such order
+the modulus is $O(h^{1/2})$ for even $n$ and $O(h\log(e/h))$ for odd $n$.
+Grouping neighboring lattice directions gives the sharp tail bound. Two families of first resonances indexed
+by primes attain the respective moduli. At selected
+negative noncollinear edges each odd-particle integral is regular, yet
+the one-sided Taylor coefficients $a_j$ of their sum in the normalized
+edge coordinate satisfy $\limsup_{j\to\infty}(\log j/j)|a_j|^{1/j}=4/(e\pi^2)$.
+\end{abstract}
+\begingroup\small
+\tableofcontents
+\endgroup
+
+\section{Introduction}\label{sec:introduction}
+
+The zero-field susceptibility measures the response of the magnetization
+to a uniform magnetic field. Its reduced form is the sum of the connected
+two-spin correlation over the square lattice. The high-temperature (HT)
+expansion contains the odd particle numbers. Below the critical temperature,
+subtracting the squared spontaneous magnetization at each site leaves the
+positive even particle numbers in the low-temperature (LT) expansion
+\cite{ONGP}.
+
+Guttmann and Enting \cite{GE} found evidence of accumulating singularities
+in the anisotropic high-temperature series.
+For isotropic coupling $K$, put $s=\sinh(2K)$. Nickel \cite{Nickel}
+identified logarithmic branch points of the odd-particle HT integrals
+whose union is dense on $|s|=1$. For each fixed even particle number,
+Tracy and Widom \cite[Sec.~3, p.~1131]{TW} proved that the integral
+has $C^\infty$ boundary values from $|s|>1$ away from its Nickel points.
+McCoy and Maillard \cite[Sec.~3.7]{MM} discuss possible cancellation
+of these singularities in the full sum. Guttmann, Jensen, Maillard and
+Pantone \cite[Sec.~6]{GJMP} used the isotropic HT and LT series to
+search for an algebraic differential equation for the full susceptibility.
+
+Theorem~\ref{thm:unified} identifies the boundaries of holomorphy in
+the two complex couplings. Fixing $K_y=\lambda K_x$ restricts each
+susceptibility to a complex temperature line. For $\lambda>0$,
+$\lambda\ne1$, Lemma~\ref{geo:new:slices} shows that the line meets
+the selected singularities transversely at a dense subset of its
+boundary. At equal coupling $K$ the collinear estimates give the unit
+circle in $s=\sinh(2K)$ as the boundary of the HT disk and the LT
+exterior. They also determine the last continuous radial derivative
+and its modulus of continuity on two families of first resonances.
+
+Suppose the first singular particle integral at a boundary point has
+particle number $m$. The higher terms of the same parity begin at $m+2$.
+For $2J<(m+2)^2-3$, the derivatives of this tail through order $J$
+extend continuously to regular noncollinear and isotropic boundary arcs.
+When $\ell$ angles meet, their squared pair differences vanish to
+order $\ell(\ell-1)$. The dispersion equation splits a pair factor into two
+rational factors. The Cauchy determinant bounds their products, and
+zeros at coincident transfer roots give Gaussian decay in the particle number.
+
+At isotropy write $A$ for the larger lattice coordinate in absolute
+value. We group neighboring directions on each shell, placing the
+centers $\lceil\sqrt A\rceil$ lattice steps apart. Directions in each
+interior group share a contour with Gaussian decay in every angle.
+Their Fourier sum is a Fej\'er kernel in the total angle.
+Its decay away from multiples of $2\pi$, together with the bounds for
+the endpoint groups, gives the sharp derivative bound. At a noncollinear endpoint
+the Gaussian integral on a plane of fixed total angle records the winding.
+The same integral gives the first resonance amplitude.
+
+At a negative noncollinear HT edge the odd momentum constraint keeps
+every fixed particle term regular. At the phases of
+Theorem~\ref{neg:new:indicator}, the two smallest odd windings
+contribute with the same complex phase. Let $a_j$ denote the one-sided
+Taylor coefficients of the complete odd-particle sum in the normalized
+edge coordinate.
+Section~\ref{sec:jet-subsequence} bounds $|a_j|$ at every order and
+constructs orders $j_n$ at which one particle number dominates, giving
+$|a_{j_n}|^{1/j_n}\sim4j_n/(e\pi^2\log j_n)$.
+Lemma~\ref{neg:new:transport} gives the growth rate in physical coordinates.
+
+For each finite $r$ the
+susceptibility and its derivatives through order $r$ have continuous
+limits on an open boundary arc. An algebraic differential equation
+would then give local holomorphic continuation at some point of the
+arc, contradicting its natural boundary.
+
+\section{Physical setting and main theorem}
+\label{sec:unified}
+
+Let $K_x,K_y$ be independent complex couplings and write
+\[
+ \begin{gathered}
+ z=2K_x=x+\ii y,\qquad w=2K_y=u+\ii v,\\
+ S=\sinh z,\quad T=\sinh w,\quad A=\cosh z\cosh w,\quad p=ST.
+ \end{gathered}
+\]
+Define the spectral set by
+\[
+ \Sigma=\{(K_x,K_y):A=S a_1+T a_2\text{ for some }(a_1,a_2)\in[-1,1]^2\}.
+\]
+Taking $a_1=\cos(2\pi l/N)$ and $a_2=\cos(2\pi j/N)$ gives the candidate
+singularity equation for the anisotropic $N$-particle term in
+\cite[(3.23)--(3.24)]{ONGP}. The singular loci of the anisotropic integrals are studied in \cite{BHM}.
+In the coupling coordinates $(K_x,K_y)$, set
+\begin{align}
+ \mathcal D_H={}&\{|y|,|v|<\pi/2,\quad
+ \cosh x\tanh|u|<\cos y,\quad \cosh u\tanh|x|<\cos v\},
+ \label{eq:domainH}\\
+ \mathcal D_L={}&\{x,u>0,\quad
+ \cosh x\tanh u>|\cos y|,\quad \cosh u\tanh x>|\cos v|\}.
+ \label{eq:domainL}
+\end{align}
+For real positive noncritical couplings the physical functions are
+\begin{align}
+ \mathcal X_H&=\sum_{(m,l)\in\Z^2}\langle\sigma_{00}\sigma_{ml}\rangle_H,
+ &&0<p<1,\label{eq:defH}\\
+ \mathcal X_L&=\sum_{(m,l)\in\Z^2}
+       (\langle\sigma_{00}\sigma_{ml}\rangle_+-M^2),
+ &&p>1,\qquad M^2=(1-p^{-2})^{1/4}.
+ \label{eq:defL}
+\end{align}
+The fourth root is positive on the real physical region. The origin and
+both axes belong to these sums; the low-temperature origin contributes
+$1-M^2$. The subtraction is sitewise in the plus state.
+
+A fixed finite positive anisotropy ratio $\lambda$ determines the
+temperature line and its physical susceptibility by
+\[
+ \iota_\lambda(t)=(t/2,\lambda t/2),\qquad
+ f_{\nu,\lambda}(t)=\mathcal X_\nu(\iota_\lambda(t)),\qquad
+ \chi_{\nu,\lambda}(t)=\frac{t}{2J_x}f_{\nu,\lambda}(t),\quad J_x>0.
+\]
+Thus $J_y=\lambda J_x$ and the energy-field factor is
+$\beta=t/(2J_x)$. Put
+\begin{gather*}
+ P_\lambda(a)=\cosh a\tanh(\lambda a),\qquad
+ Q_\lambda(a)=\cosh(\lambda a)\tanh a,\qquad
+ Y_\lambda=\frac{\pi}{2\max(1,\lambda)},\\
+ H_\lambda(b)=\min\{P_\lambda^{-1}(\cos b),
+               Q_\lambda^{-1}(\cos(\lambda b))\},\quad |b|<Y_\lambda,\\
+ L_\lambda(b)=\max\{P_\lambda^{-1}(|\cos b|),
+               Q_\lambda^{-1}(|\cos(\lambda b)|)\},\quad b\in\R,\\
+ \Omega_{H,\lambda}=\{a+\ii b:|b|<Y_\lambda,\ |a|<H_\lambda(b)\},\qquad
+ \Omega_{L,\lambda}=\{a+\ii b:a>L_\lambda(b)\}.
+\end{gather*}
+The inverses in these formulas are the increasing inverses on $[0,\infty)$.
+
+A function $f$ on a domain $D$ extends through $q\in\partial D$ if a
+holomorphic function on some neighborhood $U$ of $q$ agrees with $f$
+on a connected component of $D\cap U$ whose closure contains $q$.
+
+On a regular face, $S,T\ne0$, $B=T/S$ is nonreal and $p^2\ne1$.
+After exchanging axes if necessary, the spectral representation there
+is $A=Sb+T\sigma$, where $-1<b<1$ and $\sigma=\pm1$ is the unique
+endpoint coordinate. The edge coordinate $h=A/S-\sigma B$ equals $b$
+on the face. A transverse curve with $h'\ne0$ is locally a graph $B=B(h)$.
+The selected spectral angles in (iii) have $b=\cos(2\pi r/q)$ with
+$q$ an odd prime and $0<r<q/2$. For uniform estimates the graphs are
+bounded and holomorphic on a common larger parameter polydisk, with
+$|\Im B|\ge\beta>0$ along the edge. The negative HT assertion in (vii)
+also holds for any odd denominator $q\ge3$ with $(r,q)=1$.
+
+\begingroup\clubpenalties 6 10000 10000 10000 10000 10000 0\relax
+\begin{theorem}\label{thm:unified}
+The full-lattice sums \eqref{eq:defH}--\eqref{eq:defL} satisfy the following eight assertions.
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item The domains \eqref{eq:domainH}--\eqref{eq:domainL} are exactly the
+components of $\C^2\setminus\Sigma$ containing the positive real
+high- and low-temperature regions, respectively. They are contractible
+and pseudoconvex, with $|p|<1$ on $\mathcal D_H$ and $|p|>1$ on
+$\mathcal D_L$.
+\item The physical germs define single-valued jointly holomorphic
+$\mathcal X_H\in\mathcal O(\mathcal D_H)$ and
+$\mathcal X_L\in\mathcal O(\mathcal D_L)$. Their complete odd and
+nonzero-even full-site form-factor series converge normally on compact
+subsets after every fixed mixed complex derivative.
+\item Neither function extends through any finite point of its boundary.
+This also excludes a bypass in an unramified Riemann domain reached
+by analytic continuation from the physical germ. On a dense subset of
+every regular face, nonextension holds on every holomorphic transverse
+curve with nonramified edge coordinate. For each fixed selected phase,
+the estimates are locally uniform on compact admissible families of
+bounded holomorphic curves on common parameter polydisks with $|\Im B|$
+uniformly bounded away from zero.
+\item For every finite $\lambda>0$,
+$\iota_\lambda^{-1}(\mathcal D_\nu)=\Omega_{\nu,\lambda}$.
+For each $\nu$, both $f_{\nu,\lambda}$ and $\chi_{\nu,\lambda}$ are
+holomorphic on $\Omega_{\nu,\lambda}$ and nonextendable through every
+boundary point.
+\item At $\lambda=1$, $s=\sinh t$ gives distinct normalized physical germs
+\[
+ X_H(s)=\frac{(1-s^4)^{1/4}}{s}\sum_{N\ge1,\ N\ {\rm odd}}C_N(1/s),
+ \qquad
+ X_L(s)=(1-s^{-4})^{1/4}\sum_{N\ge2,\ N\ {\rm even}}C_N(s).
+\]
+Here $C_N$ is the complete coefficient defined in
+\eqref{eq:iso-coefficient} below. The first function is single-valued
+on $|s|<1$, with $X_H(0)=1$; the second is single-valued on $|s|>1$,
+with onsite term $1-(1-s^{-4})^{1/4}$. Both have the whole unit circle
+as a natural boundary. The map $\sinh$ is a biholomorphism from
+$\Omega_{H,1}$ to the disk and the universal covering from
+$\Omega_{L,1}$ to the exterior, with deck translations
+$t\mapsto t+2\pi\ii k$. The physical factor $\beta=t/(2J_x)$ is
+interpreted on this cover.
+\item Let $m\ge2$ be an integer cutoff. The complete tail over
+$N\ge m+2$, $N\equiv m\pmod2$, satisfies the collar estimates
+through derivative order $J$ whenever
+\begin{equation}
+                 2J<(m+2)^2-3.
+                 \label{eq:common-budget}
+\end{equation}
+The derivatives are continuous and uniformly bounded on the closed
+regular noncollinear collars of Theorem~\ref{edge:new:budget}.
+At isotropy, with $E=s+s^{-1}$, they extend continuously to each compact
+subinterval of $(-2,0)\cup(0,2)$ from the physical side, with bounds
+summable in $N$. Write $n=m+2$ for the first tail index and let $j_*$
+be the greatest integer with $2j_*<n^2-3$. On shorter closed isotropic
+collars, the $j_*$th derivative of this tail has modulus $O(h^{1/2})$
+for even $n$ and $O(h\log(e/h))$ for odd $n$, where $h$ is distance
+in $E$. Its lower derivatives are Lipschitz.
+For each physical slice and each finite order $r$, the complete
+physical function has continuous finite jets through order $r$ from a
+one-sided collar of a nonempty relatively open real-analytic boundary
+arc $I_r$. Negative odd noncollinear edges have continuous jets of
+every order on their entire regular arc.
+\item On the distinct-angle prime families of
+Lemma~\ref{iso:new:radial:arithmetic}, let $n$ be the first resonant
+particle number and $k=\lfloor(n^2-1)/2\rfloor$. In the radial
+parameter $\epsilon\downarrow0$ of Theorem~\ref{iso:new:radial:full},
+the first nonanalytic term is proportional to $\epsilon^{k-1/2}$
+in LT and to $\epsilon^{k-1}\log\epsilon$ in HT. The theorem gives
+the nonzero amplitudes in the physical angular measure, the constants
+of integration and the remainders for the full susceptibility.
+The last continuous radial derivative is sharply H\"older $1/2$
+in LT and sharply log-Lipschitz in HT.
+
+At each selected noncollinear negative odd edge write $B=T/S$ and
+$h=A/S+B$ in the transfer chart, and let $b$ be the value of $h$ at
+the boundary point. In the edge coordinate $\tau=(h-b)/B$ the complete
+boundary jet has indicator $4/(e\pi^2)$, with an upper bound at every
+order and a matching lower subsequence for each family member.
+Lemma~\ref{neg:new:transport} gives the exact transport under physical
+factors and nonramified coordinates.
+\item Separately for each phase, $X_H(s)$ and $X_L(s)$ are
+differentially transcendental over $\C(s)$ and their corresponding
+physical germs under $s=\sinh t$ are differentially transcendental
+over $\C(t)$. For every fixed finite $\lambda>0$, including irrational
+$\lambda$, both $f_{\nu,\lambda}$ and $\chi_{\nu,\lambda}$ are
+differentially transcendental over $\C(t)$, for each
+$\nu\in\{H,L\}$. Thus no nonzero polynomial differential identity
+of any finite order or degree holds.
+\end{enumerate}
+\end{theorem}
+
+\endgroup
+
+\paragraph{Proof outline.}
+The angular integral in Section~\ref{sec:physical} represents the
+physical susceptibility throughout each domain. The tail estimates of
+Sections~\ref{edge:new:section} and~\ref{iso:new:section} isolate the
+singular part of the first resonant integral at positive and even
+edges. At noncollinear negative odd edges the obstruction comes from the growth
+of the Taylor coefficients of the full sum
+(Section~\ref{neg:new:section}). The same tail estimates give the
+continuous boundary derivatives used in the proof of differential
+transcendence in Section~\ref{da:new:section}.
+
+
+\section{Geometry of the physical continuations}
+\label{geo:new:section}
+
+Put $z=2K_x=x+iy$, $w=2K_y=u+iv$, and
+\[
+ S=\sinh z,\quad T=\sinh w,\quad A=\cosh z\cosh w,\quad p=ST.
+\]
+In these coordinates the spectral set is
+\[
+ \Sigma=\{(z,w):A=Sa+Tb\text{ for some }(a,b)\in[-1,1]^2\}.
+\]
+The representing square is compact, so $\Sigma$ is closed. Its
+frontier is contained in the set of incidences for which one of the
+two coefficients is an endpoint of $[-1,1]$.
+
+\begin{lemma}[Endpoint incidence determines the spectral frontier]
+\label{geo:new:endpoint}
+Define
+\[
+ F_1=\cosh^2u\cos^2y-\cosh^2x\sinh^2u,\qquad
+ F_2=\cosh^2x\cos^2v-\cosh^2u\sinh^2x.
+\]
+The set $E=\{F_1F_2=0\}$ is exactly the set admitting a
+spectral representation with $a$ or $b$ an endpoint of $[-1,1]$.
+In particular $\partial\Sigma\subset E\subset\Sigma$.
+\end{lemma}
+\begin{proof}
+For $S\ne0$ the quantities $\tanh(z/2)$ and its reciprocal
+are finite.  With $\epsilon\in\{1,-1\}$,
+\[
+ r_\epsilon=e^{\epsilon w}\tanh(z/2),\qquad
+ \frac{r_\epsilon+r_\epsilon^{-1}}2=\frac{A-\epsilon T}{S},
+ \qquad
+ |\tanh(z/2)|^2=\frac{\cosh x-\cos y}{\cosh x+\cos y}.
+\]
+The numerator and denominator of the last ratio are positive.
+Under the Joukowski map $r\mapsto(r+r^{-1})/2$, the preimage
+of $[-1,1]$ is the unit circle: the roots of $r^2-2ar+1=0$ for
+$a\in[-1,1]$ have unit modulus.  Therefore a representation
+$A=Sa+\epsilon T$, $a\in[-1,1]$, is equivalent to
+\[
+ \cos y=\epsilon\cosh x\tanh u.
+\]
+The union over $\epsilon$ is $F_1=0$.  If $S=0$ then
+$x=0$, $y\in\pi\mathbb Z$, $F_1=1$, and $A^2-T^2=1$,
+so neither condition occurs.  Exchanging the variables handles
+$F_2$ and the endpoint $a$.
+
+It remains to relate these incidences to the frontier. At a point
+of $\partial\Sigma$, consider the real-linear map
+$(a,b)\mapsto Sa+Tb$.  If it has rank two, a representing pair
+strictly inside the square would persist there under parameter
+perturbation, making the point interior to $\Sigma$.  Hence
+one coordinate is an endpoint.  If its rank is smaller, move a
+representing pair along a nonzero kernel direction to the boundary
+of the square.  This again produces an endpoint representation.
+\end{proof}
+
+\begin{proposition}[Exact physical domains and branches]
+\label{geo:new:domains}
+The complementary components containing the positive real HT and
+LT regions are respectively
+\begin{align*}
+ \mathcal D_H={}&\{|y|,|v|<\pi/2,\quad
+   \cosh x\tanh|u|<\cos y,\quad
+   \cosh u\tanh|x|<\cos v\},\\
+ \mathcal D_L={}&\{x,u>0,\quad
+   \cosh x\tanh u>|\cos y|,\quad
+   \cosh u\tanh x>|\cos v|\}.
+\end{align*}
+They are contractible and pseudoconvex, and satisfy $|p|<1$
+and $|p|>1$, respectively.  The binomial branches of
+$(1-p^2)^{1/4}$ and $(1-p^{-2})^{1/4}$ are thus single valued
+on their respective domains, with the positive physical values.
+On $\mathcal D_H$ the only zeros of $S$ and $T$ are $z=0$
+and $w=0$; neither vanishes on $\mathcal D_L$.
+\end{proposition}
+\begin{proof}
+Write $r_1(a,b)=\cosh a\tanh b$ and
+$r_2(a,b)=\cosh b\tanh a$ for $a,b\geq0$.  Both are
+nondecreasing in either variable, and
+\[
+ r_1^2-1=\frac{\sinh^2a\sinh^2b-1}{\cosh^2b},\qquad
+ r_2^2-1=\frac{\sinh^2a\sinh^2b-1}{\cosh^2a}.
+\]
+\emph{The high-temperature component.}
+Dilating all four real coordinates toward zero preserves
+$\mathcal D_H$. Its closure is given by the corresponding non-strict
+inequalities. Dilation by any positive factor smaller than one moves
+every point satisfying these inequalities into $\mathcal D_H$. For an active first
+inequality this is immediate if $u\ne0$; if $u=0$, activity
+forces $|y|=\pi/2$, and the cosine strictly increases under
+dilation.  The second inequality has the exchanged argument.
+Thus $\mathcal D_H$ is star shaped, and its finite boundary is
+in $E$.
+
+\emph{The low-temperature component.}
+Increasing both real parts makes all the non-strict inequalities
+strict, including $x,u\geq0$. Consequently the closure is given
+by these non-strict inequalities, and its finite
+boundary is also in $E$.  Fix $R>0$ with $\sinh R>1$.
+Increase $x,u$ to $\max(x,R),\max(u,R)$, move them to $R,R$
+within $[R,\infty)^2$, and then move $y,v$ to zero.
+Throughout the last two motions both $r_i\geq\sinh R>1$.
+This is a contraction of $\mathcal D_L$.
+
+\emph{Component identification and branches.}
+Each displayed domain is connected and avoids $E$. Since
+$\partial\Sigma\subset E$, its intersection with $\Sigma$
+is both relatively open and closed.  Zero lies outside $\Sigma$,
+and so does the real LT point $(R,R)$: there
+\[
+ (A-S-T)(A+S+T)=(p-1)^2>0,
+\]
+with $A+S+T>0$.  The two domains are therefore disjoint from
+$\Sigma$.  Their boundaries lie in $\Sigma$, so each is an
+entire complementary component.  On the positive real quadrant
+the preceding formulas for $r_i^2-1$ identify the HT region
+$0<p<1$ and LT region $p>1$.
+
+The identity
+\[
+ |p|^2=(\cosh^2x-\cos^2y)(\cosh^2u-\cos^2v)
+\]
+gives the modulus statements directly: for $F_1,F_2>0$ the
+two factors are smaller than $\cosh^2x/\cosh^2u$ and its
+reciprocal, while for $F_1,F_2<0$ both inequalities reverse.
+The statements about branches and zeros follow.
+
+\emph{Pseudoconvexity.}
+Put $m(K)=\min_{a,b\in[-1,1]}|A-Sa-Tb|$.
+On every complementary component it is continuous and positive,
+and $-\log m$ is the continuous locally bounded supremum of the
+pluriharmonic functions $-\log|A-Sa-Tb|$.  Applying the submean
+inequality on each complex line proves that $-\log m$ is
+plurisubharmonic.  Thus
+\[
+ |K_x|^2+|K_y|^2+\max\{0,-\log m(K)\}
+\]
+is a continuous plurisubharmonic exhaustion.  It diverges at
+infinity and at every finite boundary point.  A bounded sublevel
+has $m$ bounded away from zero, so its limit points remain in
+the same component.  This verifies pseudoconvexity.
+\end{proof}
+
+\begin{corollary}[The whole spectral set]\label{geo:whole}
+One has $\Sigma=\{F_1F_2\le0\}$ and $\partial\Sigma=\{F_1F_2=0\}$.
+The components with $F_1,F_2>0$
+are the translates of $\mathcal D_H$ by $(\ii m\pi,\ii k\pi)$ in
+$(z,w)$, $m,k\in\Z$. Those with $F_1,F_2<0$ are the four images of
+$\mathcal D_L$ under independent sign changes of $z,w$.
+\end{corollary}
+\begin{proof}
+The indicated translations and reflections preserve $\Sigma$ by
+sign changes in its representing square. The strict equal-sign
+inequalities give exactly the listed domains by
+Proposition~\ref{geo:new:domains}. If $F_1>0>F_2$, hold $x,u$
+fixed and move $y$ to its nearest $m\pi$ and $v$ to its nearest
+$(k+1/2)\pi$. Along these segments $|\cos y|$ increases and
+$|\cos v|$ decreases, preserving the signs. At the endpoint
+$A=T(-1)^m\cosh x\tanh u$, whose displayed coefficient has
+absolute value less than one. This is a spectral representation
+with the coefficient of $S$ equal to zero. Since no point on the
+path can meet $\partial\Sigma$ by Lemma~\ref{geo:new:endpoint},
+the starting point is spectral. Exchange the axes for $F_2>0>F_1$;
+the zero set already belongs to $\Sigma$ by the same lemma.
+
+Every zero is approachable from an equal-sign region. At a double
+zero, increasing both $|x|,|u|$ makes both signs negative. At
+$F_1=0>F_2$ the same move works. At $F_1=0<F_2$ decrease $|u|$
+if $u\ne0$; when $u=0$ increase $|\cos y|$ from zero instead.
+The other cases follow by exchanging axes.
+\end{proof}
+
+\begin{lemma}[Canonical transfer root]
+\label{geo:new:root}
+Off $\Sigma$, for each real $q$, the equation
+\[
+ S\rho^2-2(A-T\cos q)\rho+S=0
+\]
+has a unique root of modulus less than one, interpreted as zero
+when $S=0$.  This root is holomorphic in the couplings and locally
+jointly holomorphic in a complex angle.  On any compact parameter
+set off $\Sigma$ it has a uniform modulus gap below one on the
+whole real angular circle.  In both positive real physical phases
+it is the positive decaying root.
+\end{lemma}
+\begin{proof}
+For $S\ne0$, $W=(A-T\cos q)/S$ lies outside $[-1,1]$.
+The two roots are reciprocal, distinct, and neither has modulus
+one.  Exactly one is inside; its implicit-function branches agree
+on overlaps by uniqueness.  When $S=0$, $A-T\cos q\ne0$,
+so the implicit-function theorem extends the same root through
+$\rho=0$.  Compactness gives the modulus gap and a common thin
+complex angular neighborhood.  At positive noncritical couplings
+the identity above gives $A-S-T>0$, so $W>1$ and $0<\rho<1$.
+\end{proof}
+
+At a regular face one spectral coefficient is an endpoint and the
+other is a local coordinate along the spectral interval. Such faces
+are dense in the boundary of each physical component.
+
+\begin{proposition}[Regular faces, coordinates, and dense phases]
+\label{geo:new:faces}
+Points of either physical boundary with $x,u\ne0$ and exactly
+one zero among $F_1,F_2$ are dense in that boundary.  Each is
+a regular edge: $S,T\ne0$, $\Im(\overline S T)\ne0$, its
+unique representing pair has exactly one endpoint, the other
+coordinate is in $(-1,1)$, and $p^2\ne1$.
+
+Where the endpoint is $b=\epsilon$, the variables
+\[
+ C=A/S,\qquad B=T/S,\qquad h=C-\epsilon B
+\]
+give a holomorphic chart in which the boundary is $\Im h=0$,
+$\Re h\in(-1,1)$, and the physical domain is its entire local
+complementary side.  When the endpoint is $a=\epsilon$, exchange
+the transfer axes.  On every regular face, points with free
+coefficient $\cos(2\pi k/q)$, $q$ an odd prime and
+$1\leq k\leq(q-1)/2$, are dense.
+\end{proposition}
+\begin{proof}
+At $F_1=0$ use Lemma~\ref{geo:new:endpoint} to write
+$A=Sa+\epsilon T$, $a\in[-1,1]$.  Since $x,u\ne0$, both $S,T$ are nonzero. By
+Lemma~\ref{geo:new:endpoint} the sign $\epsilon$ is unique, and
+$F_2\ne0$ gives $-1<a<1$. If $S,T$ were collinear, their real
+kernel line through $(a,\epsilon)$ would enter the representing
+square and leave at another endpoint. This would give either
+$F_2=0$ or the other sign of $\epsilon$. Also $p=\pm1$ would give
+a corner representation, by $A^2-(S+\delta T)^2=(p-\delta)^2$
+with $\delta=p$. These contradictions give all the strict conditions.
+Exchange the axes for $F_2=0$.
+
+\emph{Density of regular faces.}
+Fix real-part magnitudes $a,b$ with
+$\sinh a\sinh b<1$.  The HT closure has angular fiber
+\[
+ |y|\leq\arccos r_1(a,b),\qquad
+ |v|\leq\arccos r_2(a,b).
+\]
+At product one both intervals collapse to zero.  Any HT boundary
+point has an active face.  Approximate its magnitudes by positive
+$a_j,b_j$ with product below one, keep an active angular coordinate
+at its endpoint, and place the other strictly inside its interval.
+Choose signs to approach the prescribed coordinates.  This gives
+exactly one zero $F_i$ and nonzero real parts, also at strip tips,
+intersections, and collapsed fibers.
+
+At an LT boundary point $\sinh x\sinh u\leq1$; otherwise both
+inequalities are strict.  At least one cosine inequality is active,
+also when a real part is zero.  Approximate $x,u$ by positive
+$x_j,u_j$ with product below one.  If the first face is active,
+choose $|\cos y_j|=r_1(x_j,u_j)$ tending to the prescribed value
+and choose $|\cos v_j|<r_2(x_j,u_j)$ tending to the other value.
+The local cosine intervals permit this also at their zero or
+unit endpoints.  Exchange the roles when the second is active.
+This proves density at every exceptional stratum as well.
+
+\emph{Edge coordinates and resonant phases.}
+Direct differentiation gives
+\[
+ \det\frac{\partial(C,B)}{\partial(z,w)}=\frac{p^2-1}{S^3},
+ \qquad \Im(\overline S T)=|S|^2\Im B.
+\]
+In this chart the spectral set is the parallelogram
+$C\in[-1,1]+B[-1,1]$.  Near the interior of its endpoint
+edge, the representing coefficient satisfies
+\[
+ b-\epsilon=\frac{\Im(C-\epsilon B)}{\Im B},
+\]
+while the other coefficient stays strictly interior.  One local
+side is spectral and the other is connected and complementary;
+the latter meets, and therefore lies in, the physical component.
+For fixed $B$ the variable $h$ ranges over an open real interval
+on the face.  The mesh of the prime-angle grids tends to zero,
+proving the last assertion.
+\end{proof}
+
+\subsection{Physical temperature lines at arbitrary positive anisotropy}
+
+To determine the physical domains on each prescribed temperature
+line, define for $\lambda>0$ the odd real-analytic increasing
+bijections of $\mathbb R$
+\[
+ P_\lambda(a)=\cosh a\tanh(\lambda a),\qquad
+ Q_\lambda(a)=\cosh(\lambda a)\tanh a.
+\]
+Their derivatives are strictly positive; for example
+$P_\lambda'(a)=\sinh a\tanh(\lambda a)+
+\lambda\cosh a\operatorname{sech}^2(\lambda a)>0$.
+Let $z_c>0$ solve $\sinh z_c\sinh(\lambda z_c)=1$ and put
+\[
+ Y_\lambda=\frac\pi{2\max(1,\lambda)},\quad
+ H_\lambda(b)=\min\{P_\lambda^{-1}(\cos b),
+                         Q_\lambda^{-1}(\cos(\lambda b))\},
+ \quad |b|<Y_\lambda,
+\]
+\[
+ L_\lambda(b)=\max\{P_\lambda^{-1}(|\cos b|),
+                         Q_\lambda^{-1}(|\cos(\lambda b)|)\}.
+\]
+Substitution of $(z,w)=(t,\lambda t)$, $t=a+ib$, in
+Proposition~\ref{geo:new:domains} gives exactly
+\begin{equation}\label{geo:new:pullbacks}
+ \Omega_{H,\lambda}=\{|b|<Y_\lambda,\ |a|<H_\lambda(b)\},
+ \qquad
+ \Omega_{L,\lambda}=\{a>L_\lambda(b)\}.
+\end{equation}
+Here $P_\lambda(z_c)=Q_\lambda(z_c)=1$, so
+$0\leq L_\lambda\leq z_c$.  The HT profile is positive
+on its interval and tends to zero at both tips.  Its domain is
+star shaped by dilation; the LT domain is homeomorphic to a
+half-plane under $(a,b)\mapsto(a-L_\lambda(b),b)$.
+Both are therefore connected and simply connected.
+
+\begin{lemma}[Regular points on each prescribed line]
+\label{geo:new:slices}
+For every fixed $\lambda>0$, $\lambda\ne1$, all but a locally
+finite subset of each boundary in \eqref{geo:new:pullbacks}
+are regular joint edges.  The edge coordinate has nonzero
+derivative on the prescribed temperature line at every such point.
+The selected prime phases are consequently dense in every
+regular boundary arc and in the whole slice boundary.
+\end{lemma}
+\begin{proof}
+Define the signed profiles by
+\[
+ R(b)=P_\lambda^{-1}(\cos b),\quad
+ U(b)=Q_\lambda^{-1}(\cos(\lambda b)),\quad
+ E_\lambda(b)=R(b)^2-U(b)^2.
+\]
+The signed profiles are real analytic on the whole real line.
+At $b=Y_\lambda=\pi/(2\max(1,\lambda))$, exactly one of
+$\cos b$ and $\cos(\lambda b)$ is zero and the other is positive.
+As $P_\lambda(0)=Q_\lambda(0)=0$, $E_\lambda(Y_\lambda)\ne0$.
+Its zeros are therefore locally finite.
+
+Away from those contacts and the two HT tips, each boundary point
+has nonzero real part and exactly one active inequality.
+Proposition~\ref{geo:new:faces} supplies its regular edge chart.
+On an $F_1$ face write
+$r=e^{\epsilon\lambda t}\tanh(t/2)$, so $|r|=1$,
+$h=(r+r^{-1})/2$ and $(\log r)'=\epsilon\lambda+1/\sinh t$.
+For $t=a+ib$, the endpoint identity gives
+\[
+ \epsilon\Re(1/\sinh t)
+  =\frac{\sinh a\cosh a\tanh(\lambda a)}{|\sinh t|^2}\ge0.
+\]
+Hence $|h'(t)|\ge\lambda\sqrt{1-h^2}$. Exchanging axes gives
+$|h'(t)|\ge\sqrt{1-h^2}$ on an $F_2$ face, using
+$r=e^{\epsilon t}\tanh(\lambda t/2)$. The free coefficient
+therefore runs through an open interval on that line. Prime
+phases are dense there, and deleting the locally finite contacts
+and the tips leaves a dense subset of the whole slice boundary.
+\end{proof}
+
+On a regular HT $F_1$ face the endpoint is
+$\epsilon=\operatorname{sign}u$; on an LT $F_1$ face it is
+$\operatorname{sign}(\cos y)$.  Exchange coordinates on $F_2$.
+Thus the left HT boundary of every unequal positive-ratio slice
+has negative endpoint, and its right boundary has positive
+endpoint.  A regular selected point has $t_0\ne0$.  The map
+$(t,\lambda)\mapsto(z,w)=(t,\lambda t)$ has determinant $t_0$.
+The determinant and the nonzero edge derivative give $B=B(h,\lambda)$
+on a product polydisk by the holomorphic implicit-function theorem.
+On a smaller polydisk, $|\lambda-1|$ and $|\Im B|$ have positive lower
+bounds, the sign of $\Im B$ is fixed, and the physical factors are
+nonzero. The larger polydisk supplies common Cauchy bounds for the
+parameter family.
+
+\subsection{The spectrum on a fixed-ratio line}\label{sec:slice-spectrum}
+
+Write $\Sigma_\lambda=\{t:(t/2,\lambda t/2)\in\Sigma\}$. Since
+$P_\lambda(z_c)=Q_\lambda(z_c)=1$, monotonicity gives
+$|\Re t|\le z_c$ on $\Sigma_\lambda$. Near $t=z_c$ at height $b$,
+the width between the two spectral edges is
+\[
+ \tfrac12|\lambda\coth(\lambda z_c)-\coth z_c|\, b^2+O(b^4).
+\]
+Indeed the edges have real parts $z_c-b^2/(2P'_\lambda(z_c))+O(b^4)$
+and $z_c-\lambda^2 b^2/(2Q'_\lambda(z_c))+O(b^4)$.
+For $h=\sinh z_c$ and $c=\cosh z_c$ the two derivatives are
+$h(1+\lambda h)/c$ and $(1+\lambda h)/(hc)$. Their substitution
+gives the displayed coefficient, positive for $\lambda\ne1$ by
+strict increase of $v\coth v$ for $v>0$.
+
+On the imaginary axis the spectral condition is
+$\cos b\cos(\lambda b)=0$. Simultaneous zeros occur precisely when
+$\lambda=r/s$ in lowest terms with both entries odd, and then
+$b=(2j+1)\pi s/2$ with $j\in\Z$. The spectrum is invariant under
+sign and conjugation, and $\Sigma_{1/\lambda}=\lambda\Sigma_\lambda$
+by axis exchange. For rational $\lambda=r/s$, $\ii\pi s$ is a
+period by the two incidence tests. For irrational $\lambda$ there
+is no nonzero period. The strip bound forces every period to be
+imaginary. The two progressions on the imaginary axis have
+incommensurable steps, so a translate of one meets the other at
+most once. A period would have to preserve both progressions.
+
+For each of the two parities $\Sigma_\lambda$ is the closure of the
+zeros of $A-S\cos(2\pi j/N)-T\cos(2\pi k/N)$ with $N=p$ or
+$2p$, respectively, for odd primes $p$. For any representing
+pair in $[-1,1]^2$, choose grid pairs converging to it. The points
+$(j,k)=(0,0)$ and, in even order, $j+k=N/2$ may be omitted.
+The corresponding entire functions converge locally uniformly to
+$A-Sa_1-Ta_2$, which equals one at $t=0$. Rouch\'e's theorem on
+small circles about any zero proves the assertion. Since $S,T$
+cannot both vanish at a spectral point, the approximating pairs can
+also be chosen off its representing affine equation. Thus
+$\Sigma_\lambda$ has no isolated points.
+
+At a regular negative HT endpoint choose the transfer axis so that
+$a_2=-1$ and take $a_1=b_0=\cos(2\pi r/q)$, where $q$ is an odd
+prime. Throughout the HT lens $\Re(T\overline S)>0$ except at zero,
+as follows by expanding its two nonnegative terms
+$\sinh a\,\sinh(\lambda a)\cos b\cos(\lambda b)$ and
+$\cosh a\,\cosh(\lambda a)\sin b\sin(\lambda b)$. Thus $\sqrt B$
+has its principal value, also on the regular boundary by continuity.
+Set $D(t;a_1,a_2)=A-Sa_1-Ta_2$. At a selected endpoint $t_0$,
+$D_t(t_0;b_0,-1)\ne0$ by Lemma~\ref{geo:new:slices}.
+For odd multiples $n$ of $q$, $-\cos(\pi/n)$ is an adjacent
+$n$-grid value. The implicit function theorem gives the displaced root
+\[
+ t_n=t_0+\frac{T(t_0)}{D_t(t_0;b_0,-1)}
+                  \frac{\pi^2}{2n^2}+O(n^{-4}).
+\]
+For large $n$ the two directions remain independent and the representing
+pair is strictly interior, so $t_n$ is an interior point of the spectrum.
+
+When $\Re t\ne0$, both $S$ and $T$ are nonzero. If they are collinear
+at a spectral point, the representing segment cannot meet opposite
+edges of the same coordinate: the endpoint identities would give
+$\Re t=0$ or $\lambda\Re t=0$. Hence it meets edges of both
+coordinates, including the case of a single corner. Thus $F_1=F_2=0$
+and the product formula for $|p|$ gives $|p|=1$. Conversely, if
+$T/S=r\in\R$ and $|p|=1$, write $S=|S|e^{\ii\theta}$. Then
+$(A/S)^2=1+r^2+2|r|\cos(2\theta)$, so $A/S$ is real of modulus
+at most $1+|r|$ and a representing pair exists. At unequal ratios
+these points lie among the locally finite profile intersections of
+Lemma~\ref{geo:new:slices}.
+
+\subsection{Exceptional points and the isotropic covering}
+
+\begin{lemma}[Inward deformation and componentwise continuation]
+\label{geo:new:collar}
+For either physical joint domain or either slice domain, if
+$P\in\partial D$ and $U$ is a neighborhood of $P$, there is
+a neighborhood $V\subset U$ of $P$ such that $D\cap V$ lies
+in a single component of $D\cap U$.  Every component of
+$D\cap U$ accumulating at $P$ contains $D\cap V$.
+Consequently a dense set of local obstructions on the full domain side
+excludes componentwise extension at every finite frontier point.
+\end{lemma}
+\begin{proof}
+For HT use $H_s(Q)=(1-s)Q$.  For joint LT increase both real
+parts by $s$; on an LT slice use $t\mapsto t+s$.
+The domain and closure proofs show that these deformations
+preserve $D$ and move every boundary point inside for $0<s<1$.
+Choose a small fixed $s>0$ with $H_v(P)\in U$ for $0\leq v\leq s$,
+and a ball about $H_s(P)$ contained in $D\cap U$.
+Continuity uniformly for $v\in[0,s]$ gives a sufficiently small
+$V$ for which all paths $H_v(Q)$, $Q\in D\cap V$, remain
+in $D\cap U$ and end in that ball.  Join endpoints in the
+ball to connect any two points of $D\cap V$. Every accumulating
+component meets $D\cap V$, so it is the same component.
+
+If an extension at $P$ agrees on an accumulating component,
+it therefore agrees on $D\cap V$.  Choose a dense obstructing
+point of $\partial D$ inside $V$ and restrict the proposed
+extension to its neighborhood.  This contradicts its defining
+obstruction.
+\end{proof}
+
+Consider a continuation path in an unramified Riemann domain over
+the coupling space. As long as its projection lies in $D$, uniqueness
+identifies the germ with the single-valued function on $D$. If the
+projection leaves $D$, its compact image meets the finite boundary
+at the first exit. A local biholomorphic chart there would extend the
+function through that point on an accumulating component, contrary
+to the preceding lemma.
+
+\begin{lemma}[Disk and exterior coordinates]
+\label{geo:new:cover}
+At $\lambda=1$, put $s=\sinh t$.  The exact spectral preimage is
+$\{|\sinh t|=1\}$, and
+\[
+ \Omega_{H,1}=\{|b|<\pi/2,\ |a|<\operatorname{arsinh}(\cos b)\},
+ \qquad
+ \Omega_{L,1}=\{a>\operatorname{arsinh}(|\cos b|)\}.
+\]
+The map $\sinh$ is a biholomorphism from $\Omega_{H,1}$ onto
+$|s|<1$ and a universal covering from $\Omega_{L,1}$ onto
+$|s|>1$, with deck translations $t\mapsto t+2\pi i k$.
+\end{lemma}
+\begin{proof}
+Now $S=T=s$, $A=1+s^2$.  For $s\ne0$ the unsquared
+spectral condition is $s+s^{-1}\in[-2,2]$, precisely $|s|=1$;
+$s=0$ is nonspectral.  The profiles follow from
+$P_1=Q_1=\sinh$.
+
+The identity $|\sinh(a+ib)|^2=\sinh^2a+\sin^2b$
+maps the HT lens into the disk and its boundary into the circle.
+Equal hyperbolic sines require either
+$t_1=t_2+2\pi i k$ or $t_1=-t_2+(2k+1)\pi i$.
+In the central strip only the first alternative with $k=0$
+is possible.  The derivative has no zero there.  The lens is
+bounded, so its image is both open and relatively closed in
+the disk, and contains zero.  It is the entire disk.
+
+For the exterior put $\omega=e^t$.  The equation
+$\omega-\omega^{-1}=2s$ has exactly one root with $|\omega|>1$
+for $|s|>1$: the root moduli have product one, and a unit root
+would give $s\in i[-1,1]$.  The outside root varies holomorphically,
+using $\sqrt{s^2+1}=s\sqrt{1+s^{-2}}$ with the binomial branch.
+Its image is
+\[
+ \{re^{ib}:r>\exp(\operatorname{arsinh}|\cos b|)\},
+\]
+by the same modulus identity.  This root map is a biholomorphism.
+Its full exponential preimage is the simply connected LT epigraph,
+so exponentiation is its universal covering and has the stated
+deck group.
+\end{proof}
+
+The reduced LT susceptibility descends once its termwise invariance
+under these deck translations has been proved in
+Section~\ref{sec:physical}. After descent, an extension of either
+descended function through a unit-circle point would compose with the
+entire map $\sinh$ to extend the physical slice. This implication also
+holds at the ramified boundary values $s=\pm i$. The physical factor
+$\beta=t/(2J_x)$
+is single valued on the physical temperature domain and nonzero
+on its boundary: zero is HT interior and is outside the LT
+closure.  It therefore preserves boundary extendability there;
+in the LT exterior it remains a function on the covering.
+
+\section{The full-lattice angular integral}\label{sec:physical}
+
+At positive noncritical couplings, use the form-factor expansion for
+the two-spin correlation as written by Orrick, Nickel, Guttmann and Perk.
+Their $s,s',\cot\alpha$ are $S,T,\sqrt{T/S}$, and their modulus is $p$
+in HT and $p^{-1}$ in LT \cite[(1.2), (1.6), (2.9)]{ONGP}.
+Their $x_i$ is the positive decaying root
+$\rho_i=e^{-\gamma_i}$ \cite[(3.3), (3.14)--(3.16)]{ONGP}, where
+\[
+ B=T/S,\qquad C=A/S,\qquad \cosh\gamma_i=C-B\cos q_i .
+\]
+Let $Z=\prod_i\rho_i$, $d\lambda_N=\prod_{i=1}^N dq_i/(2\pi)$
+and put
+\[
+ P_{ij}=B\frac{\sin^2((q_i-q_j)/2)}{\sinh^2((\gamma_i+\gamma_j)/2)},
+ \qquad
+ w_N(q)=\frac{B^{N/2}}{N!}\prod_i\frac1{\sinh\gamma_i}\prod_{i<j}P_{ij}.
+\]
+Here $P_{ij}$ is the square of the pair factor in
+\cite[(3.19)--(3.20)]{ONGP}. The plus-state magnetization $M$ vanishes
+in HT and satisfies $M^2=(1-p^{-2})^{1/4}$ in LT \cite[(2.2)]{ONGP}.
+Write $e_H=(1-p^2)^{1/4}p^{-1/2}$,
+$e_L=(1-p^{-2})^{1/4}$, and let $\mathcal N_H,\mathcal N_L$ be the
+positive odd and positive even indices respectively. For the
+homogeneous zero-field Gibbs state $\mu$ in the site formula, setting
+the particle fugacity to one in \cite[(4.1)--(4.2)]{ONGP} gives
+\begin{equation}\label{eq:real-site}
+ C(a,b)-M^2=e_\nu\sum_{N\in\mathcal N_\nu}
+ \int_{\mathbb T^N} w_N(q)\,Z^{|a|}
+                 \cos\!\bigl(b\textstyle\sum_i q_i\bigr)\,d\lambda_N,
+ \qquad C(a,b)=\mu(\sigma_0\sigma_{(a,b)}).
+\end{equation}
+The LT zero-particle term is $M^2$, and $C(-a,-b)=C(a,b)$.
+The site $(0,0)$ contributes $1-M^2$. In $w_N$ the one-particle and
+pair factors give a total power $N/2+N(N-1)/2=N^2/2$ of $B$.
+The finite-cylinder weight in \cite[(39)]{BL} has the same power.
+With $t_x=\tanh K_x$ and $t_y=\tanh K_y$, its anisotropy ratio
+$t_y(1-t_x^2)/(t_x(1-t_y^2))$ equals $T/S$.
+
+For $q_N=-\sum_{i<N}q_i$ modulo $2\pi$, set
+$d\mu_N=\prod_{i<N}dq_i/(2\pi)$ and define
+\begin{equation}\label{eq:complete-angular}
+ C_N(C,B)=\int_{\sum q_i=0} w_N(q)\frac{1+Z}{1-Z}\,d\mu_N .
+\end{equation}
+Summing the correlation in \eqref{eq:real-site} over the lattice gives
+\begin{align}
+ \mathcal X_H&=(1-p^2)^{1/4}p^{-1/2}
+                    \sum_{N\ {\rm odd}} C_N(C,B),\label{eq:physical-formsH}\\
+ \mathcal X_L&=(1-p^{-2})^{1/4}
+                    \sum_{N\ge2,\ N\ {\rm even}} C_N(C,B)
+                    \label{eq:physical-forms}
+\end{align}
+with the normalization of \cite[(1.8)--(1.10), (3.13)]{ONGP}.
+The site sums and their Fourier evaluation are justified in
+Section~\ref{sec:lattice-sum}.
+
+\subsection{The two factors of an angular pair}
+
+Put $z_i=e^{\ii q_i}$, $u_i=\rho_i$ and $H(v,w)=(v-w)/(1-vw)$.
+Subtracting the dispersion equations gives
+$(u_i-u_j)(1-u_i u_j)=-B(u_i u_j/z_i z_j)(z_i-z_j)(1-z_i z_j)$.
+Consequently
+\begin{equation}\label{eq:split-pair}
+ P_{ij}=-\frac{Bu_i u_j}{z_i z_j}
+        \left(\frac{z_i-z_j}{1-u_i u_j}\right)^2
+       =H(z_i,z_j)H(u_i,u_j),
+\end{equation}
+where the first expression fills removable values in the second.
+
+On each contour used below the complete pair product is estimated by
+Lemma~\ref{lem:analytic-det} in Appendix~\ref{app:forms}. In particular,
+one may divide out the squared differences on any fixed block of angles.
+
+\subsection{A symmetric site integral}
+
+For $a,b\in\mathbb Z_{\ge0}$ and $D(v,w)=A-S(v+v^{-1})/2-T(w+w^{-1})/2$, put
+\begin{equation}\label{eq:double-site}
+ J_N(a,b;A,S,T)=\frac1{N!}\int
+ \prod_{i<j} H(v_i,v_j)H(w_i,w_j)
+ \prod_{i=1}^N \frac{v_i^a w_i^b}{D(v_i,w_i)}
+      \frac{\dd v_i}{2\pi\ii v_i}\frac{\dd w_i}{2\pi\ii w_i}.
+\end{equation}
+All circles have the same radius $r<1$. Off $\Sigma$, $D$ has a
+uniform gap on the unit tori on each compact parameter set. It keeps
+this gap when all radii lie between $r$ and $1$ for $r$ sufficiently
+close to one. The integral is independent of that choice of $r$
+by Cauchy's theorem with the circles strictly inside the unit disk.
+Swapping the two sets gives $J_N(a,b;A,S,T)=J_N(b,a;A,T,S)$.
+For $S=T=1$ and even $N$ the double integral occurs in
+\cite[Appendix~1, (7)--(8)]{TW}.
+
+On the integration circles each $H$ is bounded and
+$|1-w_iw_j|\ge 1-r^2$. Lemma~\ref{lem:analytic-det} with the
+root values $w_i$ and angular values $v_i$ gives
+\begin{equation}\label{eq:interior-site}
+ |J_N(a,b;A,S,T)|\le\frac{C^N}{N!}e^{-\kappa N^2}r^{N(a+b)} .
+\end{equation}
+For real positive noncritical couplings $A>S+T$. The $v_i$ integral
+has the sole interior pole $v_i=\rho_i$, with residue
+$\rho_i^a/(S\sinh\gamma_i)$ in its one-body factor; $1/D$ cancels
+the pole at zero. The roots have a uniform gap on the $w_i$ circles.
+After taking the residues, \eqref{eq:split-pair} fills the apparent
+reflected-pair poles as those circles expand to radius one.
+Thus multiplying $J_N$ by $p^{N/2}$ gives the site integral in
+\eqref{eq:real-site}, by reflection in the second coordinate.
+
+Set $F_N=\sum_{a,b\in\Z}J_N(|a|,|b|;A,S,T)$. The parity of the
+physical expansion gives integer powers in
+\begin{align}
+ \mathcal X_H&=(1-p^2)^{1/4}\sum_{N\ {\rm odd}}p^{(N-1)/2}F_N,
+                  \label{eq:global-seriesH}\\
+ \mathcal X_L&=(1-p^{-2})^{1/4}\sum_{N\ge2,\ N\ {\rm even}}p^{N/2}F_N.
+                  \label{eq:global-series}
+\end{align}
+The integrals are holomorphic also when $ST=0$. Estimate
+\eqref{eq:interior-site} on larger compact neighborhoods gives normal
+convergence after every fixed mixed derivative.
+
+\subsection{Identifying the state and summing over the lattice}\label{sec:lattice-sum}
+
+For real positive noncritical couplings the sum in \eqref{eq:real-site}
+thus gives $|C(a,b)-M^2|\le C'e^{-c(|a|+|b|)}$. With
+$m_L=|\Lambda_L|^{-1}\sum_{x\in\Lambda_L}\sigma_x$ on centered
+square boxes, averaging gives $\mu(\sigma_0m_L)\to M^2$.
+
+In $L^2(\mu)$, box averages converge to projection onto the
+translation-invariant functions. They fix that subspace and tend
+to zero on differences $g-g\circ T$ for either coordinate shift
+$T$, by telescoping. The closed span of these differences is its
+orthogonal complement, and the averages are contractions. Write
+$m$ for the projection of $\sigma_0$. Then
+$\mu(m^2)=\mu(\sigma_0m)=M^2$, and
+$\mu(\sigma_x\mid m)=m$ for every $x$ by invariance and projection.
+Ignoring any fixed finite set of spins changes $m_L$ by $o(1)$.
+An almost surely convergent subsequence therefore gives a
+tail-measurable representative of $m$.
+
+Conditioning on any positive-probability event determined by $m$
+thus preserves the Gibbs conditional laws. Every such state lies
+between the minus and plus states in ferromagnetic order. Indeed,
+conditioning outside a finite box bounds increasing local observables
+between the two fixed boundary conditions, by monotonicity of the
+single-spin update in its neighbors. Exhaustion gives the infinite-volume order.
+Its one-site mean lies in $[-M,M]$. Since the conditional mean is
+$m$, we have $|m|\le M$ almost surely, hence $|m|=M$ by the second
+moment. On $\{m=M\}$ the state is dominated by the plus state and
+has the same mean at every site. For any real local observable $f$
+supported on $V$, both $L\sum_{x\in V}\sigma_x\pm f$ are increasing
+for large $L$. Applying the order to these observables gives equality
+of the two expectations of $f$. On $\{m=-M\}$ the reversed comparison
+gives the minus state. When $M=0$ the same comparison identifies the
+unique state. Spin flip identifies the two-spin expectations in
+either sign.
+
+By \eqref{eq:interior-site} the two site sums and the particle sum
+converge absolutely. At fixed $N$ sum first in $a$, obtaining
+$(1+Z)/(1-Z)$. Summation in $b$ evaluates at zero the absolutely
+convergent Fourier series of the density of the total angle. This
+density at $\theta$ is the integral over $q_1,\ldots,q_{N-1}$ with
+$q_N=\theta-\sum_{i<N}q_i$ and measure
+$\prod_{i<N}dq_i/(2\pi)$. At zero it is exactly the integral in
+\eqref{eq:complete-angular}, proving \eqref{eq:physical-formsH}--\eqref{eq:physical-forms}.
+Equality on a real rectangle fixes the physical germ by the one-variable identity
+theorem in each coordinate. Locally where $ST\ne0$, \eqref{eq:complete-angular} uses the
+compatible $\sqrt B=\sqrt p/S$ with the corresponding HT factor
+in \eqref{eq:physical-formsH}.
+
+\subsection{Isotropic normalization and low-temperature descent}
+
+At $z=w=t$ put $s=\sinh t$. Then $B=1$ and $C=s+s^{-1}$.
+Define the single-variable coefficient on $|\zeta|>1$ by
+\begin{equation}
+ \begin{gathered}
+ C_N(\zeta)=\frac1{N!}\int_{\sum q_i=0\ (2\pi)}
+ \frac{1+Z}{1-Z}\prod_i\frac1{\sinh\gamma_i}
+ \prod_{i<j}\frac{\sin^2((q_i-q_j)/2)}
+                  {\sinh^2((\gamma_i+\gamma_j)/2)}
+                  \prod_{i<N}\frac{\dd q_i}{2\pi},\\
+ \cosh\gamma_i=\zeta+\zeta^{-1}-\cos q_i .
+ \end{gathered}
+ \label{eq:iso-coefficient}
+\end{equation}
+Choose each root $\rho_i=e^{-\gamma_i}$ with $|\rho_i|<1$.
+On both positive real phases the roots and one-particle factors agree
+with \cite[(3.17)--(3.18)]{ONGP}. The image
+$\zeta+\zeta^{-1}$ avoids $[-2,2]$ on $|\zeta|>1$, so this
+definition is single valued there and agrees with the complete
+physical coefficient on either real phase. For these isotropic
+functions we also write $\mathcal X_H(s)=X_H(s)$ and
+$\mathcal X_L(s)=X_L(s)$. Equations
+\eqref{eq:physical-formsH}--\eqref{eq:physical-forms} give
+\begin{align}
+ X_H(s)&=(1-s^4)^{1/4}s^{-1}
+                   \sum_{N\ge1,\ N\ {\rm odd}}C_N(1/s),
+                   \label{eq:iso-physicalH}\\
+ X_L(s)&=(1-s^{-4})^{1/4}
+                   \sum_{N\ge2,\ N\ {\rm even}}C_N(s).
+ \label{eq:iso-physical}
+\end{align}
+The branches are the binomial ones. The summable bound on the angular
+integrals gives normal convergence on compact subsets of each physical domain.
+
+Under $t\mapsto t+2\pi i$, the quantities $S,T,A,p$, their canonical
+roots and the integer-power coefficients in \eqref{eq:global-series}
+are unchanged. The reduced LT sum is therefore invariant term by
+term and descends under the covering of Lemma~\ref{geo:new:cover}.
+The factor $\beta=t/(2J_x)$ remains on the temperature cover.
+
+For $|\zeta|$ sufficiently large, the canonical root satisfies
+$|\rho|\le C/|\zeta|$, the one-body factor is at most
+$C/|\zeta|$, and every complete pair is at most $C/|\zeta|^2$.
+The product kernel is uniformly bounded. Enlarging $C$ once gives
+$|C_N(\zeta)|\le (C/|\zeta|)^{N^2}/N!$.
+This supplies normal convergence also at $1/\zeta=0$.
+At $\zeta=\infty$, direct expansion gives
+$C_N(\zeta)=O(\zeta^{-N^2})$ for each fixed $N$ and
+$C_1(\zeta)=1/(\zeta+\zeta^{-1}-2)$.
+The joint construction is holomorphic at $s=0$; its Taylor
+coefficients can be taken termwise on a sufficiently small disk.
+Thus
+\[
+ X_H(s)=\frac{(1-s^4)^{1/4}}{(1-s)^2}+O(s^8),\qquad
+ X_H(0)=1,\qquad
+ X_L(s)=\frac1{4s^4}+O(s^{-6})\quad(s\to\infty).
+\]
+For even $N$, shifting every angle by $\pi$ and changing every
+root's sign gives $C_N(-\zeta)=C_N(\zeta)$; conjugation follows
+from the real germ. This justifies the even powers in the LT
+expansion and will transfer its boundary obstructions between
+quadrants. The LT leading coefficient follows already at $N=2$ from
+$\tfrac12\int_0^{2\pi}\sin^2q\,\dd q/(2\pi)=1/4$.
+For $N=1$ the root equation gives
+$F_1=2\rho_1/[S(1-\rho_1)^2]=1/(A-T-S)$ by continuation. At $p=0$ the higher HT
+terms vanish. On a decoupled axis this agrees with the independent
+chains, which give
+$\mathcal X_H(K_x,0)=\sum_{m\in\Z}\tanh(K_x)^{|m|}
+=e^{2K_x}$ on the real axis and then by analytic continuation.
+This decoupled restriction extends to an entire function.
+
+\subsection{The energy-field response}
+Finite-volume differentiation with respect to an energy field $h$
+gives $\chi=\beta\mathcal X$. To pass this identity to the
+specified infinite-volume state, we compare finite plus boxes using
+field monotonicity. The GHS inequality for arbitrary
+nonnegative interactions and site fields \cite[Theorem 1.5]{CGN}
+says that a two-spin covariance decreases when any nonnegative
+field increases. Pin the spins outside a smaller plus box with
+fields tending to $+\infty$ and then release them to the fields
+of a larger plus box. Covariances increase, so their nonnegative
+sums increase to the finite connected sum just constructed.
+Concavity in a uniform positive field gives
+\[
+ m_V(h)-m_V(0)\le h m'_V(0)\le\beta h\mathcal X.
+\]
+Taking the plus-state limit proves $m'(0+)\le\beta\mathcal X$.
+For the reverse inequality turn on the field only on a finite set
+$E$. This is a bounded local change of measure, with derivative
+$\beta\sum_{v\in E}\operatorname{Cov}_{+,0}(\sigma_0,\sigma_v)$.
+Ferromagnetic monotonicity bounds this magnetization by the
+uniform-field one, with equality at $h=0$. Increase $E$ to the
+lattice. Thus $m'(0+)=\beta\mathcal X$. Spin-flip symmetry makes
+the HT derivative two-sided; the LT derivative is the plus-phase
+right derivative. On a physical temperature slice, $\beta=t/(2J_x)$.
+
+
+\section{Collision estimates at noncollinear edges}
+\label{edge:new:section}
+
+The product kernel can lose its boundary gap only when all angles
+approach the endpoint.  The quadratic zeros of the pair factors control
+this collision, while the remaining pairs provide decay in the particle
+index. Both bounds hold on the constrained cycle with its $N-1$
+independent angles.
+
+Let $I\Subset(-1,1)$ be a compact interval, let
+$\mathcal P\Subset\mathcal P^+$ be parameter polydisks, and suppose
+$B(h,\eta)$ is bounded and holomorphic on a fixed neighborhood of
+$I\times\overline{\mathcal P^+}$.  Fix $\sigma\in\{1,-1\}$ and assume
+$\sigma\Im B(b,\eta)\ge\beta>0$ for $b\in I$ and
+$\eta\in\mathcal P^+$.  Put $q_0=0$ or $\pi$ according as
+$\sigma=1$ or $-1$, and write
+\[
+ W(h,q)=h+B(h)(\sigma-\cos q),\qquad
+ \gamma(h,q)=\operatorname{arcosh}W(h,q),\qquad
+ \gamma(b,q_0)=\ii\arccos b.
+\]
+On the physical side $h=b+\ii y$, $y>0$, write $\rho=e^{-\gamma}$ and
+$Z=\prod_i\rho_i$.  The complete coefficient is
+\[
+ C_N(h)=\frac1{N!}\int_{\sum q_i=0\ (2\pi)}G_N(h,q)
+              \frac{1+Z}{1-Z}\prod_{i<N}\frac{\dd q_i}{2\pi},
+\quad
+ G_N=B^{N^2/2}\prod_i\frac1{\sinh\gamma_i}
+       \prod_{i<l}\frac{\sin^2((q_i-q_l)/2)}
+       {\sinh^2((\gamma_i+\gamma_l)/2)}.
+\]
+All powers and branches are those fixed by the physical continuation
+in Section~\ref{sec:physical}.
+
+\begin{lemma}[A retained collision block]\label{edge:new:gaussian}
+For each fixed integer $\ell\ge0$ let
+$V_\ell=\prod_{a<b\le\ell}\sin^2((q_a-q_b)/2)$, with an empty
+product equal to one.  There are $\kappa>0$ and common neighborhoods
+such that $G_N=V_\ell A_{N,\ell}$, where the quotient is holomorphic
+after its apparent coincidence singularities are filled, and
+\[
+ |\partial_h^j A_{N,\ell}|
+ \le C_{\ell,j}\exp\{-\kappa N^2+C_\ell N\log(N+1)\},
+ \qquad N\ge\ell.
+\]
+The bound is uniform in the real angles, in $b\in I$, and in the
+larger parameter polydisk.  Every fixed additional parameter derivative
+satisfies the same bound on $\mathcal P$.
+\end{lemma}
+\begin{proof}
+On the compact branch $\Im\rho\le-d<0$ and $|\rho|\le1$.
+Thus $1-\rho_i\rho_l$ and the one-body denominators are separated
+from zero on a common complex neighborhood of the angular torus
+and parameter set. The divided pair in \eqref{eq:split-pair} is uniformly bounded
+there, including its anisotropy factor $B$. Apply
+Lemma~\ref{lem:analytic-det} to the complete pair product, retaining
+the $\ell$ labels. The remaining one-body factors, including
+$B^{N/2}$, cost at most $C^N$.
+
+This proves the estimate even
+at coincident angles. Cauchy's formula on the larger parameter
+set gives all the stated fixed derivatives.
+\end{proof}
+
+The numerator estimate supplies summability independently of the product
+kernel.  Retaining a suitable finite block of collision zeros then makes
+every prescribed derivative of that kernel integrable.
+
+\begin{theorem}[Tail derivatives at a noncollinear edge]
+\label{edge:new:budget}
+Fix a parity, an integer cutoff $m\ge2$ of that parity, and $J\ge0$
+such that
+\[
+                         2J<(m+2)^2-3.
+\]
+For $N\ge m+2$ of that parity and $0\le j\le J$,
+\[
+ \sup_{b\in I,\,0\le y\le y_0,\,\eta\in\mathcal P}
+ |\partial_h^j\partial_\eta^\alpha C_N(b+\ii y,\eta)|
+ \le\frac{C_{m,J,\alpha}N^J}{N!}
+       e^{-\kappa N^2+C_mN\log(N+1)}.
+\]
+The boundary values are continuous for every $b\in I$, and the complete
+tail and its derivative series converge uniformly on the closed
+half-neighborhood. Each lower coefficient is
+holomorphic through every subarc on which its endpoint resonance is
+absent.  Consequently deleting the finite set
+\[
+ \{b\in I:N\arccos b\in2\pi\mathbb Z
+             \text{ for some retained-parity }N\le m\}
+\]
+gives continuous jets through $J$ for the complete parity sum.
+On a shorter collar let $j$ be the greatest integer with
+$2j<n^2-3$, $n=m+2$. The order-$j$ derivative of the tail has modulus $O(\sqrt r)$ for even $n$
+and $O(r\log(e/r))$ for odd $n$, where $r$ is distance in $h$.
+Its lower derivatives are Lipschitz there. For $\sigma=-1$ in odd
+parity the complete sum has continuous jets of every finite order
+throughout $I$.
+\end{theorem}
+\begin{proof}
+Write $q_i=q_0+x_i$ with $-\pi\le x_i\le\pi$. The compact branch
+has bounded derivatives and
+\[
+ \Im W=y+\sigma\Im B(h)(1-\cos x_i)
+       =\sinh(\Re\gamma_i)\sin(\Im\gamma_i).
+\]
+Hence $\Re\gamma_i\ge c(y+x_i^2)$. In the open collar expand
+$(1+Z)/(1-Z)=1+2\sum_{L\ge1} Z^L$ and let $U_{L,N}$
+denote the integral with factor $Z^L$, including $1/N!$.
+For $L=0$ the integral extends to a fixed parameter disk with
+the bound of Lemma~\ref{edge:new:gaussian}.
+For $L\ge1$ retain the pair zeros on $n=m+2$ labels.
+Lemma~\ref{edge:new:gaussian} bounds the divided numerator on a common
+complex neighborhood, uniformly in the auxiliary parameters. With $n$
+fixed, decreasing $\kappa$ absorbs the factor $\exp(C_n N\log(N+1))$
+in its bound.
+Proposition~\ref{p:transfer} in Appendix~\ref{app:forms}, with
+$\vartheta=0$ and $d_N=\dist(Nq_0,2\pi\Z)$, gives
+\eqref{eq:edge-transfer}. Cauchy's formula in the auxiliary polydisk
+gives the same bound for each fixed $\partial_\eta^\alpha$.
+Summation gives the stated moduli, and one more bounded derivative
+gives Lipschitz continuity at lower orders. Uniform limits along
+horizontal segments identify the tangential derivatives of the traces.
+
+For each fixed lower index a pole at the endpoint requires all
+$x_i=0$ and $N\arccos b\in2\pi\Z$. Else the compact contour has a
+gap on a parameter disk. At the negative endpoint in odd parity
+$d_N=\pi$, so $Q\ge\pi^2/N$ and
+$\Re\sum_i\gamma_i\ge c(Ny+\pi^2/N)$.
+A perturbation of $h$ by $c_1(y+N^{-2})$ keeps this positive,
+since the sum changes by at most $CN|\Delta h|$. The kernel is then
+$O(N)$. Cauchy's formula bounds its contribution after $j$ derivatives
+by $j!(CN^2)^j CN e^{-\kappa'N^2}$, summably in odd $N$.
+This proves the assertions on the entire negative arc.
+\end{proof}
+
+At a first finite resonance, take $m$ to be its index and $J$ to be
+the order of its singular derivative. Theorem~\ref{edge:new:budget}
+then bounds the derivatives of the entire higher tail. At a
+collinear edge the same range of derivative orders is available.
+
+\section{The collinear collar from lattice Fourier coefficients}
+\label{iso:new:section}
+
+We group directions on each square lattice shell. In an interior group
+the Fej\'er kernel is concentrated near multiples of $2\pi$ in total angle.
+Gaussian integrals on the contour for the central direction bound the
+contribution of that group. At the endpoints we sum the individual site bounds.
+
+For $\sigma=\pm1$ put $a_+=0$, $a_-=\pi$, and write
+\[
+ H_N^\sigma=\{\theta\in(\R/2\pi\mathbb Z)^N:
+                    \textstyle\sum_i\theta_i=a_\sigma\},\qquad
+ d\mu_N=\prod_{i<N}\frac{d\theta_i}{2\pi}.
+\]
+Eliminating the last coordinate gives $d\mu_N$ as hypersurface measure
+divided by $\sqrt N(2\pi)^{N-1}$. For $\Im E>0$
+choose $\rho_i=e^{-\gamma_i}$ by $|\rho_i|<1$ and
+$\cosh\gamma_i=E-\cos\theta_i$.  Define
+\begin{equation}\label{iso:new:F}
+ \mathcal F_N^\sigma(E)=\frac1{N!}\int_{H_N^\sigma}
+ \frac{1+\sigma Z}{1-\sigma Z}
+ \prod_i\frac1{\sinh\gamma_i}\prod_{i<l}P_{il}\,d\mu_N,
+ \quad Z=\prod_i\rho_i,
+ \quad P_{il}=\frac{\sin^2((\theta_i-\theta_l)/2)}
+                       {\sinh^2((\gamma_i+\gamma_l)/2)}.
+\end{equation}
+The same sign appears in the momentum constraint and the product
+kernel. The physical coefficient uses $\sigma=+$, and $\sigma=-$
+implements the dispersion reflection for odd orders.
+
+\begin{theorem}[Tail derivatives at an isotropic edge]\label{iso:new:budget}
+Let $K\Subset(0,2)$ be a compact interval, fix an integer $n\ge2$,
+and let $j_*$ be the greatest integer satisfying $2j_*<n^2-3$.
+There exist $y_0,\kappa>0$ such that for either sign, every $N\ge n$
+and $0\le j\le j_*$, the derivative $\partial_E^j\mathcal F_N^\sigma$
+extends continuously to $K+\ii[0,y_0]$ and satisfies
+\begin{equation}\label{iso:new:majorant}
+ \sup_{E\in K+\ii[0,y_0]}|\partial_E^j\mathcal F_N^\sigma(E)|
+       \le \frac{C_j^N}{N!}e^{-\kappa N^2}.
+\end{equation}
+The constants may depend on $K,n,j$. For the sum over $N\ge n$,
+or its subseries of either parity, the derivative of order $j_*$
+has modulus of continuity
+\[
+  O(h^{1/2})\quad(n\ \text{even}),\qquad
+  O\bigl(h\log(e/h)\bigr)\quad(n\ \text{odd})
+\]
+on shorter closed collars, with $h$ the distance between two points.
+Every lower derivative is Lipschitz there. The same statements hold
+for compact intervals in $(-2,0)$ by the signed reflection
+\eqref{eq:iso-reflection}.
+\end{theorem}
+
+\subsection{The two lattice coordinates}\label{sec:site-saddle}
+
+Put $\gamma=\ii\phi$ and $z=e^{\ii q}$. For $A\in\Z_{\ge0}$ and $B\in\Z$ let
+\[
+ I_N(A,B;E)=\frac1{N!}\int_{\T^N}
+  \prod_{i<j}P_{ij}\prod_i
+  e^{\ii(Bq_i-A\phi_i)}\frac{\dd q_i}{2\pi\sinh\gamma_i}.
+\]
+Reflection of all angles gives $I_N(A,-B)=I_N(A,B)$.
+The residue calculation in \eqref{eq:double-site} with spectral
+parameters $(E,1,1)$ gives $I_N(A,B)=J_N(A,|B|;E,1,1)$,
+first for real $E>2$ and then on the slit plane. The two circles
+therefore give $I_N(A,B)=I_N(B,A)$ for $A,B\in\Z_{\ge0}$ in both parities.
+
+Expanding the geometric kernel of \eqref{iso:new:F} in the first
+lattice coordinate and evaluating the Fourier series of the total
+angle at $a_\sigma$ in the second gives
+$\mathcal F_N^\sigma=\sum_{a,B\in\Z}\sigma^{a+B}I_N(|a|,B)$.
+Both lattice sums converge absolutely by \eqref{eq:interior-site}
+for $(E,1,1)$.
+Group sites by $A=\max(|a|,|B|)$. Reflections and axis exchange give
+\begin{equation}\label{eq:signed-shell}
+ \mathcal F_N^\sigma=I_N(0,0)+8\sum_{A\ge1}\sigma^A S_{A,N}^\sigma,
+ \qquad S_{A,N}^\sigma=\sum_{B=0}^A{}'\,\sigma^B I_N(A,B).
+\end{equation}
+The prime gives half weight to $B=0,A$, whose symmetry orbits have
+four sites each. Every interior orbit has eight.
+
+\subsection{Angular contours and the sum over lattice directions}\label{sec:direction-sum}
+
+Fix $x\in(0,2)$, put $b=\arccos(x-1)$, and set
+$g(r)=\arccos(x-\cos r)$ on $(-b,b)$. On the upper boundary
+the physical lift there is $\phi=g$. We have
+\[
+ g'=-\sin r/\sin g,\qquad
+ g''=-x(1-\cos r\cos g)/\sin^3g<0 .
+\]
+Let $f$ be odd and $2\pi$-periodic, equal to $r$ on $[0,b]$ and
+linear from $b$ to $0$ on $[b,\pi]$. It has unique extrema at $\pm b$.
+
+\begin{lemma}\label{lem:site-contour}
+Let $c$ range in a compact subinterval of $(-b,b)$. At $E=x+\ii y$
+write $q=r+\ii v(f(r)-f(c))$, $-\pi\le r\le\pi$.
+For $0\le v\le v_0$ and $0\le y\le y_0$ the lifted angle satisfies
+\begin{equation}\label{eq:site-phase}
+ \Im(g'(c)q-\phi)\ge a\bigl(y+v(r-c)^2\bigr).
+\end{equation}
+For $v+y>0$ the one-body and pair denominators do not vanish in the
+homotopy. At $v=v_0$ they have uniform gaps on a complex neighborhood
+of the graph and the parameter values. The constants are locally
+uniform in $x$ for centers a positive distance from the endpoints.
+\end{lemma}
+\begin{proof}
+On a closed interval inside $(-b,b)$ containing the centers, put
+$h=f(r)-f(c)=r-c$. At $y=0$ the imaginary part is
+$v h(g'(c)-g'(r))+O(v^3|h|^3)$, whose leading term is at least
+$a_1v(r-c)^2$ by strict concavity. Increasing $y$ adds at least
+$a_2y$ since $\Re(1/\sin\phi)>0$ there.
+
+Near either endpoint $\sin r\,h\ge\delta>0$, hence
+$\Im W\ge y+\delta v$ for $W=E-\cos q$. Here the lift has
+$G=-\Im\phi>0$ when $\Im W>0$, and
+$\Im W/G=\sin(\Re\phi)\sinh(G)/G\to0$ as $W\to1$.
+Taking the endpoint neighborhoods small, then taking $v_0,y_0$ small,
+makes $G/(y+\delta v)$ large enough to absorb $v|g'(c)h|$ and prove
+\eqref{eq:site-phase}. On the remaining compact part of $|r|>b$,
+$G$ is already positive at $v=y=0$. Use the interior estimate up
+to the endpoint neighborhoods.
+
+Every unit root on the original cycle at $y=0$ has argument in
+$[-b,0]$, where $b<\pi$. A pair product can equal one only if both
+roots are the branch value $1$. In the endpoint neighborhoods $\Im W>0$
+puts the roots strictly inside the unit disk throughout the homotopy
+for $v+y>0$. Compactness gives the gaps elsewhere and the stated
+complex neighborhoods of the final graphs.
+\end{proof}
+
+For a direction $0\le B\le A$, choose $g'(c)=B/A$. Then
+$-\arccos(x/2)\le c\le0$. On the final contour of
+Lemma~\ref{lem:site-contour} the $N$ transfer and Fourier factors have
+modulus at most $\exp[-aA(Ny+\sum_i(r_i-c)^2)]$.
+Retain the pairs on $n$ labels in Lemma~\ref{lem:analytic-det}.
+The divided numerator is bounded by $C_n^N e^{-\kappa N^2}/N!$
+including the one-body factors, the contour Jacobian and the factorial.
+Since each angle follows the same Lipschitz graph, the retained
+differences cost at most $C_n\Delta_n(r)^2$, where
+$\Delta_n(r)=\prod_{1\le i<k\le n}(r_i-r_k)$.
+With $d=[N+n(n-1)]/2$, integration of the $N$ Gaussians gives
+$C_n^N A^{-d}$: put $r_i=c+A^{-1/2}u_i$, and integrate the fixed
+polynomial $\Delta_n(u)^2$ against the product Gaussian.
+On an $E$-disk of radius $\epsilon/(1+A)$ the phases change by
+$O((1+A)^{-1})$ per angle, at a cost $C^N$ in the exponential.
+These bounds also hold for a group of directions on its central contour,
+with the Fourier factor below.
+
+Put $L=\lceil\sqrt A\rceil$ and $w_L(b)=(1-|b|/L)_+$.
+The translates $w_L(B-kL)$ sum to one. The at most four groups meeting
+an endpoint of $[0,A]$ contribute at most $O(L)$ times the single-site
+bound. In every other nonempty group put $m=kL$, choose $g'(c_m)=m/A$
+and deform all its terms to that one contour. Apart from the central
+exponential and the sign $\sigma^m$, the sum inserts
+\[
+ W_L(T)=\sum_b w_L(b)e^{\ii bT}
+ =\frac1L\left(\frac{\sin(LT/2)}{\sin(T/2)}\right)^2,\qquad
+ T=a_\sigma+\sum_i q_i .
+\]
+The finite sum and the sine formula give
+$|W_L(T)|\le CL e^{L|\Im T|}/(1+L\dist(\Re T,2\pi\Z))^2$.
+Write $U=\sum_i|r_i-c_m|$. Then $|\Im T|\le C U$ and
+\[
+ 1+L\dist(Nc_m+a_\sigma,2\pi\Z)
+ \le(1+LU)(1+L\dist(\Re T,2\pi\Z)).
+\]
+Half the Gaussian in $\sum_i(r_i-c_m)^2$ absorbs
+$e^{CLU}(1+LU)^2$ at a cost $C^N$, since $L^2/A\le4$.
+The group therefore costs the integrated single-site bound times
+$CL/(1+L\dist(Nc_m+a_\sigma,2\pi\Z))^2$.
+
+Consecutive centers $c_m$ are separated by at least $cL/A$,
+since $|g''|$ is bounded on their interval. Group the numbers
+$Nc_m+a_\sigma$ by their nearest multiple of $2\pi$. Only $O(N+1)$
+multiples occur. Within each group, after subtracting that
+multiple and scaling by $L$, the numbers are separated by at least
+$cNL^2/A\ge c$. The sum of $(1+|v|)^{-2}$ over such a set is bounded.
+Thus summing the directions costs $O((N+1)L)$.
+Cauchy's estimate on the same $E$-disk gives
+\begin{equation}\label{eq:iso-shell-est}
+ |\partial_E^j S_{A,N}^\sigma(x+\ii y)|
+ \le\frac{C_{n,j}^N}{N!}e^{-\kappa N^2}
+     A^{j-[N-1+n(n-1)]/2}e^{-a'Ay}.
+\end{equation}
+The site at the origin has the same particle bound on a fixed disk
+by the graph with $c=0$.
+
+\begin{proof}[Conclusion of Theorem~\ref{iso:new:budget}]
+The power in \eqref{eq:iso-shell-est} is
+$j-\alpha_{N,n}$ as in \eqref{eq:edge-transfer}. Summation thus
+gives \eqref{iso:new:majorant} and both continuity moduli by the same
+split at $A=h^{-1}$. Equation~\eqref{eq:iso-reflection} below gives
+the negative intervals.
+\end{proof}
+
+\subsection{The complement of the finite collision charts}\label{sec:finite-shift}
+
+At fixed $N\ge2$, constant branch configurations and regular constant
+resonances can occur only at the respective values
+\begin{equation}\label{iso:new:exceptions}
+ 1+\cos\frac{2\pi l+a_\sigma}{N},\qquad
+ \cos\frac{2\pi l+a_\sigma}{N}+
+ \cos\frac{2\pi k+a_\sigma}{N},\qquad 0\le l,k<N .
+\end{equation}
+Suppose $x$ is not one of the branch values. On $H_N^\sigma$ take
+$c=N^{-1}\sum_i f(r_i)$. No tuple has all its angles at the same
+endpoint $\pm b$, so the unique extrema of $f$ and compactness
+keep these centers in a compact subinterval of $(-b,b)$. The
+displacements sum to zero and preserve the signed constraint.
+Equation \eqref{eq:site-phase} gives
+$-\sum\Im\phi_i\ge a(Ny+v\sum_i(r_i-c)^2)$. At $v>0$ a vanishing
+product denominator at the boundary therefore requires
+$r_i=c=q_0$ for all $i$ and both $Nq_0,Ng(q_0)\equiv a_\sigma$
+modulo $2\pi$.
+
+Leave a small real chart at each such tuple by multiplying $v$ by
+a common smooth cutoff, zero near the center and one outside the
+charts. On a punctured real chart $\sum_i g(r_i)<Ng(q_0)$ by
+strict concavity and $\sum_i(r_i-q_0)=0$. Choose the charts small
+enough to exclude all other product phases. The transition annuli
+thus have a gap also where the displacement vanishes. Deform at
+$y>0$ and insert cutoffs supported in the retained real charts,
+equal to one near their centers. The complement has uniform gaps
+in all denominators on the final cycle and extends holomorphically
+to an $E$-disk about $x$. If there are no regular constant resonances,
+this continues the entire coefficient. For $N=1$ the two signed
+coefficients are $1/(E-2)$ and $1/(E+2)$.
+
+Define the lower-half-plane branch by complex conjugation of the
+real germ. On these two branches the coefficient identities
+\[
+ \mathcal F_N^\sigma(-E)=(-1)^N
+                         \mathcal F_N^{(-1)^N\sigma}(E)
+\]
+follow by replacing $\theta_i$ by $\theta_i+\pi$ and $\rho_i$ by
+$-\rho_i$. Each pair is unchanged, every one-body factor
+changes sign, and both products acquire $(-1)^N$.
+Equivalently, using only values with $\Im E>0$,
+\begin{equation}\label{eq:iso-reflection}
+ \mathcal F_N^\sigma(E)=(-1)^N
+ \overline{\mathcal F_N^{(-1)^N\sigma}(-\overline E)}.
+\end{equation}
+For odd $N$ the signed identities transport the estimates to negative
+dispersion by changing the sign in both the constraint and the kernel.
+
+\begin{corollary}[Complete finite jets]\label{iso:new:jets}
+For each $r\ge0$ and either parity, choose $m\ge2$ in that parity
+with $2(r+1)<(m+2)^2-3$. On a compact interval in $(0,2)$ avoiding
+\eqref{iso:new:exceptions} for the chosen parity through $N=m$, the complete parity sum has continuous
+derivatives through order $r+1$ from its physical side. Its derivatives
+through order $r$ are Lipschitz on shorter closed collars. The reflected
+statement in $(-2,0)$ uses the exceptions for the sign in
+\eqref{eq:iso-reflection}. The corresponding physical factors
+$(1-\zeta^{-4})^{1/4}$ and
+$\zeta(1-\zeta^{-4})^{1/4}$, and the noncritical map
+$E=\zeta+\zeta^{-1}$, preserve this conclusion.
+\end{corollary}
+\begin{proof}
+With first tail index $m+2$, Theorem~\ref{iso:new:budget} gives
+uniform convergence through order $r+1$ on the closed collar.
+
+The finitely many lower coefficients extend holomorphically across
+the interval. Integration along a segment gives the Lipschitz bounds.
+Passing to the uniform boundary limit in
+\[
+ F^{(j)}(x'+iy)-F^{(j)}(x+iy)
+   =\int_x^{x'}F^{(j+1)}(u+iy)\,du
+\]
+identifies tangential derivatives of the traces. The chain and product
+rules give the same regularity in the physical coordinate.
+\end{proof}
+
+\section{Constrained periods and noncollinear boundary singularities}
+\label{sec:period}
+
+At a positive endpoint the first resonant coefficient has a nonzero
+leading period. Its evaluation uses a constrained Gaussian integral
+and a beta integral, with the independent-coordinate measure of the
+physical coefficient. The same periods enter the radial asymptotics in
+Section~\ref{iso:new:radial:section} and the residue calculation in
+Section~\ref{neg:new:section}.
+
+Lemma~\ref{lem:local-period} in Appendix~\ref{app:forms} evaluates the
+local integral with this measure. We apply it first at a noncollinear edge.
+
+\subsection{A nonzero finite collision period}
+
+In the positive endpoint chart of Section~\ref{edge:new:section},
+fix an odd prime $p$, $1\le r\le(p-1)/2$, and set
+\[
+ \phi=2\pi r/p,\quad b=\cos\phi,\quad
+ h=b+u,\quad B_0=B(b),\quad \Im B_0>0.
+\]
+Along a transverse curve, $B=B(b+u)$ is holomorphic in $u$. Let $n=p$
+for the odd sum and $n=2p$ for the nonzero-even sum; write
+$a_n=(n^2-1)/2$, $k=\lfloor a_n\rfloor$ and
+$\nu=k+1-a_n$, so $\nu=1$ or $1/2$ respectively. The Gaussian
+factor $P_n=\prod_{j=1}^{n-1}(j!/2^j)$ is as in Appendix~\ref{app:forms}.
+
+\begin{proposition}[Full-tail noncancellation at a positive edge]
+\label{prop:positive-edge}
+For the complete coefficient $C_n$ and $u=i\epsilon$,
+$\epsilon\downarrow0$,
+\begin{equation}
+ \lim u^\nu\partial_u^k C_n(b+u)=L_{n,B},\qquad
+ L_{n,B}=
+ \frac{2^{1-a_n}i^{1-n^2}(-1)^k\sqrt{B_0}\,P_n
+         n^{a_n-3/2}\Gamma(\nu)}
+      {\pi^{(n-1)/2}\sin^{2a_n}\phi}\ne0.
+ \label{eq:positive-L}
+\end{equation}
+Here $u^{1/2}=e^{i\pi/4}\sqrt\epsilon$. For odd $n$, $\sqrt{B_0}$
+is the local branch in the physical coefficient. For even
+$n$, it is the beta-period branch with $\arg B_0\in(0,\pi)$,
+equivalently $e^{i\pi/4}\sqrt{-iB_0}$ with the right-half-plane
+square root. The even-particle coefficient has an integer power of
+$B$. The beta period fixes the branch of the half-power in the leading
+term.
+All lower retained coefficients are
+holomorphic near the boundary point; all higher coefficients together
+have a bounded $k$th derivative. Consequently the full physical sum
+is nonextendable on every such nonramified transverse curve.
+The estimates and leading limit are locally uniform on the stipulated
+compact holomorphic parameter families for a fixed selected phase.
+\end{proposition}
+\begin{proof}
+On the real boundary, $|Z|=1$ is possible only when all angles
+equal the endpoint zero. Its product resonance is $N\phi\in2\pi\Z$.
+Thus $n$ is the first index of the retained parity and no lower
+coefficient has a denominator zero. The canonical roots give a
+holomorphic neighborhood for each of those finitely many coefficients.
+
+Near the unique equality point use $q_n=-\sum_{i<n}q_i$,
+$Q=\sum q_i^2$ and $\Delta=\Delta_n(q)$. The expansion is
+\[
+ \gamma(q)=i\phi-\frac{i}{\sin\phi}
+              (u+B_0q^2/2)+O(|u|^2+|u|q^2+q^4).
+\]
+Take $D=i\sin\phi\,(\sum\gamma_i-in\phi)$. Each pair has an exact
+double diagonal zero. After removal of $\Delta^2$, multiplication
+of the integrand by $D$ fills the simple pole of the product kernel
+and gives a symmetric analytic amplitude with central value
+\[
+ A_0=\frac{2i^{1-n^2} B_0^{n^2/2}}
+ {n!(2\pi)^{n-1}2^{n(n-1)}\sin^{n^2-1}\phi}.
+\]
+In Lemma~\ref{lem:local-period} take $(d,h,\tau)=(n,B_0/2,i)$.
+Both coefficients $ni,B_0/2$ lie in the open upper half-plane.
+Its formula gives \eqref{eq:positive-L} after multiplication by
+$u^\nu$. For odd $n$, the square root of $B_0$ comes from
+$B_0^{n^2/2}$. For even $n$, the beta period continued in the upper
+half-plane gives the stated root. Away from this chart the denominator
+has a fixed gap for the first coefficient.
+
+Apply Theorem~\ref{edge:new:budget} with $m=n$ and $J=k$.
+It bounds the sum of all terms of higher particle number in the same parity.
+The same local integral at lower derivative orders is bounded
+in even parity and at most logarithmic in odd parity. Multiplication
+by the physical prefactor therefore multiplies the leading coefficient
+by the nonzero boundary value of that prefactor. A nonramified curve
+uses $u$ as a local coordinate and has the same conclusion.
+
+For compact holomorphic parameter families, reserve a larger polydisk
+on which the
+strict imaginary margin, branch gaps and nonzero physical factors
+persist. All estimates above then have common constants. Cauchy's
+formula in the auxiliary parameters gives every fixed mixed estimate.
+For each family member the nonzero value in \eqref{eq:positive-L}
+is the leading coefficient for the transverse derivative $\partial_u^k$.
+\end{proof}
+
+\subsection{The other orientations and the remaining odd edge}
+
+In a regular edge chart, the physical side satisfies
+$\operatorname{sign}(\Im h)=\operatorname{sign}(\sigma\Im B)$.
+If this is negative, conjugate the chart and curve, using the real
+physical germ; the conjugated holomorphic curve is
+$\widetilde B(h)=\overline{B(\overline h)}$. This reduces to the
+upper physical side.
+At a negative endpoint with even $N$, shift every angle by $\pi$.
+The constraint is unchanged and $B$ is replaced by $-B$, whose
+imaginary part is positive. Also $N^2/2$ is an even integer, so
+$B^{N^2/2}=(-B)^{N^2/2}$ exactly. Proposition~\ref{prop:positive-edge}
+therefore proves the negative even obstruction with its full phase.
+For odd $N$, the same shift changes the constraint to an odd winding,
+which excludes endpoint equality at every finite index.
+Section~\ref{neg:new:section} proves the full-sum obstruction from the
+growth of the boundary jets.
+
+
+\section{First resonances and sharp radial asymptotics}
+\label{iso:new:radial:section}
+
+On the isotropic prime families below, the first resonant coefficient
+has exactly four singular configurations. Their complex amplitudes
+are equal and add in the physical sum. Absolute convergence of the
+higher particle tail at the resonant derivative order preserves the
+leading amplitude and the radial remainder.
+
+Let $p\ge11$ be prime, choose distinct
+$a,b\in\{1,\ldots,(p-1)/2\}$, and set
+\[
+ \alpha=2\pi a/p,\quad\beta=2\pi b/p,\quad
+ E_*=\cos\alpha+\cos\beta=2\cos\theta,\quad
+                            \zeta_*=e^{i\theta},\quad0<\theta<\pi.
+\]
+For the even family require $\alpha,\beta\in(0,\pi/2)$ and
+put $n=2p$.  For the odd family require both angles in
+$(0,\pi/2)$ or both in $(\pi/2,\pi)$, and put $n=p$.
+Write $C_N(\zeta)=\mathcal F_N^+(\zeta+\zeta^{-1})$.
+
+\begin{lemma}[The first equality resonance]\label{iso:new:radial:arithmetic}
+The first order of the specified parity satisfying
+$E_*=\cos(2\pi l/N)+\cos(2\pi q/N)$ is $n$.
+At that order the unordered cosine pair is uniquely
+$\{\cos\alpha,\cos\beta\}$, so the constrained angular
+coefficient has exactly four resonant equality points.
+No endpoint equality is resonant at any order.  The even
+family is dense in the upper-right exterior unit arc; the
+two odd families are dense in both upper exterior quadrants.
+\end{lemma}
+\begin{proof}
+Put $\omega=e^{2\pi i/p}$, $d=(p-1)/2$,
+$u_j=\omega^j+\omega^{-j}$.
+In the real cyclotomic field of degree $d$ the conjugates of each
+$u_j$ sum to $-1$. Thus the algebraic integer $v=u_a+u_b$ has
+trace $-2$, so it is nonzero and has a negative conjugate. If all
+conjugates were negative, their product would have modulus at most
+$(2/d)^d<1$ by the arithmetic--geometric mean inequality, whereas
+its norm is a nonzero integer. Hence $v$ has both signs among its
+conjugates and is irrational.
+
+If $p\nmid N$, choose an exponent giving a different conjugate
+of $v$. The Chinese remainder theorem lifts it modulo $pN$ to an
+exponent congruent to one modulo $N$. The resulting automorphism
+fixes every $N$th root and moves $v=2E_*$. This excludes every
+smaller index of the prescribed parity.
+
+The sign change excludes both $1+\cos r$ and $-1+\cos r$ for
+any root-of-unity angle $r$. At index $p$ or $2p$ the remaining
+cosines belong to $\{\pm u_j/2\}$. The $u_j$, $1\le j\le d$,
+are rationally independent: a relation lifts to a polynomial of
+degree at most $p-1$ with zero constant term divisible by
+$1+X+\cdots+X^{p-1}$. Matching coefficients gives the unique
+unordered pair, with constant configurations at $\pm\alpha,\pm\beta$.
+Finally, two distinct adjacent prime-grid angles can approach
+any chosen angle in either half interval.  Their averaged
+cosines prove the stated density.
+\end{proof}
+
+Set
+\[
+ a_n=\frac{n^2-1}{2},\quad k=\lfloor a_n\rfloor,\quad
+ \nu=k+1-a_n,\quad H=E_*(1-\cos\alpha\cos\beta),\quad
+ P_n=\prod_{j=1}^{n-1}\frac{j!}{2^j}.
+\]
+Thus $\nu=1/2$ in the even family and $\nu=1$ in the odd
+family. With $d\mu_n=(2\pi)^{1-n}\dd q_1\cdots\dd q_{n-1}$, the four
+resonant configurations have the same nonzero amplitude
+\begin{equation}\label{iso:new:radial:L}
+ L_*=
+ \frac{i^{-n^2}(-1)^k\Gamma(\nu)P_n n^{a_n-3/2}
+          (\sin\theta)^{a_n-1}e^{-ik\theta}}
+      {\pi^{(n-1)/2}(-iH)^{a_n}}.
+\end{equation}
+For even $n$, the last power has $\arg(-iH)=-\pi/2$.
+For odd $n=p$, $a_n=k$ is divisible by four, so the
+same formula applies to either sign of $H$.
+
+\begin{proposition}[A sharp first-particle period]\label{iso:new:radial:first}
+Along $\zeta_\epsilon=(1+\epsilon)\zeta_*$,
+\[
+ C_n^{(k)}(\zeta_\epsilon)=4L_*\epsilon^{-\nu}
+       +\begin{cases}O(1),&n\text{ even},\\
+                  O(1+|\log\epsilon|),&n\text{ odd}.
+         \end{cases}
+\]
+Every fixed derivative of each smaller coefficient of that
+parity, and of the complement of the four first-order
+charts, is bounded.  Below order $k$, the first coefficient
+has bounded derivatives in the even case, while the odd case
+has bounded derivatives through $k-2$ and a logarithmic
+$(k-1)$st derivative.
+\end{proposition}
+\begin{proof}
+Use $z=\zeta/\zeta_*-1$ and one lower chart
+$q_i=-\alpha+u_i$, $\sum_i u_i=0$, $Q_2=\sum_i u_i^2$.
+At its center $\gamma_i=i\beta$. From $\cos q+\cos\phi=E$ one gets
+$\phi_q=\sin\alpha/\sin\beta$ and
+$\phi_{qq}=-H/\sin^3\beta$. The constraint cancels the linear term.
+The denominator $D=1-Z$ has coefficients
+\[
+ d=\frac{2n\sin\theta}{\sin\beta},\qquad
+ h=-\frac{iH}{2\sin^3\beta},\qquad D=d z+hQ_2+
+            O(|z|^2+|z|Q_2+|u|^3).
+\]
+Here $d>0$ and $h$ is nonzero imaginary. The symmetric analytic
+amplitude after removing $\Delta_n^2$ has central value
+\[
+ A_0=\frac{2i^{-n^2}}
+ {n!(2\pi)^{n-1}2^{n(n-1)}\sin^{n^2}\beta}.
+\]
+Indeed the product numerator is two, each one-body term is
+$(i\sin\beta)^{-1}$ and each divided pair contributes
+$1/[4(i\sin\beta)^2]$. Apply Lemma~\ref{lem:local-period} with
+$\tau=1$ and multiply by $\zeta_*^{-k}$ to return to the
+$\zeta$ derivative. Substituting $G_n$ gives \eqref{iso:new:radial:L},
+since $-n^2-(a_n-1)+3a_n=0$. This coefficient is symmetric in
+$\alpha,\beta$. Exchanging them and reflecting all angles thus
+gives the same complex number at each of the four points.
+
+At positive dispersion Lemma~\ref{iso:new:radial:arithmetic}
+excludes every full branch equality and identifies the four ordinary
+resonant equalities. Section~\ref{sec:finite-shift} continues the
+complement holomorphically, with the contour unchanged on those four
+charts. The same argument continues every lower fixed coefficient.
+At negative dispersion and odd particle number, the reflection
+\eqref{eq:iso-reflection} changes the sign in both the momentum
+constraint and the product kernel.
+The lower-derivative bounds in the selected charts follow
+from the same radial integral with a smaller pole power.
+\end{proof}
+
+To pass from the coefficient to the full susceptibility, restore the
+physical factors on the upper exterior ray:
+\[
+ p_L(\zeta)=(1-\zeta^{-4})^{1/4},\quad
+ p_H(\zeta)=\zeta(1-\zeta^{-4})^{1/4},\qquad
+ \mathcal A_\eta=4\zeta_*^k p_\eta(\zeta_*)L_*\ne0.
+\]
+Let $g_L(\epsilon)=\mathcal X_L((1+\epsilon)\zeta_*)$
+and $g_H(\epsilon)=\mathcal X_H(((1+\epsilon)\zeta_*)^{-1})$.
+
+\begin{theorem}[Sharp complete physical radial remainders]
+\label{iso:new:radial:full}
+On the respective selected prime-angle families,
+\begin{align*}
+ g_L^{(k)}(\epsilon)&=\mathcal A_L\epsilon^{-1/2}+O(1),\\
+ g_L(\epsilon)&=\sum_{j=0}^{k-1}\frac{b_j}{j!}\epsilon^j
+ +\frac{\sqrt\pi\mathcal A_L}{\Gamma(k+1/2)}\epsilon^{k-1/2}
+ +O(\epsilon^k),\\
+ g_H^{(k)}(\epsilon)&=\mathcal A_H\epsilon^{-1}
+                                   +O(1+|\log\epsilon|),\\
+ g_H(\epsilon)&=\sum_{j=0}^{k-1}\frac{b_j}{j!}\epsilon^j
+ +\frac{\mathcal A_H}{(k-1)!}\epsilon^{k-1}\log\epsilon
+ +O(\epsilon^k\log(e/\epsilon)).
+\end{align*}
+In LT all $b_j$ are finite radial jets and
+$g_L^{(k-1)}(\epsilon)-b_{k-1}
+=2\mathcal A_L\epsilon^{1/2}+O(\epsilon)$.
+This derivative is exactly H\"older $1/2$ at zero.
+In HT, $b_0,\ldots,b_{k-2}$ are finite radial jets and
+$b_{k-1}$ is the finite part after subtraction of the
+displayed logarithmic monomial. Explicitly, if
+$H_{k-1}=\sum_{l=1}^{k-1}l^{-1}$, then
+$b_{k-1}=\lim_{\epsilon\downarrow0}
+[g_H^{(k-1)}(\epsilon)-\mathcal A_H(\log\epsilon+H_{k-1})]$.
+One has
+$g_H^{(k-2)}(\epsilon)-b_{k-2}
+=\mathcal A_H\epsilon\log\epsilon+O(\epsilon)$.
+This derivative is log-Lipschitz and H\"older of every
+exponent less than one, but is not Lipschitz; the next
+derivative diverges logarithmically.
+\end{theorem}
+\begin{proof}
+The higher tail starts at $n+2$. Since $2k\le n^2-1<(n+2)^2-3$,
+Theorem~\ref{iso:new:budget} gives a continuous bounded $k$th
+derivative up to the edge.
+
+Identity~\eqref{eq:iso-reflection} gives the same bound on the
+negative odd family.
+Combining this full tail with
+Proposition~\ref{iso:new:radial:first} proves the top
+derivative asymptotics.  The analytic physical factors
+are inserted before differentiation: their lower
+product-rule terms are bounded in LT and at most
+logarithmic in HT.  Since $d/d\epsilon=\zeta_*d/d\zeta$,
+the coefficient is precisely $\mathcal A_\eta$.
+
+For LT, subtract the displayed fractional power.  Its
+$k$th derivative is exactly
+$\mathcal A_L\epsilon^{-1/2}$, so the difference has
+bounded $k$th derivative and Taylor remainder
+$O(\epsilon^k)$.  Integrating once gives the asserted
+top finite-jet increment; integrating its bound between
+two radii proves H\"older $1/2$.  Its nonzero coefficient
+excludes every larger exponent.
+For HT, subtract the displayed logarithmic monomial.
+Its $k$th derivative is exactly $\mathcal A_H/\epsilon$.
+The remaining $k$th derivative is integrable and
+logarithmically bounded, so integral Taylor's formula
+gives the stated remainder and finite part.  Differentiating
+the explicit monomial $k-2$ times gives the increment.
+Integration of the logarithmic next derivative proves
+the log-Lipschitz bound, and the nonzero coefficient
+excludes Lipschitz continuity.
+\end{proof}
+
+These first resonances also attain the two moduli in
+Theorem~\ref{iso:new:budget} for a tail starting at the resonant
+index $n$. Its highest admissible order is $k-1$ for $n=2p$ and
+$k-2$ for $n=p$. The lower particle coefficients are analytic there.
+The physical prefactor is nonzero, and the radial derivative of
+$E=\zeta+\zeta^{-1}$ at $\epsilon=0$ is $2\ii\sin\theta\ne0$.
+Lower derivatives of the tail are Lipschitz, so their contributions
+to the increments under these changes are $O(\epsilon)$. The nonzero
+$\sqrt\epsilon$ and $\epsilon\log\epsilon$ terms therefore give the
+same sharp orders for the physical parity tails.
+
+Evenness and conjugation carry the even
+family to the other quadrants.  The two odd families, together with
+inversion and conjugation, cover a dense subset of the physical HT
+circle. The resulting dense set of nonzero singular periods supplies
+the local obstructions used in the componentwise boundary argument of
+Section~\ref{sec:assembly}.
+
+\subsection{The first diagonal resonance}
+
+\begin{corollary}\label{iso:prime-power-arcs}
+Let $\zeta$ be a primitive $d$th root. In HT take any odd $d\ge5$
+and set $n=d$. In LT take any $d\ge5$ other than six and set
+$n=\operatorname{lcm}(d,2)$. The first singular coefficient of the
+physical parity has order $n$, with exactly two constant resonances.
+With $k=\lfloor(n^2-1)/2\rfloor$, its $k$th exterior radial derivative,
+and that of the full normalized susceptibility, have
+nonzero leading terms of order $\epsilon^{-1}$ in HT and
+$\epsilon^{-1/2}$ in LT. For HT the physical variable is $s=1/\zeta$
+and the exterior radius is in $\zeta$; for LT it is in $s$ itself.
+
+In particular, take $n=3^m$, $m\ge2$, in HT or $n=2^m$, $m\ge3$,
+in LT. Every open arc of length $\ell>4\pi/n$ contains a point
+where a real $C^k$ extension from the physical side is impossible.
+In LT one may take $k\le\max(32,32\pi^2/\ell^2)-1$, and in HT
+$k\le(\max(81,144\pi^2/\ell^2)-1)/2$. For either phase one can
+in fact take $k\le(8\pi^2+o(1))\ell^{-2}$ as $\ell\downarrow0$.
+\end{corollary}
+
+\begin{proof}
+Put $E_*=\zeta+\zeta^{-1}$. An identity $E_*=\pm1+\cos r$ at a root-of-unity angle
+would make $\cos r$ an algebraic integer. Its conjugates lie in
+$[-1,1]$, being cosines of root-of-unity angles. An endpoint conjugate
+forces $\cos r=\pm1$. Otherwise its integer norm has modulus below one,
+so $\cos r=0$. Then $E_*\in\{0,\pm1,\pm2\}$, whose root orders
+are $1,2,3,4,6$, all excluded here.
+
+Suppose two $N$-grid cosines sum to $E_*$. We may send $\zeta$ to
+any primitive $d$th root while permuting the $N$-grid: lift its unit
+exponent modulo $d$ to a unit modulo $\operatorname{lcm}(d,N)$ by
+prescribing one at each additional prime divisor of $N$. Neither summand
+is an endpoint, also after conjugation. The grids with $N\le2$ have
+only endpoints.
+
+When $n=d$, send $\zeta$ to $e^{2\pi\ii/d}$. The largest remaining
+$N$-grid cosine is $\cos(2\pi/N)$. The target $2\cos(2\pi/d)$ is too
+large for $N<d$, and at $N=d$ both summands must equal $\cos(2\pi/d)$.
+When $n=2d$ in LT with $d$ odd, send $\zeta$ to the primitive root
+$e^{\ii\pi(1-1/d)}$. On the even $N$-grid each remaining cosine is
+at least $-\cos(2\pi/N)$. The target $-2\cos(\pi/d)$ is too small
+for $N<2d$, and at $N=2d$ both must attain the minimum.
+
+Pulling back gives the unique cosine pair $(E_*/2,E_*/2)$ at order
+$n$. It yields the two constant configurations with angles
+$\pm\arg\zeta$. On a reflected odd chart, adding $\pi$ to both
+angles recovers the ordinary grid equation used here. Simultaneous
+reflection equates the two chart integrals.
+
+In the positive LT quadrant and the upper HT semicircle put
+$\alpha=\beta=\theta$ in \eqref{iso:new:radial:L}. The two charts
+give $2L_*$ in the $k$th coefficient derivative. The tail has bounded
+derivatives through $k$ by Theorem~\ref{iso:new:budget}. The
+argument of Theorem~\ref{iso:new:radial:full} gives the same radial
+expansions with $\mathcal A_\eta=2\zeta_*^kp_\eta(\zeta_*)L_*$.
+Evenness in LT, conjugation and HT inversion give the other points.
+All these physical factors are analytic units.
+
+For the stated prime powers the missing exponents are the multiples
+of two or three, so the largest gap between primitive roots is
+$4\pi/n$. Choosing the least permitted power strictly greater than
+$4\pi/\ell$ gives the explicit bounds. For the asymptotic claim
+take the least $n>4\pi/\ell$ in $n\equiv1\bmod6$ (HT) or
+$n\equiv2\bmod12$ (LT), large enough that $n\ge 13$.
+In HT every point of the $n$-grid except $1$ has an admissible odd
+order; in LT every point except $\pm1$ has admissible order, and
+its first even particle number divides $n$. The largest gap on
+either retained grid is $4\pi/n$, and $n=4\pi/\ell+O(1)$.
+A real $C^k$ extension would bound the $k$th derivative of the
+radial restriction. Inversion and conjugation preserve angular
+length.
+\end{proof}
+
+At a primitive $2^m$th root $e^{\ii\alpha}$ in the first quadrant,
+$m\ge3$, put $E=s+s^{-1}$, $E_*=2\cos\alpha$, $k=2^{2m-1}-1$ and
+$F(E)=X_L(s)/(1-s^{-4})^{1/4}$ on $|s|>1$. Then
+\[
+ \lim_{t\downarrow0}\sqrt t\,\partial_E^k F(E_*+\ii t)\ne0
+\]
+exists. Indeed the two reflected charts just found have the same
+amplitude. In the local integral of Lemma~\ref{lem:local-period} one
+can use $E-E_*$ as parameter: its derivative with respect to the
+outward radial parameter at zero is $2\ii\sin\alpha$, so the vertical
+ray has the same tangent as the radial approach. The local holomorphic
+factor multiplying the half-integral power changes by an analytic unit.
+Theorem~\ref{iso:new:budget} bounds the $k$th derivative of the higher
+tail throughout the adjacent collar.
+
+For a fixed odd prime $p\ge5$, every $2p$th root except $\pm1$ has
+order $p$ or $2p$. Thus a low-temperature arc of length $>2\pi/p$
+has an obstruction at derivative order $2p^2-1$. The unequal-angle
+family alone gives that order on every arc of length $>2\sqrt{10}\pi/p$
+when $p\ge11$. To see this put $h=2\pi/p$, $m=\lfloor(p-1)/4\rfloor$.
+Adjacent grid angles $jh,(j+1)h$, $1\le j<m$, give
+$\theta_j=\arccos[(\cos(jh)+\cos((j+1)h))/2]$. They increase and
+lie between their grid angles. Concavity of cosine gives
+$\theta_j\ge(j+1/2)h$, so consecutive gaps are at most $3h/2$.
+Convexity of $\cos\sqrt u$ for $0\le u\le\pi^2$ gives
+$\theta_1\le\sqrt{5/2}\,h$, and
+$\pi/2-\theta_{m-1}\le5h/4$. Reflection in the axes bounds the
+largest circular gap by $\sqrt{10}\,h$.
+
+\section{The negative odd edge: boundary jets and their growth}
+\label{neg:new:section}
+
+At a negative edge, the odd momentum constraint prevents an endpoint
+collision at every fixed particle index.  The complete sum is smooth on
+the boundary, yet at the phases specified below its formal Taylor series
+has radius of convergence zero. On the real angular plane, the two
+smallest odd windings determine its coefficient growth. Throughout
+this section $t$ denotes the edge coordinate $\tau$ in
+Theorem~\ref{thm:unified}(vii).
+Lemma~\ref{neg:new:transport} relates the indicator in the local edge
+coordinate to its value in a physical transverse coordinate.
+
+Fix $\phi=2\pi r/p\in(0,\pi)$, where $p\ge3$ is odd and
+$(r,p)=1$, and write $b=\cos\phi$, $s_\phi=\sin\phi$.
+Let $B(t,\eta)$ be holomorphic and bounded on a common disk times
+a parameter polydisk $\mathcal P^+$, with
+$\Im B(0,\eta)\le-\beta<0$.  All uniform assertions below are on
+$\mathcal P\Subset\mathcal P^+$.  Shrinking the neighborhoods gives a common
+logarithm of $B$, common scalar derivative bounds, and $\Im B<0$.
+For fixed $\eta\in\mathcal P$, write $B(t)=B(t,\eta)$ and set
+\[
+ g(t,\delta)=\operatorname{arcosh}
+       \{b+B(t)(t-1+\cos\delta)\},\quad g(0,0)=\ii\phi,
+ \qquad \gamma(t,q)=g(t,q-\pi).
+\]
+The branch is analytic near all real angles. The transfer roots $e^{-g(0,\delta)}$
+lie in a compact subset of the closed lower unit half disk, strictly
+away from the real axis.  The physical side is
+\[
+             \mathcal U^- =\{|t|<r_0:\Im(B(t)t)>0\};
+\]
+it contains the inward ray $t=-\epsilon$.
+For odd $n$ put
+\[
+ H_n(t,q)=\frac{B(t)^{n^2/2}}{n!(2\pi)^{n-1}}
+ \prod_i\frac1{\sinh\gamma_i}
+ \prod_{i<l}\frac{\sin^2((q_i-q_l)/2)}
+                  {\sinh^2((\gamma_i+\gamma_l)/2)},\quad
+ \Gamma_n=\sum_i\gamma_i,
+\]
+and $C_n(t)=\int_{\sum q_i=0\ (2\pi)}H_n\coth(\Gamma_n/2)\,\dd q$,
+where $\dd q=\dd q_1\cdots\dd q_{n-1}$. Set $F=\sum_{n\ {\rm odd}}C_n$.
+
+\begin{theorem}[Exact full-index indicator]\label{neg:new:indicator}
+The complete sum is holomorphic on $\mathcal U^-$.  Every inward jet
+$a_j=\lim_{\epsilon\downarrow0}F^{(j)}(-\epsilon)/j!$ exists, and
+\begin{align}
+ |a_j|&\le\exp\left\{j\left(\log j-\log\log j+
+                         \log\frac4{\pi^2}-1\right)+o(j)\right\},
+                                                        \label{neg:new:allj}\\
+ \limsup_{j\to\infty}\frac{\log j}{j}|a_j|^{1/j}
+      &=\frac4{e\pi^2}.                                \label{neg:new:type}
+\end{align}
+For the fixed phase, the upper error is uniform on compact admissible
+holomorphic parameter families. For each family member and every
+sufficiently large odd multiple $n$ of $p$, there is an integer $j_n$
+such that
+\[
+ j_n=n^2\{\log n+\tfrac12\log\log n-c_*+o(1)\},\qquad
+ c_*=-\tfrac34-\tfrac32\log2+\log\pi+
+                       \tfrac12\log|B(0)|-\log s_\phi,
+\]
+and $|a_{j_n}|^{1/j_n}\sim4j_n/(e\pi^2\log j_n)$.
+Thus no holomorphic extension through $t=0$ is possible.
+\end{theorem}
+
+Gaussian decay in the particle number gives every finite boundary jet.
+For each resonant particle number, subtracting the pole leaves an
+analytic remainder. A quadratic beta period gives the contribution
+of the two smallest odd windings. Summation over the particle number
+gives the upper bound, and along the sequence $j_n$ a single particle
+number dominates and gives the matching lower bound.
+
+\subsection{Boundary jets and the pole decomposition}
+
+Lemma~\ref{edge:new:gaussian},
+after the nonramified change
+$h=b+B(t)t$, gives on a fixed complex $t$ disk
+\begin{equation}
+          |H_n(t,q)|\le E_n,\qquad
+ E_n=\exp\{-\kappa n^2+Cn\log(n+1)+C\}.                  \label{neg:new:gauss}
+\end{equation}
+The constants include the torus volumes.  The momentum constraint now
+gives a lower bound on the distance from the forbidden endpoint collision.
+For shortest lifts
+$q_i=\pi+\delta_i$, put $S=\sum_i\delta_i^2$.
+Their sum is an odd multiple of $\pi$, hence $S\ge\pi^2/n$.
+On the inward ray,
+$\Re g(-\epsilon,\delta)\ge c(\epsilon+\delta^2)$.
+A disk of radius $c(\epsilon+n^{-2})$ around $-\epsilon$ preserves
+$\Re\Gamma_n\ge c(n\epsilon+n^{-1})$, since every parameter
+derivative of an individual $g$ is bounded.  Therefore
+\begin{equation}
+ |[t^j]C_n|\le(Cn^2)^j CnE_n,\quad
+ a_j=\sum_{n\ {\rm odd}}[t^j]C_n,\quad
+ \sum_n|[t^j]C_n|<\infty.                              \label{neg:new:jets}
+\end{equation}
+Here $[t^j]C_n$ is the Taylor coefficient of the individual
+holomorphic term at the edge. The $n$-dependent disks above justify
+the sum of these coefficients for each fixed $j$.
+Cauchy's formula on the parameter collar gives the same estimates for
+each fixed parameter derivative.  Normal convergence and all the stated
+boundary limits follow.
+
+To isolate the terms responsible for large derivative order, choose a
+small fixed $\sigma>0$.  On $S\ge\sigma$ the kernel is
+analytic and bounded for $|t|<c/n$.  On $S<\sigma$, write
+$D_n=\Gamma_n-n\ii\phi$; then $|D_n|\le C(S+n|t|)$.
+If $p\nmid n$, the phase distance to $2\pi\mathbb Z$ is at least
+$2\pi/p$, so this part is also analytic on the same kind of disk.
+For odd multiples of $p$,
+$\coth(\Gamma_n/2)=2/D_n+\mathcal R(D_n)$, with $\mathcal R$
+holomorphic on a fixed disk.  The derivative
+$n^{-1}\partial_tD_n$ lies in a fixed small disk about
+$B(0)/(\ii s_\phi)\ne0$.  Rouch\'e's theorem on
+$|t|=CS/n$ gives a unique zero $T_n(q)$, and
+\[
+ D_n=n(t-T_n)A_n(t,q),\qquad |T_n|\le CS/n,
+\]
+where $A_n$ is holomorphic on a fixed smaller disk and bounded away
+from zero.  The latter facts also follow directly by integrating
+$n^{-1}\partial_tD_n$ along the segment from $T_n$ to $t$.
+For $J_n=H_n/A_n$ use the exact division
+\[
+ \frac{2H_n}{D_n}=
+ \frac{2J_n(T_n,q)}{n(t-T_n)}+
+ \frac2n\frac{J_n(t,q)-J_n(T_n,q)}{t-T_n}.
+\]
+The second term has a removable singularity at the pole and, together
+with the $\mathcal R$ term, forms the analytic remainder.
+Extracting coefficients, initially on $|t|<c/n^2$, gives
+\begin{gather}
+ a_j=\sum_{\substack{n\ {\rm odd}\\p\mid n}} A_{n,j}+R_j,\qquad
+ A_{n,j}=-\int_{S<\sigma}
+      \frac{2H_n(T_n,q)}{\partial_t\Gamma_n(T_n,q)}
+                          T_n(q)^{-j-1}\,\dd q,\label{neg:new:poles}\\
+ |R_j|\le \sum_n(Cn)^jE_n
+       \le\exp\{\tfrac12j\log(j+2)+Cj+C\}.             \label{neg:new:remainder}
+\end{gather}
+For the last inequality, absorb $Cn\log(n+1)$ into half the Gaussian
+exponent and maximize $j\log n-\kappa n^2/2$.
+
+With $\xi_i=1-\cos\delta_i$ and $\bar\xi=n^{-1}\sum_i\xi_i$, the
+linear terms in the averaged dispersion at $t=\bar\xi$ cancel.
+The nonzero averaged derivative therefore gives
+\begin{equation}
+ \begin{gathered}
+ T_n=\bar\xi+O\left(n^{-1}\sum_i(\xi_i-\bar\xi)^2\right),\\
+ |T_n|\ge(1-C\sigma)S/(2n),\qquad
+ |\partial_t\Gamma_n(T_n,q)|\ge cn.
+ \end{gathered}                                      \label{neg:new:polelower}
+\end{equation}
+Dividing all sines by their linear terms and all hyperbolic sines by
+$\ii s_\phi$ gives
+\begin{equation}
+ |H_n(T_n,q)|\le H_{0,n}\Delta(\delta)^2 e^{CnS},\qquad
+ H_{0,n}=\frac{|B(0)|^{n^2/2}}
+ {n!(2\pi)^{n-1}2^{n(n-1)}s_\phi^{n^2}}.              \label{neg:new:roughdensity}
+\end{equation}
+The logarithmic error from the anisotropy factor is bounded by
+$Cn^2|T_n|\le CnS$. The one-body phase deviations sum in absolute
+value to $O(S)$, giving a bound of $CnS$ for the logarithmic error
+from the pair denominators. The sine divided differences are controlled
+by $\sum_{i<l}|\delta_i-\delta_l|^2\le nS$.
+
+Write a winding as
+$\delta_i=w\pi/n+v_i$, $\sum_i v_i=0$, $w$ odd.  Put
+\[
+ Q=\sum_i v_i^2,\quad m_{n,w}=\pi^2w^2/n,\quad
+ \alpha_n=(n^2-1)/2,\quad P_n=\prod_{r=1}^{n-1}\frac{r!}{2^r},
+ \quad G_n=\frac{n!\pi^{(n-1)/2}P_n}{\sqrt n}.
+\]
+Thus $S=Q+m_{n,w}$ and $\Delta(\delta)=\Delta(v)$.
+There are at most $C\sqrt n$ allowed windings. By \eqref{eq:shared-beta}
+with $\ell=N=n$, their moments use $G_n$ from \eqref{eq:shared-G}.
+Equations~\eqref{neg:new:polelower} and~\eqref{neg:new:roughdensity}
+give, for $j+1>\alpha_n$, the winding bound
+\begin{equation}
+ |A_{n,j,w}|\le\frac{CH_{0,n}}n e^{Cn\sigma}
+ \left(\frac{2n}{1-C\sigma}\right)^{j+1}
+ G_nm_{n,w}^{\alpha_n-j-1}
+       \frac{\Gamma(j+1-\alpha_n)}{\Gamma(j+1)}.        \label{neg:new:winding}
+\end{equation}
+For a bound valid at every jet index $j$, use $|T_n|\ge c/n^2$
+and $\int_{Q<\sigma}\Delta^2\dd v
+=G_n\sigma^{\alpha_n}/\Gamma(\alpha_n+1)$.  Since
+$\log P_n=\tfrac12n^2\log n+O(n^2)$ and
+$\log\Gamma(\alpha_n+1)=n^2\log n+O(n^2)$, this proves
+\begin{equation}
+ \log\sum_w|A_{n,j,w}|
+ \le2j\log n-\tfrac12n^2\log n+Cn^2+Cj+C.             \label{neg:new:allindex}
+\end{equation}
+
+For large $j$ put $J=j/\log j$ and $T_j=j(\log J+\log(4/\pi^2)-1)$.
+For some fixed $0<\eta_*<1/8$ it suffices to keep
+\begin{equation}
+                   \eta_* J\le n^2\le J/\eta_*.       \label{neg:new:middle}
+\end{equation}
+Indeed \eqref{neg:new:allindex}, with $x=n^2$, gives
+$j\log x-\tfrac14x\log x+Cx+Cj+C$. For $x\le\eta_*J$ this is
+at most $j\log J+j(\log\eta_*+C+o(1))$.
+For $x\ge J/\eta_*$ we have $\tfrac14\log x-C\ge(\log j)/5$.
+Writing $v=x/J$ gives the upper bound $j\log J+j(\log v-v/5+C)+C$.
+Choose $\eta_*$ small enough that the first bound is below $T_j-2j$
+and the second below $T_j-2j-x\log j/10$ for all large $j$.
+The small indices number $O(\sqrt J)$, and the final Gaussian is
+summable over the large ones. Together with \eqref{neg:new:remainder}
+this bounds the total discarded moduli and $|R_j|$ by $O(e^{T_j-j})$.
+
+\subsection{Residue concentration in the first two windings}
+
+Reflection $\delta\mapsto-\delta$ interchanges the windings $w=\pm1$.
+Their pole integrals agree, so it suffices to evaluate the one for $w=1$.
+
+\paragraph{The pole and its residue.}
+Set $d_n=\pi/n$, $\tau_n=1-\cos d_n$, $B_n=B(\tau_n)$, and
+\[
+ h_n=\cos d_n-\frac{B_nb}{s_\phi^2}\sin^2d_n=1+O(n^{-2}),
+ \qquad a_n^*=\Re h_n>0.
+\]
+In the first winding $\delta_i=d_n+v_i$, $\sum_i v_i=0$.
+The real integration region is the ball $Q<r_n^2=\sigma-\pi^2/n$.
+Its radius is bounded above and away from zero for large $n$.
+The implicit equation $\sum_i g(T_n,d_n+v_i)=n\ii\phi$ has a
+holomorphic solution on a common small complex Euclidean ball,
+with $|T_n-\tau_n|\le C\sum_i|v_i|^2/n$.
+This follows by canceling the constant and linear shape terms and
+applying Rouch\'e's theorem to the averaged equation; its parameter
+derivative stays bounded away from zero on the fixed neighborhoods.
+At the center
+\[
+ g_t(\tau_n,d_n)=-\ii B_n/s_\phi,\qquad
+ \tfrac12g_{\delta\delta}(\tau_n,d_n)
+                         =\ii B_nh_n/(2s_\phi).
+\]
+The $B'$ term in $W_t$, the derivative of the dispersion in braces,
+vanishes exactly there.
+Since $g$ is even in its angular argument,
+$g_{\delta\delta\delta}(t,d_n)=O(d_n)$.  Taylor expansion on the
+real ball, retaining the fourth-power sum, gives
+\begin{align}
+ T_n(v)&=T_{0,n}(v)+\mathcal R_n(v),
+ &T_{0,n}&=\tau_n+h_nQ/(2n),\nonumber\\
+ |\mathcal R_n(v)|&\le\frac Cn
+ \left(n^{-1}\sum_i|v_i|^3+\sum_i v_i^4+Q^2/n\right).
+                                                        \label{neg:new:realerror}
+\end{align}
+For the remainder estimate, write $u=T_n-\tau_n$.  The pole equation
+then has remainder $O(n|u|^2+|u|Q+d_n\sum|v_i|^3+\sum v_i^4)$;
+divide by its derivative of size $n$ and use
+$|u|\le CQ/n$. Since $\sum|v_i|^3\le\sqrt{\sigma}\,Q$ and
+$\sum v_i^4\le\sigma Q$, decreasing $\sigma$ gives
+$|\mathcal R_n|\le a_n^*Q/(8n)$ for large $n$. Thus
+\[
+ D_{+,n}=\tau_n+a_n^*Q/(2n)\le|T_{0,n}|,\qquad
+ |\mathcal R_n|\le D_{+,n}/4,\qquad
+ \Re T_n\ge\tau_n+a_n^*Q/(4n).
+\]
+
+For the complete residue density
+$\varrho_n=-2H_n(T_n,q)/\partial_t\Gamma_n(T_n,q)$ one has
+\begin{align}
+ \varrho_n(v)&=\varrho_{n,0}\Delta(v)^2e^{\ell_n(v)},
+ &|\ell_n(v)|&\le CnQ,\label{neg:new:density}\\
+ \varrho_{n,0}&=-\frac{2B_n^{\alpha_n-1/2}}
+ {n\,n!(2\pi)^{n-1}2^{n(n-1)}s_\phi^{2\alpha_n}}.      \label{neg:new:residue}
+\end{align}
+The identities $\ii^{-n^2}=-\ii$ and
+$\partial_t\Gamma_n(\tau_n,d_n)=-\ii nB_n/s_\phi$ fix the
+phase and sign.  Reflection gives a second contribution with the same
+value.  To estimate the logarithmic error, put $e_i=g(T_n,d_n+v_i)-\ii\phi$.
+Then $\sum_i e_i=0$ exactly and
+\[
+ \sum_i|e_i|^2\le C(Q^2/n+Q/n^2+\sum_i v_i^4).
+\]
+The logarithm of $\sinh(\ii\phi+e)/(\ii s_\phi)$ is analytic.
+Its linear terms cancel both in the one-body sum and in the paired
+sum with arguments $(e_i+e_l)/2$. The remaining logarithmic error
+is bounded by $Cn\sum|e_i|^2\le CnQ$. For the sine divided differences
+the corresponding bound is $CnQ$, and for the anisotropy factor it is
+$Cn^2|T_n-\tau_n|\le CnQ$. The normalized derivative sum is $1+O(Q/n)$.
+These bounds
+prove~\eqref{neg:new:density}, including at all coincidences.
+
+\paragraph{The fourth angular moment.}
+On the unit sphere of $H_0=\{\sum_i x_i=0\}$ let $\theta$ have density
+proportional to $\Delta_n(\theta)^2$ in surface measure. Put
+$P_4(x)=\sum_i x_i^4$ and $W_n=nP_4(\theta)$. For $v=\sqrt Q\,\theta$,
+Cauchy--Schwarz gives
+\begin{equation}
+ \sum_i v_i^4=Q^2W_n/n,\qquad
+ \sum_i|v_i|^3\le Q^{3/2}\sqrt{W_n/n}.                 \label{neg:new:powers}
+\end{equation}
+We bound $W_n$ by integration on the unit ball of $H_0$.
+The tangent field $V_i=x_i^3-n^{-1}\sum_j x_j^3$ satisfies
+$x\cdot V=P_4(x)$ and
+\[
+ \operatorname{div}_{H_0}(\Delta_n^2 V)=(2n-3/n)Q\,\Delta_n^2,
+ \qquad Q=\sum_i x_i^2 .
+\]
+Indeed the tangential divergence of $V$ is $3(1-1/n)Q$.
+Differentiating the squared differences gives the additional factor
+$2\sum_{i<j}(x_i^2+x_ix_j+x_j^2)=(2n-3)Q$.
+On the sphere, $\nabla P_4\cdot V\le4\sum_i x_i^6\le4P_4$.
+Apply the divergence theorem to $P_4^{k-1}\Delta_n^2 V$, $k\ge1$.
+Its flux density on the sphere is $P_4^k\Delta_n^2$. Radial
+integration of the homogeneous divergence divides its sphere integral
+by $n^2-1+4k-2$. Hence
+\[
+ \mathbb E W_n^k\le
+ \frac{n(2n-3/n+4(k-1))}{n^2-1+4k-2}\,\mathbb E W_n^{k-1}
+ \le(2+4(k-1)/n)\,\mathbb E W_n^{k-1}.
+\]
+The binomial series gives $\mathbb E e^{\delta W_n}\le
+(1-4\delta/n)^{-n/2}$ for $n>4\delta$. This is uniformly bounded
+for $n\ge8\delta$, and $W_n\le n$ covers the finitely many smaller
+dimensions. Applying the same estimate with $\delta+1$ gives
+\begin{equation}\label{neg:new:moment}
+ \sup_{n\ge3}\mathbb E[(1+W_n)e^{\delta W_n}]<\infty
+ \qquad(\delta>0).
+\end{equation}
+Homogeneity gives this angular law for every positive radial weight
+in the beta period.
+
+\paragraph{Comparison with the beta period.}
+For $\Re h>0$ and $j+1>\alpha_n$, \eqref{eq:shared-beta} gives
+\begin{equation}
+ J_h=\int\frac{\Delta(v)^2\dd v}{(\tau_n+hQ/(2n))^{j+1}}
+ =G_n(2n)^{\alpha_n}h^{-\alpha_n}\tau_n^{\alpha_n-j-1}
+                     \frac{\Gamma(j+1-\alpha_n)}{\Gamma(j+1)}.
+                                                        \label{neg:new:complexbeta}
+\end{equation}
+Its branch is fixed by $\Re h>0$.  Under the stated convergence
+condition, all real-variable integrations are absolutely convergent.  Since $\Im h_n=O(n^{-2})$,
+\begin{equation}
+                   J_{a_n^*}/|J_{h_n}|=e^{O(n^{-2})}.   \label{neg:new:majorantcost}
+\end{equation}
+
+The first winding equals $\varrho_{n,0}J_{h_n}(1+O(n/\sqrt j))$
+on \eqref{neg:new:middle}. More generally the relative error is
+$O(n/\sqrt j+e^{-c n^2})$ as $n\to\infty$ and $n^2/j\to0$.
+
+To prove this relative estimate, normalize the positive measure for
+$J_{a_n^*}$ and put
+$x=a_n^*Q/(2n\tau_n)$ and $\epsilon=n^2/j$.
+Its radial law is proportional to $x^{\alpha_n-1}(1+x)^{-j-1}$,
+independent of the angular variable $\theta$, and $Q\asymp x/n$.
+Equations~\eqref{neg:new:realerror} and~\eqref{neg:new:powers} give
+\[
+ (j+1)|\mathcal R_n|/D_{+,n}\le
+ \frac{Cj}{n^2}\frac{x^{3/2}\sqrt{W_n}+x^2(W_n+1)}{1+x}.
+\]
+Factor $\varrho_{n,0}\Delta(v)^2$ out of the exact integrand for
+$w=1$ and its quadratic approximation. By~\eqref{neg:new:density} and
+$|\mathcal R_n/T_{0,n}|\le1/4$, the remaining factors differ in
+absolute value by at most
+\begin{equation}
+ D_{+,n}^{-j-1}\left[
+ \exp\{CnQ+2(j+1)|\mathcal R_n|/D_{+,n}\}-1\right].          \label{neg:new:integranderror}
+\end{equation}
+After integration the common residue cancels from the relative error,
+and the change from the positive beta period to $|J_{h_n}|$ costs
+the factor in \eqref{neg:new:majorantcost}.
+For $x\le32\epsilon$ the exponent is at most
+$C\sqrt\epsilon(1+W_n)$. Since $e^v-1\le v e^v$ for $v\ge0$,
+\eqref{neg:new:moment} bounds the angular mean of the bracket by
+$O(\sqrt\epsilon)$ there. This central region lies inside $Q<r_n^2$
+for all large $n$. On the rest of the ball,
+$|T_n|\ge\Re T_n\ge\tau_n(1+x/2)$ and $|e^{\ell_n}|\le e^{Cn\sigma}$.
+The quadratic model has the same lower denominator bound on its
+entire tail. With $Z_\beta(\alpha,J')=\Gamma(\alpha)
+\Gamma(J'+1-\alpha)/\Gamma(J'+1)$, substituting $u=x/2$ bounds both
+tail integrals relative to the positive period by
+\[
+ C e^{Cn\sigma}\,2^{\alpha_n}(1+16\epsilon)^{-j/2}
+       \frac{Z_\beta(\alpha_n,j/2)}{Z_\beta(\alpha_n,j)}
+ \le C e^{Cn\sigma}\,8^{\alpha_n}(1+16\epsilon)^{-j/2}
+ \le C e^{-c n^2}.
+\]
+The beta ratio is at most $4^{\alpha_n}$ by its product formula for
+integer $\alpha_n\le j/4$. The last bound follows from
+$j\log(1+16\epsilon)\sim16n^2$. Equation~\eqref{neg:new:majorantcost}
+transfers the error to the complex period. The error is $O(n/\sqrt j)$
+also throughout $\log j<n<\sqrt j/(\log j)^{1/4}$.
+
+Reflection $\delta_i\mapsto-\delta_i$ preserves the dispersion,
+squared sines and independent real measure.  Thus the first two
+windings add with the same full complex phase:
+\begin{gather}
+ A_{n,j,1}+A_{n,j,-1}=M(n,j)(1+e_{n,j}),\qquad
+ |e_{n,j}|\le Cn/\sqrt j,\label{neg:new:modelerror}\\
+ M(n,j)=-\frac{2^{2-\alpha_n}B_n^{\alpha_n-1/2}P_n
+                          n^{\alpha_n-3/2}}
+        {\pi^{(n-1)/2}s_\phi^{2\alpha_n}}
+ h_n^{-\alpha_n}\tau_n^{\alpha_n-j-1}
+                \frac{\Gamma(j+1-\alpha_n)}{\Gamma(j+1)}.
+                                                        \label{neg:new:model}
+\end{gather}
+\subsection{The upper envelope and a matching subsequence}
+\label{sec:jet-subsequence}
+
+Put $L(n,j)=\log|M(n,j)|$.  Uniform Stirling estimates give
+\begin{equation}
+ L(n,j)=2j\log n-\tfrac12n^2\log j+c_*n^2
+       -j\log(\pi^2/2)+O(n\log n+n^4/j+j/n^2).         \label{neg:new:logmodel}
+\end{equation}
+Indeed
+$\log P_n=\tfrac12n^2\log n-(\tfrac34+\tfrac12\log2)n^2
++O(n\log n)$,
+$\log\tau_n=\log(\pi^2/2)-2\log n+O(n^{-2})$, and the gamma
+logarithm is $-\alpha_n\log j+O(\alpha_n^2/j)$. Collecting the
+terms of order $n^2$ gives $c_*$ in Theorem~\ref{neg:new:indicator}.
+
+\paragraph{The all-index upper bound.}
+For an arbitrary large $j$, each error, including $c_*n^2$, is
+$o(j)$ throughout~\eqref{neg:new:middle}.  With $x=n^2$, the
+leading expression is
+$j\log x-\tfrac12x\log j-j\log(\pi^2/2)$.
+It has its unique maximum at $x=2j/\log j$, with value $T_j$.
+Summing over the $O(\sqrt J)$ indices in \eqref{neg:new:middle}
+costs $e^{o(j)}$. Outside this range the pole terms and the analytic
+remainder have already been bounded by $O(e^{T_j-j})$.
+
+For the higher odd windings in \eqref{neg:new:middle}, replace in
+$|M(n,j)|$ the factors $B_n,h_n,\tau_n$ by
+$B(0),1,\pi^2/(2n^2)$ and call the resulting positive expression
+$M_0(n,j)$.  Exact logarithms give
+$|\log(M_0/|M|)|\le C(1+j/n^2)$.
+Comparison with~\eqref{neg:new:winding} yields
+\[
+ |A_{n,j,w}|\le CM_0(n,j)e^{Cn\sigma}(1-C\sigma)^{-j-1}
+                         |w|^{-2(j+1-\alpha_n)}.
+\]
+Choose $\sigma$ with $-\log(1-C\sigma)<\tfrac12\log3$.
+Since $\alpha_n=o(j)$, $n=o(j)$ and $j/n^2=o(j)$ uniformly in
+\eqref{neg:new:middle}, summing the at most $C\sqrt n$ windings with
+$|w|\ge3$ gives $|M(n,j)|e^{-cj}$.
+Together with~\eqref{neg:new:modelerror}, these estimates cover every
+odd particle index.  The triangle inequality gives
+\eqref{neg:new:allj}.
+
+\paragraph{A dominant subsequence.}
+Fix a large resonant index $n$ and put $d=2p$.
+Extend $\alpha_x=(x^2-1)/2$ to real $x$. For $j\asymp n^2\log n$,
+$m\asymp n$ resonant and $x=m+d/2$, the adjacent terms of
+\eqref{neg:new:model} satisfy
+\begin{equation}\label{neg:adjacent}
+ \frac{L(m+d,j)-L(m,j)}{d}=G_j(x)+O_d(1),\qquad
+ G_j(x)=\frac{2j}{x}-x\log(j-\alpha_x)+2c_*x .
+\end{equation}
+Indeed, the factorial increment divided by $d$ is the average of
+$\log(r!)-r\log2$, $m\le r<m+d$. By Stirling's formula this is
+$x\log x-(1+\log2)x+O_d(1)$, since the mean of $r+1/2$ is $x$.
+The increment of $\log\Gamma(j+1-\alpha_m)$ is the negative sum
+of $\alpha_{m+d}-\alpha_m=dx$ logarithms. Their arguments differ
+from $j-\alpha_x$ by $O_d(x)$, giving
+$-x\log(j-\alpha_x)+O_d(x^2/j)$ after division by $d$.
+In the other factors it suffices to take the midpoint derivative of
+\[
+ (2j+1-m^2/2)\log m+
+ \alpha_m\log\!\left(\frac{\pi^2|B(0)|}{4s_\phi^2}\right).
+\]
+The omitted linear term has bounded derivative. The corrections in
+$\log|B_m/B(0)|$, $\log|h_m|$ and $\log(2m^2\tau_m/\pi^2)$
+have convergent series in $m^{-2}$ with zero constant term.
+These corrections and the midpoint derivative error cost
+$O_d(1+j/m^3)$. Combining the terms gives \eqref{neg:adjacent}.
+
+Choose $j_n$ as the nearest integer to a real solution of $G_j(n)=0$.
+At $j=n^2(\log n+\tfrac12\log\log n-c_*\pm\epsilon)$ one has
+$G_j(n)/n=\pm2\epsilon+o(1)$ for every fixed $\epsilon>0$.
+On this interval $\partial_jG_j(n)=2/n-n/(j-\alpha_n)\asymp1/n$.
+Hence the solution exists, is unique there, and rounding gives
+$G_{j_n}(n)=O(1/n)$ and the asserted expansion for $j_n$.
+
+At $j=j_n$, $n^2\log j_n/j_n\to2$. All the indices $m$ in
+\eqref{neg:new:middle} therefore satisfy $m\asymp n$. Throughout
+this interval
+\[
+ \partial_xG_j=-2j/x^2-\log(j-\alpha_x)+x^2/(j-\alpha_x)+2c_*
+ \le-c\log j .
+\]
+Summing \eqref{neg:adjacent} from $n$ to $n+kd$ gives
+$L(n+kd,j_n)-L(n,j_n)\le-c'd^2 k^2\log j_n+O_d(|k|)$.
+Consequently all other models in the interval have total modulus
+$o(|M(n,j_n)|)$. The relative errors tend uniformly to zero, and the
+higher windings have the additional factor $e^{-cj_n}$. The discarded
+indices and analytic remainder have total modulus $O(e^{T_{j_n}-j_n})$.
+
+Finally~\eqref{neg:new:logmodel}
+at the selected index gives $L(n,j_n)=T_{j_n}+o(j_n)$.  Thus
+\[
+                        a_{j_n}=M(n,j_n)(1+o(1)).
+\]
+This gives the lower bound in \eqref{neg:new:type}. The common
+neighborhoods, bounds on $B$ and strict imaginary margin give
+compact-family uniformity in the upper bound. At fixed $j$, Cauchy's
+formula in the family parameter preserves this uniformity.
+
+\subsection{Coordinate changes and physical normalization}
+
+The indicator is invariant under multiplication by a nonvanishing
+analytic prefactor. Under an analytic change of transverse coordinate
+it scales by the absolute value of the derivative at the edge.
+
+\begin{lemma}[Analytic coordinate and factor transport]
+\label{neg:new:transport}
+For $A(t)=\sum a_jt^j$ define
+$\mathfrak t(A)=\limsup_j(\log j/j)|a_j|^{1/j}$.
+If this is finite and positive, $g$ is analytic with $g(0)\ne0$,
+and $\psi$ is analytic with $\psi(0)=0$, $\psi'(0)\ne0$, then
+\[
+ \mathfrak t(gA)=\mathfrak t(A),\qquad
+ \mathfrak t(A\circ\psi)=|\psi'(0)|\mathfrak t(A).
+\]
+Adding an analytic series does not change $\mathfrak t$.
+\end{lemma}
+\begin{proof}
+For $T>\mathfrak t(A)$, $|a_m|\le C(Tm/\log m)^m$ for $m\ge3$.
+On $|t|\le r_j=(1-\varepsilon)\log j/(Tj)$, the truncation
+$A_{\le j}$ is bounded independently of $j$, since $m/\log m$ is
+increasing and each term is bounded by $C(1-\varepsilon)^m$.
+The degree-$j$ coefficient of $gA$ equals that of $gA_{\le j}$.
+Cauchy's estimate gives its modulus at most $C_\varepsilon r_j^{-j}$.
+Letting $T$ decrease and $\varepsilon$ tend to zero proves the upper
+inequality, also for input indicator zero.  Apply it to $1/g$ to
+obtain equality.  For composition use
+$r_j=(1-\varepsilon)\log j/(T|\psi'(0)|j)$;
+$|\psi(t)|\le|\psi'(0)|r_j(1+O(r_j))$ keeps
+$A_{\le j}\circ\psi$ uniformly bounded on that circle.  The same
+argument proves the upper bound; composition with the analytic inverse
+gives equality.  An analytic series has zero indicator, and addition
+followed by subtraction proves the last assertion.
+\end{proof}
+
+For a nonramified physical transverse coordinate $z$ at a
+selected negative endpoint $z_0$,
+$t=(C+B-b)/B$ and $t'(z_0)=(C+B)'(z_0)/B(z_0)$.
+Consequently the full reduced HT function, and its physical energy-field
+normalization wherever that factor is nonzero, satisfy
+\[
+ \limsup_{j\to\infty}\frac{\log j}{j}
+ \left|\frac{f^{(j)}(z_0)}{j!}\right|^{1/j}
+ =\frac4{e\pi^2}\left|\frac{(C+B)'(z_0)}{B(z_0)}\right|.
+\]
+These are the continuous one-sided jets furnished by
+Theorem~\ref{edge:new:budget}.  Their positive indicator makes the
+formal Taylor series have radius zero. By Cauchy's estimate, a
+holomorphic extension along any such curve would give a positive radius.
+
+\section{Boundary jets and differential transcendence}
+\label{da:new:section}
+
+For each finite order, the preceding estimates give continuous jets
+through that order on a nonempty open boundary arc. The local
+obstructions are dense on this arc. The separant criterion uses both
+properties to exclude algebraic differential relations for each
+complete physical sum.
+
+A differential identity of a germ with rational coefficients propagates
+to its connected holomorphic physical domain: clear the finitely many
+rational denominators and apply the identity theorem to the resulting
+holomorphic polynomial in the complete jets.
+
+
+
+\begin{theorem}[Separant criterion]\label{da:new:separant}
+Let $f$ be holomorphic on a connected plane domain $D$. Suppose
+that for every $r\ge0$ some nonempty relatively open real-analytic
+boundary arc has a one-sided collar on which $f,\ldots,f^{(r)}$
+extend continuously and finitely to the arc. If nonextendable
+points from that collar are dense on each such arc, then $f$ is
+differentially transcendental over $\C(z)$.
+\end{theorem}
+\begin{proof}
+Clear denominators in a proposed relation $P(z,f,\ldots,f^{(r)})=0$.
+Choose $r$ least and then minimize the positive degree in $Y_r$.
+In characteristic zero the evaluated separant
+$H=P_{Y_r}(z,f,\ldots,f^{(r)})$ is holomorphic and is not
+identically zero, by the same minimality. It is continuous on
+the chosen collar up to its boundary arc.
+
+If $H$ is nonzero at a boundary jet, the holomorphic implicit
+function theorem gives $f^{(r)}=G(z,f,\ldots,f^{(r-1)})$ near
+that jet. For $r=0$ this continues $f$ directly. Otherwise set
+$U=(f,\ldots,f^{(r-1)})$ and write the resulting first-order
+system as $U'=V(z,U)$. On a smaller closed polydisk about the
+boundary data, $V$ is bounded and Lipschitz in $U$. For initial
+data in a concentric half-polydisk the local holomorphic solution
+has a common positive radius. Indeed the integral form of the
+system on a disk of radius $\delta$ is a contraction when
+$\delta\sup\|D_U V\|<1$ and the displacement $\delta\sup|V|$
+stays within the polydisk. Take an interior initial point so
+close to the boundary point that its solution disk contains
+that point. Uniqueness identifies the solution with the given
+jet on the adjacent collar component, using a short inward segment
+and the identity theorem. Thus a nonzero separant trace permits
+continuation.
+
+Consequently $H$ has zero trace on a dense subset of the arc,
+and by continuity on the whole arc. Straighten a short analytic
+subarc and use Schwarz reflection across the zero trace. The
+identity theorem forces $H$ to vanish first there and then on
+$D$, contrary to its choice.
+\end{proof}
+
+\section{Proof of the main theorem}\label{sec:assembly}
+
+Proposition~\ref{geo:new:domains} gives (i), and
+Corollary~\ref{geo:whole} identifies all other complementary components.
+The angular representation \eqref{eq:global-seriesH}--\eqref{eq:global-series}
+and its compact estimates prove (ii), with the physical normalization
+fixed in Section~\ref{sec:physical}.
+
+At a regular face use the chart $h=C-\sigma B$ of
+Proposition~\ref{geo:new:faces}, after exchanging lattice axes
+if necessary. A nonramified transverse curve has $B=B(h)$.
+At each selected prime phase $b$, conjugate if needed to put the
+physical side above the real $h$ axis. Proposition~\ref{prop:positive-edge}
+gives the complete obstruction at $\sigma=+1$ in both parities.
+At $\sigma=-1$ shifting every angle by $\pi$ gives the same result in
+even parity. In odd parity $t=(h-b)/B(h)$ has derivative $1/B(b)$,
+so Theorem~\ref{neg:new:indicator} and Lemma~\ref{neg:new:transport}
+give the obstruction with its exact coordinate factor. The analytic
+physical prefactors are units there. All three arguments admit the
+specified compact parameter families with a strict imaginary margin.
+
+These phases are dense on each regular face. A joint extension
+would extend the constant-$B$ transversal. The density of regular
+faces and Lemma~\ref{geo:new:collar} propagate this contradiction
+to every finite boundary point and to any first exit of an unramified
+continuation. This proves (iii).
+
+For $\lambda\ne1$, \eqref{geo:new:pullbacks} gives the domain on the
+temperature line. By Lemma~\ref{geo:new:slices}, its edge coordinate
+satisfies $dh/dt\ne0$ at a dense set of boundary points with selected
+phases. The transverse-curve conclusion of (iii) applies there, and
+Lemma~\ref{geo:new:collar} gives nonextension at the remaining points.
+
+For $\lambda=1$, Lemma~\ref{geo:new:cover} and
+\eqref{eq:iso-physicalH}--\eqref{eq:iso-physical} give the disk,
+exterior and covering normalizations. The nonzero full-sum periods
+of Theorem~\ref{iso:new:radial:full} are dense on the circle, by
+Lemma~\ref{iso:new:radial:arithmetic}, conjugation, HT inversion
+and LT evenness. Their nonramified lifts are dense on the temperature
+boundary. The collar argument includes its tips. An extension on
+either physical side of any circle point would restrict to the
+nearby selected points. The factor $t/(2J_x)$ is a unit at every
+finite temperature boundary point. These observations give (iv)
+and (v), including the magnetic energy-field responses.
+
+For (vi), Theorem~\ref{edge:new:budget} bounds the tail on the closed
+noncollinear collar under \eqref{eq:common-budget}. At isotropy,
+Theorem~\ref{iso:new:budget} with $n=m+2$ gives the continuous
+derivatives and their highest-order modulus under the same condition.
+Given $r$, choose $m$ of the required parity with $2(r+1)<(m+2)^2-3$ and
+remove the finite lower-index exception set from a noncritical arc.
+Corollary~\ref{iso:new:jets} and Theorem~\ref{edge:new:budget}
+give continuous jets on a smaller arc. At the negative odd endpoint
+the momentum constraint gives all finite jets on the whole regular
+arc. Analytic factors and nonramified changes of variable preserve
+these finite jets by the chain rule. The expansions, finite parts,
+and sharp radial moduli in (vii) are precisely those of
+Theorem~\ref{iso:new:radial:full}. The remaining negative-edge
+indicator, its upper estimate and its matching subsequence were
+proved in Theorem~\ref{neg:new:indicator}.
+
+Finally apply Theorem~\ref{da:new:separant} in each physical
+variable itself. Parts (iv)--(vi) supply its two hypotheses for
+$X_H,X_L$ in $s$, and for each $f_{\nu,\lambda}$ in $t$.
+Multiplication by $t/(2J_x)$ preserves the finite jets on each
+chosen arc and, being locally invertible as a factor there,
+also preserves every local obstruction. The same criterion applies
+to $\chi_{\nu,\lambda}$. A germ identity would first propagate
+through the connected physical domain after its rational denominators
+are cleared. This proves (viii) at every physical basepoint. On a
+local isotropic $s$ chart the energy factor is a branch of
+$\operatorname{arsinh}(s)/(2J_x)$. From a positive basepoint
+continue that branch along a corridor to a noncritical open circle
+arc avoiding $s=\pm i$ and $s=0$. It extends as a unit there.
+For each prescribed order the finite jets exist after removal of
+finitely many points on this arc. Theorem~\ref{da:new:separant}
+therefore gives differential transcendence over $\C(s)$ for the
+local susceptibility with its energy-field factor.\hfill\(\square\)
+
+\begin{corollary}[The radial derivation]\label{da:radial}
+Let $V=K_x\partial_{K_x}+K_y\partial_{K_y}$. Both $\mathcal X_H$ and
+$\mathcal X_L$ are differentially transcendental over $\C(K_x,K_y)$
+for the derivation $V$. More generally, the same conclusion holds
+for a holomorphic function $F$ on a connected domain if
+$F\circ\iota_\lambda$ has a differentially transcendental germ over
+$\C(t)$ for some $\lambda>0$.
+\end{corollary}
+\begin{proof}
+Fix such a $\lambda$ and clear denominators in a proposed polynomial
+relation among $F,VF,\ldots,V^rF$. Divide its coefficients by their
+largest common power of $K_y-\lambda K_x$. The resulting identity
+holds throughout the domain by holomorphy. At least one coefficient
+restricts to a nonzero polynomial on the line, since vanishing
+identically there is equivalent to divisibility by $K_y-\lambda K_x$.
+On $\iota_\lambda(t)$ the operator $V$ restricts to $t\,d/dt$.
+Replacing its iterates by ordinary derivatives is triangular with
+diagonal $1,t,\ldots,t^r$, invertible over $\C(t)$. The restricted
+relation contradicts the differential transcendence of that germ.
+For each physical susceptibility take $\lambda=1$ in
+Theorem~\ref{thm:unified}(viii).
+\end{proof}
+
+\appendix
+\section{Pair factors and periods at fixed total momentum}\label{app:forms}
+
+\subsection{The pair product on a transfer curve}
+
+In the dispersion relation $S(u+u^{-1})+T(z+z^{-1})=2A$,
+put $H(v,w)=(v-w)/(1-vw)$. The complete pair in
+\eqref{eq:split-pair} is a product of one factor in the angular
+variables and one in the transfer roots. Iorgov and Lisovyy evaluate
+the corresponding elliptic determinant for even $N$
+\cite[(5.7)--(5.8), (6.4)]{IL}.
+
+\begin{lemma}[A pointwise bound for the complete pair product]\label{lem:analytic-det}
+Write $R_{ij}=H(u_i,u_j)$ and $P_{ij}=H(z_i,z_j)R_{ij}$
+as in \eqref{eq:split-pair}, allowing limits from ordinary values.
+Suppose $|u_i|\le M$, $|1-u_i u_j|\ge\delta>0$ for all $i,j$
+(including $i=j$), and $|P_{ij}|\le M$. Then
+\[
+             \left|\prod_{i<j}P_{ij}\right|
+                    \le C^N e^{-\kappa N^2}
+\]
+with constants depending only on $M,\delta$. If the pairs on
+$\ell$ fixed labels have bounded holomorphic quotients
+$P_{ij}/(z_i-z_j)^2$, the product after division by
+$\prod_{i<j\le\ell}(z_i-z_j)^2$ is bounded by
+$C_\ell^N e^{-\kappa N^2}$ on the same set, including coincidences.
+Here $C_\ell$ may also depend on $\ell$ and the uniform quotient bound.
+\end{lemma}
+\begin{proof}
+For a list $w=(w_1,\ldots,w_N)$ the ordinary Cauchy determinant gives
+\[
+ D(w):=\prod_{i<j}H(w_i,w_j)^2=\det[1+H(w_i,w_j)].
+\]
+Indeed $1+H(v,w)=(1+v)(1-w)/(1-vw)$. Clearing the denominators
+in $\det[(1-v_iw_j)^{-1}]$ leaves the two Vandermonde factors by
+alternation and degree. Comparison at $v_Nw_N=1$ fixes the constant
+by induction. Hadamard's inequality gives $|D(w)|\le(C\sqrt N)^N$
+where the entries are bounded.
+
+On a fixed neighborhood of any permitted root tuple the stronger
+bound $|D(w)|\le C^N e^{-cN^2}$ holds. Cover the bounded root set
+by $s$ small disks, of radius chosen so that doubling any cluster
+about its disk center preserves the reciprocal gaps. Some disk contains
+$k\ge N/s$ roots. Dilate those roots about its
+center by a common complex parameter $\lambda$. For $|\lambda|\le2$
+the Hadamard bound applies, and $D$ has a zero of order at least
+$k(k-1)$ at $\lambda=0$. The maximum principle at $\lambda=1$
+gains $2^{-k(k-1)}$, which absorbs the factor $N^{N/2}$ after
+decreasing $c$.
+
+Choose a fixed $r>0$ so that the reciprocal gaps persist for
+$|w_i-u_i|\le r$. If $|D(w)|\le B_N$ there, deleting up to $N$
+factors $H(u_i,u_j)$ from $D(u)$ costs at most $C^N B_N$ in total
+modulus, provided each pair is deleted at most twice. The remaining
+product is holomorphic. Apply the submean inequality to its logarithmic
+modulus on the product of circles $w_i=u_i+r e^{\ii\theta_i}$.
+Each deleted numerator has mean log modulus at least $\log r$:
+averaging in $\theta_i$ alone gives $\log\max(r,|u_i-w_j|)$.
+Each denominator has bounded modulus. This proves the estimate,
+including coincidences by continuity.
+
+In each row of $[1+H(z_i,z_j)]$ choose an entry of largest modulus.
+The diagonal entries are one. Each off-diagonal choice absorbs one
+root factor, since
+$|(1+H(z_i,z_j))H(u_i,u_j)|\le |H(u_i,u_j)|+|P_{ij}|\le C$.
+No unordered pair is chosen more than twice. Hadamard's inequality
+and the deletion estimate give
+\[
+ \left|\prod_{i<j}P_{ij}\right|^2=|D(z)D(u)|
+      \le C^N N^{N/2} B_N .
+\]
+The bound extends to removable values by continuity. With the stronger
+bound for $B_N$, decreasing the Gaussian exponent absorbs $N^{N/2}$.
+For a fixed divided block apply this bound to the other $N-\ell$
+labels, bound each cross pair by $M$ and each internal quotient by
+its uniform bound.
+\end{proof}
+
+\subsection{Gaussian measure at fixed total angle}
+
+For real $s$ use the coordinates $x_1,\ldots,x_{N-1}$ on the plane
+$H_s=\{\sum_i x_i=s\}$ and write $\dd x'=\prod_{i<N}\dd x_i$.
+Set $Q(x)=\sum_i x_i^2$ and
+\[
+ \Delta_\ell(x)=\prod_{1\le i<j\le\ell}(x_i-x_j),\qquad
+ \alpha_{N,\ell}=\tfrac12\{N-1+\ell(\ell-1)\},\qquad
+ P_\ell=\prod_{j=1}^{\ell-1}\frac{j!}{2^j}.
+\]
+Empty products equal one. The squared differences are invariant under
+a common translation. This separates the total momentum from all the
+relative coordinates.
+
+\begin{lemma}[Periods at fixed total momentum]\label{lem:gaussian-period}
+Let $N\ge2$, $0\le\ell\le N$, $\alpha=\alpha_{N,\ell}$ and
+$G_{N,\ell}=\pi^{(N-1)/2}\ell!P_\ell/\sqrt N$.
+For $t>0$,
+\begin{equation}\label{eq:affine-G}
+ \int_{H_s} e^{-tQ(x)}\Delta_\ell(x)^2\dd x'
+ =G_{N,\ell}\,t^{-\alpha}e^{-ts^2/N}.
+\end{equation}
+Write $G_n=G_{n,n}$ and $a_n=\alpha_{n,n}=(n^2-1)/2$; in particular
+\begin{equation}\label{eq:shared-G}
+ G_n=\frac{n!\pi^{(n-1)/2}P_n}{\sqrt n}.
+\end{equation}
+For an integer $p>\alpha$, put $a_0=a+bs^2/N$. If $a_0,b$ belong
+to a common open half-plane bounded by a line through zero, then
+\begin{equation}\label{eq:shared-beta}
+ \int_{H_s}\frac{\Delta_\ell(x)^2}{(a+bQ(x))^p}\dd x'
+ =G_{N,\ell}\,b^{-\alpha}a_0^{\alpha-p}
+             \frac{\Gamma(p-\alpha)}{\Gamma(p)} .
+\end{equation}
+Choose their arguments with difference in $(-\pi,\pi)$.
+\end{lemma}
+\begin{proof}
+First compute the unrestricted integral at $t=1$. For
+$d=\ell(\ell-1)/2$, write the Vandermonde as a determinant and replace
+each variable in it by its partial derivative. Then
+\[
+ \Delta_\ell(\partial)e^{-Q}=(-2)^d\Delta_\ell(x)e^{-Q},
+ \qquad \Delta_\ell(\partial)\Delta_\ell(x)
+       =\ell!\prod_{j=0}^{\ell-1}j!.
+\]
+In the first determinant the $j$th derivative of the one-dimensional
+Gaussian, divided by that Gaussian, has degree $j$ and leading
+coefficient $(-2)^j$. In the second identity only matching
+permutations survive differentiation. Integration by parts gives
+$\int_{\R^N}e^{-Q}\Delta_\ell^2\,\dd x=\pi^{N/2}\ell!P_\ell$.
+Write $x_i=\mu+v_i$ with $\sum v_i=0$. The Jacobian in
+$(\mu,v_1,\ldots,v_{N-1})$ is $N$ and
+$Q=N\mu^2+Q(v)$. Integration in $\mu$ therefore divides the full
+integral by $\sqrt{N\pi}$ to give its value on $H_0$.
+On $H_s$ the mean is $s/N$; scaling $v$ by $t^{-1/2}$
+proves \eqref{eq:affine-G}.
+
+On $H_0$, homogeneity gives the radial density
+$G_{N,\ell}u^{\alpha-1}\dd u/\Gamma(\alpha)$ in $u=Q(v)$.
+After translation to $H_s$ the denominator is $(a_0+bu)^p$.
+The real beta integral gives \eqref{eq:shared-beta} for $a_0/b>0$
+after factoring out $b^{-p}$. Both sides continue in $a_0/b$
+on $\C\setminus(-\infty,0]$, since $|a_0/b+u|\ge c(1+u)$
+on compact subsets there. This gives the stated branches.
+\end{proof}
+
+\subsection{Summation of the transfer powers}
+
+Consider independent angles on the torus subject to
+$\sum q_i=\vartheta$ modulo $2\pi$ and a candidate collision
+at the common angle $q_0$. Put $q_i=q_0+x_i$ with
+$-\pi\le x_i\le\pi$ and
+$d_N=\dist(\vartheta-Nq_0,2\pi\Z)$. The lifts of the constraint
+lie on the planes $H_{\vartheta-Nq_0+2\pi k}$.
+
+\begin{proposition}[Derivatives of a transfer sum]\label{p:transfer}
+Suppose a holomorphic transfer product $Z=\prod e^{-\gamma_i}$
+in a rectangular collar $z=b+\ii y$, $b\in I$, $0<y<y_0$, satisfies
+$\Re\gamma_i\ge c(y+x_i^2)$ throughout the collar.
+Suppose the logarithms have uniformly
+bounded first parameter derivatives on a common complex neighborhood of the closed collar.
+For $N\ge n\ge2$, let the divided numerator $A_N(z,q)$ be
+holomorphic in $z$ there, with $|A_N|\le C_n^N e^{-\kappa N^2}$.
+Set $q_N=\vartheta-\sum_{i<N}q_i$ modulo $2\pi$. For $L\ge1$ put
+\[
+ U_{L,N}(z)=\frac{1}{N!}\int_{\mathbb T^{N-1}}
+ A_N(z,q)\,Z(z,q)^L
+ \prod_{i<k\le n}\sin^2\!\frac{q_i-q_k}{2}
+ \prod_{i<N}\frac{\dd q_i}{2\pi},\qquad \mathbb T=\R/(2\pi\Z).
+\]
+For $\partial=\partial_z$ and fixed $j$ one has
+\begin{equation}\label{eq:edge-transfer}
+ |\partial^j U_{L,N}|
+ \le\frac{C_{n,j}^N}{N!}e^{-\kappa N^2}
+       L^{j-\alpha_{N,n}}e^{-c' L(Ny+d_N^2/N)} .
+\end{equation}
+The derivative of order $j$ in the sum over $L$ and $N\ge n$
+extends continuously from inside when $2j<n^2-3$. At the greatest
+such order the modulus is $O(\sqrt h)$ for even $n$ and
+$O(h\log(e/h))$ for odd $n$ on a shorter closed collar.
+\end{proposition}
+\begin{proof}
+On a parameter disk of radius $\epsilon/(1+L)$ the change of
+$L\sum\gamma_i$ is $O(N)$. Replace the squared sines by a
+constant times $\Delta_n^2$ and enlarge each lifted piece to its
+whole plane. By \eqref{eq:affine-G} the shape integral contributes
+$G_{N,n}(cL)^{-\alpha_{N,n}}$.
+The sum of $\exp[-cL(\vartheta-Nq_0+2\pi k)^2/N]$ is bounded by
+$C(1+\sqrt{N/L})e^{-cLd_N^2/(2N)}$, by factoring out half the
+distance exponent and comparing the rest with a Gaussian integral.
+Cauchy's estimate gives \eqref{eq:edge-transfer}.
+The largest power is $j-(n^2-1)/2$, at $N=n$.
+At the greatest admissible $j$ it is $-3/2$ or $-2$.
+Integrate the $(j+1)$st derivative over a segment of length $h$
+for $L\le1/h$ and use twice the $j$th derivative bound for
+$L>1/h$. Summing gives the asserted moduli.
+\end{proof}
+
+\Needspace{14\baselineskip}
+\subsection{The local Cauchy integral}
+
+\begin{lemma}[A scalar integral for a fixed collision]\label{lem:local-period}
+Let $n\ge2$. On $v_n=-\sum_{i<n}v_i$ use $\dd v=\prod_{i<n}\dd v_i$,
+$Q=\sum v_i^2$ and $\Delta_n=\prod_{i<j}(v_i-v_j)$. Put
+$G_n=\int e^{-Q}\Delta_n^2\dd v$, $a=(n^2-1)/2$,
+$k=\lfloor a\rfloor$, $\nu=k+1-a$. Let $A,D$ be holomorphic near
+$(0,0)$, with $A(0,0)=A_0$ and
+\[
+ D(z,v)=dz+hQ+O(|z|^2+|z|\,|v|+|v|^3),\qquad dh\ne0 .
+\]
+Let $\chi$ be a bounded cutoff equal to one near zero with sufficiently
+small support. In a sector about a ray $z=\tau\epsilon$ on which
+$d\tau$ and $h$ lie in a common open half-plane bounded by a line
+through zero, write $c=h/d$ and $w=z/c$. Then
+\[
+ \int\frac{\chi(v)\Delta_n(v)^2 A(z,v)}{D(z,v)}\,\dd v
+ =P(z)+\frac{B(z)}{c}
+ \begin{cases}
+   \displaystyle\frac{\pi}{\sin\pi a}\,w^{a-1},&a\notin\mathbb Z,\\
+   (-1)^a w^{a-1}\log w,&a\in\mathbb Z ,
+ \end{cases}
+ \qquad B(0)=\frac{A_0G_n}{d\,\Gamma(a)} .
+\]
+Both $P$ and $B$ are holomorphic at zero. Take $-\pi<\arg w<\pi$.
+The $k$th derivative with respect to $z$, evaluated at $z=\tau\epsilon$, is
+\begin{equation}\label{eq:local-period}
+ (-1)^k A_0d^k G_n h^{-a}(d\tau)^{-\nu}\Gamma(\nu)\epsilon^{-\nu}
+  +\begin{cases}O(1),&\nu=1/2,\\ O(\log(e/\epsilon)),&\nu=1.\end{cases}
+\end{equation}
+Choose the arguments of $d\tau,h$ with difference $\arg(\tau/c)$.
+Lower derivatives are bounded, except at order $k-1$ when $\nu=1$,
+where the bound is $O(\log(e/\epsilon))$.
+\end{lemma}
+\begin{proof}
+The implicit function theorem gives
+$D=U(z,v)(z-\omega(v))$, where $U(0,0)=d$ and
+$\omega(v)=-cQ+O(|v|^3)$. Changing the cutoff to the indicator of
+a small ball about zero adds a holomorphic function, since the
+denominator at $z=0$ is separated from zero on the intervening annulus.
+In polar coordinates $v=r\eta$, $Q(\eta)=1$, the measure
+$\Delta_n^2\dd v$ is $r^{2a-1}\dd r\,\dd m(\eta)$ with
+$\int\dd m=2G_n/\Gamma(a)$, by integrating $e^{-r^2}$.
+
+For each $\eta$ put $\xi=r\sqrt{-\omega(r\eta)/(cr^2)}$, choosing
+the square root tending to one. This is holomorphically invertible
+in $r$ on uniform small disks, with inverse $R(\xi,\eta)=\xi+O(\xi^2)$.
+Its image of a short real radius lies in an arbitrarily narrow wedge
+about the positive axis. On a sufficiently small sector about the
+given ray, the two poles $\xi^2=-z/c$ stay outside this wedge.
+Deform the image path to a common real segment plus an endpoint
+segment away from zero. The latter contributes holomorphically at
+zero because its denominator is separated from zero there.
+
+On the real segment the numerator after $\xi^{2a-1}$ is removed is
+$(A/U)(z,R\eta)(R/\xi)^{2a-1}\partial_\xi R$. Since
+$R(-\xi,-\eta)=-R(\xi,\eta)$ and $\dd m(-\eta)=\dd m(\eta)$,
+its spherical average is even in $\xi$ and holomorphic, by uniform
+convergence on smaller disks. Substitution $u=\xi^2$ leaves
+\[
+ \int_0^b \frac{u^{a-1}B_1(z,u)}{z+cu}\,\dd u,\qquad
+ B_1(0,0)=\frac{A_0G_n}{d\Gamma(a)},
+\]
+with $B_1$ holomorphic. Its difference from $B(z)=B_1(z,-z/c)$
+is divisible by $u+z/c$, hence contributes another holomorphic
+function. For $J_a(w)=\int_0^b u^{a-1}(w+u)^{-1}\dd u$ the
+recurrence $J_{a+1}=b^a/a-wJ_a$ suffices. Modulo functions
+holomorphic at zero, $J_1=-\log w$ and $J_{1/2}=\pi/\sqrt w$.
+The latter follows by putting $u=t^2$ and subtracting the integral
+over $t\ge\sqrt b$ from $\int_0^\infty2(w+t^2)^{-1}\dd t$.
+Evaluation at real positive $w$ followed by continuation fixes the
+branch. These formulas give the displayed decomposition.
+Differentiation, using $\Gamma(1/2)=\sqrt\pi$ and
+$(w^{k-1}\log w)^{(k)}=(k-1)!/w$, gives \eqref{eq:local-period}.
+\end{proof}
+
+\begin{thebibliography}{99}
+\bibitem{ONGP}
+W. P. Orrick, B. Nickel, A. J. Guttmann and J. H. H. Perk,
+\emph{The susceptibility of the square lattice Ising model: New developments},
+Journal of Statistical Physics 102(3--4) (2001), 795--841,
+\href{https://doi.org/10.1023/A:1004850919647}{doi:10.1023/A:1004850919647},
+\href{https://arxiv.org/abs/cond-mat/0103074}{arXiv:cond-mat/0103074}.
+
+\bibitem{GE}
+A. J. Guttmann and I. G. Enting,
+\emph{Solvability of some statistical mechanical systems},
+Physical Review Letters 76(3) (1996), 344--347,
+\href{https://doi.org/10.1103/PhysRevLett.76.344}{doi:10.1103/PhysRevLett.76.344}.
+
+\bibitem{Nickel}
+B. Nickel, \emph{On the singularity structure of the 2D Ising model
+susceptibility}, Journal of Physics A: Mathematical and General 32(21)
+(1999), 3889--3906,
+\href{https://doi.org/10.1088/0305-4470/32/21/303}{doi:10.1088/0305-4470/32/21/303}.
+
+\bibitem{TW}
+C. A. Tracy and H. Widom,
+\emph{On the singularities in the susceptibility expansion for the
+two-dimensional Ising model}, Journal of Statistical Physics 156(6)
+(2014), 1125--1135,
+\href{https://doi.org/10.1007/s10955-014-1061-4}{doi:10.1007/s10955-014-1061-4}.
+
+\bibitem{MM}
+B. M. McCoy and J.-M. Maillard,
+\emph{The importance of the Ising model},
+Progress of Theoretical Physics 127(5) (2012), 791--817,
+\href{https://doi.org/10.1143/PTP.127.791}{doi:10.1143/PTP.127.791},
+\href{https://arxiv.org/abs/1203.1456}{arXiv:1203.1456}.
+
+\bibitem{GJMP}
+A. J. Guttmann, I. Jensen, J.-M. Maillard and J. Pantone,
+\emph{Is the full susceptibility of the square-lattice Ising model a
+differentially algebraic function?},
+Journal of Physics A: Mathematical and Theoretical 49(50) (2016), article 504002,
+\href{https://doi.org/10.1088/1751-8113/49/50/504002}{doi:10.1088/1751-8113/49/50/504002},
+\href{https://arxiv.org/abs/1607.04168}{arXiv:1607.04168}.
+
+\bibitem{BL}
+A. I. Bugrij and O. O. Lisovyy,
+\emph{Correlation function of the two-dimensional Ising model on a finite
+lattice: II}, Theoretical and Mathematical Physics 140(1)
+(2004), 987--1000,
+\href{https://doi.org/10.1023/B:TAMP.0000033035.90327.1f}{doi:10.1023/B:TAMP.0000033035.90327.1f},
+\href{https://arxiv.org/abs/0708.3643}{arXiv:0708.3643}.
+
+
+
+\bibitem{CGN}
+F. Camia, C. Garban and C. M. Newman,
+\emph{The Ising magnetization exponent on $\mathbb Z^2$ is $1/15$},
+Probability Theory and Related Fields 160(1--2) (2014), 175--187,
+\href{https://doi.org/10.1007/s00440-013-0526-8}{doi:10.1007/s00440-013-0526-8},
+\href{https://arxiv.org/abs/1205.6612v4}{arXiv:1205.6612v4}.
+
+\bibitem{BHM}
+S. Boukraa, S. Hassani and J.-M. Maillard,
+\emph{Holonomic functions of several complex variables and singularities
+of anisotropic Ising n-fold integrals}, Journal of Physics A:
+Mathematical and Theoretical 45(49) (2012), 494010,
+\href{https://doi.org/10.1088/1751-8113/45/49/494010}{doi:10.1088/1751-8113/45/49/494010},
+\href{https://arxiv.org/abs/1207.1784v2}{arXiv:1207.1784v2}.
+
+\bibitem{IL}
+N. Iorgov and O. Lisovyy,
+\emph{Ising correlations and elliptic determinants},
+Journal of Statistical Physics 143(1) (2011), 33--59,
+\href{https://doi.org/10.1007/s10955-011-0154-6}{doi:10.1007/s10955-011-0154-6},
+\href{https://arxiv.org/abs/1012.2856v2}{arXiv:1012.2856v2}.
+
+\end{thebibliography}
+\end{document}
